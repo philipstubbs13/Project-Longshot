@@ -1,0 +1,35 @@
+/* Sticky Footer*/
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+/*Main section */
+  main {
+    flex: 1 0 auto;
+  }
+
+  #authentication-btn {
+  	margin-top: 10px;
+  }
+
+  #topic-btn {
+  	margin-top: 10px;
+  }
+
+ @media (max-width: 1750px) {
+  .navbar_list {
+    position: relative;
+    display: inline-block;
+    float: inherit;
+    right: inherit;
+    padding-left: 0px;
+  }
+  .brand-logo {
+    position: relative;
+    left: inherit;
+    float: inherit;
+  }
+}
+
