@@ -49,17 +49,19 @@
 				</ul>
 			</div>
 		</nav>
-
 		<main>
 			<div class="container">
 				<div class="row">
-					<!--Start button-->
-					<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="start-btn">Let's learn</a>
-				</div>
-				<div class="row">
+					<div class="row">
+						<!-- topics -->
+						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="colors">Colors</a>
+						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="shape">Shapes</a>
+						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="numbers">Numbers</a>
+						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="animals">Animals</a>
+					</div>
 					<div class="col s12">
 						<div class="section">
-							<h5 id="topic">What is this color?</h5>
+							<h4 id="topic" class="center-align">What is this color?</h4>
 							<div class="card blue lighten-5">
 								<canvas id="myCanvas" width="500" height="500">
 									<!--Guess the color-->
@@ -67,14 +69,17 @@
 								</canvas>
 								<div class="card-content white-text">
 								</div>
-								<div class="card-action white">
-									Your answer:
-									<div class="input-field inline">
-										<input id="color-input" type="text" class="validate">
-										<label for="color_input">Enter color here</label>
+								<div class="center-align">
+									<div class="card-action white">
+										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="startBtn">Start</a>
+										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="restartBtn">Restart</a> Your answer:
+										<div class="input-field inline">
+											<input id="color-input" type="text" class="validate">
+											<label for="color_input">Enter color here</label>
+										</div>
+										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="submit-btn">Submit</a>
+										<h5>Score: 0</h5>
 									</div>
-									<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="submit-btn">Submit</a>
-									<h5>Score: 0</h5>
 								</div>
 							</div>
 						</div>

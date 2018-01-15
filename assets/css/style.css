@@ -50,6 +50,9 @@ main {
     #topic {
         color: white;
     }
+    #restartBtn {
+        margin-right: 50px;
+    }
     footer {
         margin-top: 200px;
     }
