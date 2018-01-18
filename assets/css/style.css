@@ -50,6 +50,12 @@ main {
     #topic {
         color: white;
     }
+    #canvas {
+        height: 400px;
+    }
+    #message {
+        height: 100px;
+    }
     #restartBtn {
         margin-right: 50px;
     }

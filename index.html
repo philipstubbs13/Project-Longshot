@@ -12,10 +12,13 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!--Reset css file-->
-		<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 
 		<!--Google Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- Animate CSS file -->
+		<link rel="stylesheet" href="assets/css/animate.css">
 
 		<!--External css file-->
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -62,13 +65,23 @@
 					<div class="col s12">
 						<div class="section">
 							<h4 id="topic" class="center-align">What is this color?</h4>
-							<div class="card blue lighten-5">
-								<canvas id="myCanvas" width="500" height="500">
-									<!--Guess the color-->
-									<!--Maiyer to add css animations-->
-								</canvas>
-								<div class="card-content white-text">
+							<div class="card blue lighten-5" id="game">
+								<div class="row">
+									<div id="canvas" class="col s12">
+										<div id="image"></div>
+									</div>
 								</div>
+								<div class="card-content" id="textbox">
+									<!-- answer texts -->
+									<h4 id="message" class="center-align"></h4>
+									<h4 id="correctedAnswer" class="center-align"></h4>
+
+									<!-- score texts at the end of the game -->
+									<h4 id="finalMessage" class="center-align"></h4
+									<h5 id="correctAnswers" class="center-align"></h5>
+									<h5 id="incorrectAnswers" class="center-align"></h5>
+								</div>
+								<br>
 								<div class="center-align">
 									<div class="card-action white">
 										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="startBtn">Start</a>
@@ -78,13 +91,13 @@
 											<label for="color_input">Enter color here</label>
 										</div>
 										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="submit-btn">Submit</a>
-										<h5>Score: 0</h5>
-									</div>
+										<h5 id="counter" class="center-align">Time: 30</h5>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</main>
 
@@ -93,7 +106,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
-						<p class="white-text">Project Longshot © 2018 The Longshots</p>
+						<h5 class="white-text">Project Longshot</h5>
+						<p class="white-text">© 2018 The Longshots</p>
 					</div>
 					<div class="col l4 offset-l2 s12">
 						<ul>
