@@ -1,35 +1,59 @@
 /* Sticky Footer*/
-  body {
+
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
-
-/*Main section */
-  main {
-    flex: 1 0 auto;
-  }
-
-  #authentication-btn {
-  	margin-top: 10px;
-  }
-
-  #start-btn {
-  	margin-top: 10px;
-  }
-
- @media (max-width: 1750px) {
-  .navbar_list {
-    position: relative;
-    display: inline-block;
-    float: inherit;
-    right: inherit;
-    padding-left: 0px;
-  }
-  .brand-logo {
-    position: relative;
-    left: inherit;
-    float: inherit;
-  }
+    background-image: url("../images/galaxy-bg2.png");
 }
 
+
+/*Main section */
+
+main {
+    flex: 1 0 auto;
+}
+
+#authentication-btn {
+    margin-top: 10px;
+}
+
+#start-btn {
+    margin-top: 10px;
+}
+
+@media (max-width: 1750px) {
+    .navbar_list {
+        position: relative;
+        display: inline-block;
+        float: inherit;
+        right: inherit;
+        padding-left: 0px;
+    }
+    nav {
+        background-color: #039be5;
+        height: 10em;
+        padding: 10px 10px 10px 10px;
+    }
+    #logo {
+        width: 135px;
+        padding-right: 25px;
+    }
+    /*.brand-logo {
+        position: relative;
+        left: inherit;
+        float: inherit;
+    }*/
+    main {
+        padding-top: 50px;
+    }
+    #topic {
+        color: white;
+    }
+    #restartBtn {
+        margin-right: 50px;
+    }
+    footer {
+        margin-top: 200px;
+    }
+}
