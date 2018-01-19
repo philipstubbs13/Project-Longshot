@@ -1,130 +1,238 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Recipe Search App</title>
 
-	<head>
-		<title>Project Longshot</title>
+	<!--Materialize CSS-->
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-		<!--Materialize CSS-->
-		<!-- Compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<!--Material icons-->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<!--Material icons-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Reset css file-->
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
 
-		<!--Reset css file-->
-		<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+	<!--Google Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-		<!--Google Fonts-->
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!--External css file-->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-		<!-- Animate CSS file -->
-		<link rel="stylesheet" href="assets/css/animate.css">
+	<!--JQuery link-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!--External css file-->
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!--Firebase Javascript link-->
+	<!--Add Firebase database link here-->
 
-		<!--JQuery link-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <!-- Compiled and minified JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
 
-		<!--Firebase Javascript link-->
-		<!--Add Firebase database link here-->
+	 <!--Let browser know website is optimized for mobile-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 
-		<!-- Compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<!--Font Awesome link-->
+	<script src="https://use.fontawesome.com/abd289e58f.js"></script>    
+</head>
 
-		<!--Let browser know website is optimized for mobile-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
+<body>
+	<ul id="slide-out" class="side-nav fixed">
+		<div class="section">
+			<img src="assets/images/logo.png" alt="Logo" id="logo">
+		</div>
+		<div class="section">
+			<h5>Recipe box</h5>
+		    <li><span><a href="#!">Grilled Broccoli Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
+		    <li><span><a href="#!">Meat Lover's Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
+		    <li><span><a href="#!">Breakfast for Dinner Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
+		    <li><span><a href="#!">Pepperoni Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
+		</div>
 
-	<body>
-		<!--Top Navigation Bar-->
-		<nav>
-			<div class="nav-wrapper light-blue darken-1">
-				<img src="assets/images/starlearner-logo.png" id="logo">
-				<a href="index.html" class="brand-logo"><h4>Star Learner</h4></a>
-				<!--Authentication/Sign in button-->
-				<a class="waves-effect waves-light btn card orange lighten-2" id="authentication-btn">Sign in</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Getting Started</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
-		</nav>
-		<main>
-			<div class="container">
-				<div class="row">
-					<div class="row">
-						<!-- topics -->
-						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="colors">Colors</a>
-						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="shape">Shapes</a>
-						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="numbers">Numbers</a>
-						<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="animals">Animals</a>
-					</div>
-					<div class="col s12">
-						<div class="section">
-							<h4 id="topic" class="center-align">What is this color?</h4>
-							<div class="card blue lighten-5" id="game">
-								<div class="row">
-									<div id="canvas" class="col s12">
-										<div id="image"></div>
-									</div>
-								</div>
-								<div class="card-content" id="textbox">
-									<!-- answer texts -->
-									<h4 id="message" class="center-align"></h4>
-									<h4 id="correctedAnswer" class="center-align"></h4>
+		<div class="section">
+			<h5>Add recipe</h5>	
+		</div>
+	</ul>
+	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->  
 
-									<!-- score texts at the end of the game -->
-									<h4 id="finalMessage" class="center-align"></h4
-									<h5 id="correctAnswers" class="center-align"></h5>
-									<h5 id="incorrectAnswers" class="center-align"></h5>
-								</div>
-								<br>
-								<div class="center-align">
-									<div class="card-action white">
-										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="startBtn">Start</a>
-										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="restartBtn">Restart</a> Your answer:
-										<div class="input-field inline">
-											<input id="color-input" type="text" class="validate">
-											<label for="color_input">Enter color here</label>
-										</div>
-										<a class="waves-effect waves-light btn card orange lighten-2 button-collapse" id="submit-btn">Submit</a>
-										<h5 id="counter" class="center-align">Time: 30</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</main>
+	<!--Top Navigation Bar-->
+	<nav class="grey darken-3" role="navigation">   			
+	    <div class="container" id="navigation_bar"><a id="logo-container" href="#" class="brand-logo">Recipe Search App</a>
+	    	<!--Authentication/Sign in button-->
+	    	<ul class="right navbar_list">
+	      		<li><a class="waves-effect waves-light btn card light-green darken-2" id="authentication-btn">Sign in</a></li>
+	    	</ul>
+	    </div>
+	</nav>
+	        
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col s12">
+		        	<h5>Find something to make:</h5>
+		        	<div class="input-field">
+		            	<input id="email" type="email" class="validate">
+		            	<label for="email" data-error="wrong" data-success="right">for example, pizza, tofu, cake</label>
+		            	<button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find
+					  </button>
+		        	</div>
+		        </div>
 
-		<!--Footer-->
-		<footer class="page-footer l light-blue darken-1">
-			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">
-						<h5 class="white-text">Project Longshot</h5>
-						<p class="white-text">© 2018 The Longshots</p>
-					</div>
-					<div class="col l4 offset-l2 s12">
-						<ul>
-							<li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Getting Started</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
+		        <div class="col s3">
 
-		<!--Link to Javascript-->
-		<script src="assets/javascript/app.js"></script>
-		<!-- game javascript -->
-		<script src="assets/javascript/game.js"></script>
-	</body>
+		        </div>
+		    </div>
+				
+			<div class="row">
+				<div class="col s12">
+					<div class="section">
+					    <div class="col l4 m6 s12">
+					    	<div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
 
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+					    </div>
+
+					    <div class="col l4 m6 s12">
+					    	<div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+					    </div>
+
+					    <div class="col l4 m6 s12">
+					    	<div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+
+					        <div class="card">
+					            <div class="card-image">
+					            	<img src="assets/images/sample-1.jpg">
+					            </div>
+					            <div class="card-content">
+					            	<span class="card-title">Recipe Name</span>
+						              <p>Recipe from JSON goes here.</p>
+					            </div>
+					            <div class="card-action">
+					              <a href="#">Link to recipe.</a>
+					            </div>
+					        </div>
+					    </div>	
+	          		</div>
+	          	</div>
+	        </div>
+	    </div>
+	</main>
+
+	<!--Footer-->	
+    <footer class="page-footer grey darken-3">
+    	<div class="container">
+    		<div class="row">
+        		<div class="col l6 s12">
+        			<h5 class="white-text">Recipe Search App</h5>
+        			<p class="grey-text text-lighten-4">© 2018 The Longshots</p>
+
+        		</div>
+          		<div class="col l4 offset-l2 s12">
+            		<ul>
+	                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+	                  <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
+            		</ul>
+          		</div>
+        	</div>
+      </div>
+    </footer>
+
+<!--Link to Javascript-->
+<script src="assets/javascript/app.js"></script>
+</body>
 </html>
