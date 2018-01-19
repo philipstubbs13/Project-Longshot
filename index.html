@@ -36,10 +36,13 @@
 </head>
 
 <body>
+	<!--Side menu for recipe box and add recipe sections-->
 	<ul id="slide-out" class="side-nav fixed">
+		<!--Logo goes here at the top of side menu-->
 		<div class="section">
 			<img src="assets/images/logo.png" alt="Logo" id="logo">
 		</div>
+		<!--Recipe box - where saved recipes will go-->
 		<div class="section">
 			<h5>Recipe box</h5>
 		    <li><span><a href="#!">Grilled Broccoli Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
@@ -48,6 +51,7 @@
 		    <li><span><a href="#!">Pepperoni Pizza</a> <i class="fa fa-trash" aria-hidden="true"></i> <i class="fa fa-pencil" aria-hidden="true"></i></span></li>
 		</div>
 
+		<!--This is where you can add recipes-->
 		<div class="section">
 			<h5>Add recipe</h5>	
 		</div>
@@ -67,21 +71,18 @@
 	<main>
 		<div class="container">
 			<div class="row">
+				<!--Main recipe search field-->
 				<div class="col s12">
 		        	<h5>Find something to make:</h5>
 		        	<div class="input-field">
-		            	<input id="email" type="email" class="validate">
-		            	<label for="email" data-error="wrong" data-success="right">for example, pizza, tofu, cake</label>
-		            	<button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find
-					  </button>
+		            	<input id="user-input" type="text" class="validate">
+		            	<label for="text" data-error="wrong" data-success="right">for example, pizza, tofu, cake</label>
+		            	<button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find</button>
 		        	</div>
-		        </div>
-
-		        <div class="col s3">
-
 		        </div>
 		    </div>
 				
+			<!--Recipe search results section. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
 			<div class="row">
 				<div class="col s12">
 					<div class="section">
@@ -91,7 +92,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -104,7 +105,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -117,7 +118,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -132,7 +133,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -145,7 +146,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -158,7 +159,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -173,7 +174,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -186,7 +187,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -199,7 +200,7 @@
 					            	<img src="assets/images/sample-1.jpg">
 					            </div>
 					            <div class="card-content">
-					            	<span class="card-title">Recipe Name</span>
+					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
 						              <p>Recipe from JSON goes here.</p>
 					            </div>
 					            <div class="card-action">
@@ -213,7 +214,7 @@
 	    </div>
 	</main>
 
-	<!--Footer-->	
+	<!--Footer and Copyright information-->	
     <footer class="page-footer grey darken-3">
     	<div class="container">
     		<div class="row">
