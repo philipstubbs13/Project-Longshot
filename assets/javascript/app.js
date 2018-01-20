@@ -111,11 +111,11 @@ $('#saved-recipes').sideNav({
 
 //Trigger bottom sheet to open recipe box.
 $(document).ready(function(){
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
 });
 
 $(document).on("click",".save",function(e) {
+
 	name = $(e.target).data("name");
 	userInput = $("#user-input").val().trim().toLowerCase();
 	var searchURL = queryURLbase + userInput;
@@ -133,6 +133,7 @@ function saveRecipe(queryURL) {
 	}).done(function(data) {
 		console.log(data);
 		console.log(queryURL);
+
 		imgAPI = data.hits[name].recipe.image;
 		label = data.hits[name].recipe.label;
 		recipe =data.hits[name].recipe.ingredients[0].text;
@@ -148,7 +149,9 @@ function saveRecipe(queryURL) {
 
 		database.ref().push(newRecipe);
 		console.log("label : "+ label + " recipe : "+ recipe + " sourceLink : "+ sourceLink);
+
 	});
+
 };
 database.ref().on("child_added", function(childSnapshot) {
 
@@ -161,10 +164,12 @@ database.ref().on("child_added", function(childSnapshot) {
 
 	var newList = $("<li>");
 	newList.attr("id",key);
+
 	var newSpan = $("<span>");
 	var linkA = $("<a>");
 	linkA.text(name);
 	linkA.attr("href",link);
+
 	var trash = $("<i>");
 	var pencil = $("<i>");
 	trash.attr("aria-hidden",true);
@@ -175,6 +180,7 @@ database.ref().on("child_added", function(childSnapshot) {
 	newList.append(newSpan);
 	newSpan.append(linkA,trash,pencil);
 	$("#recipeBox").append(newList);
+
 });
 
 $(document).on("click",".remove",function(e) {
@@ -184,6 +190,7 @@ $(document).on("click",".remove",function(e) {
 	console.log(key);
 	var updates ={};
 	var removeData ={};
+
 	database.ref().on("child_added",function(snapshot) {
 		var snap = snapshot.key;
 		console.log(snap);
@@ -193,4 +200,5 @@ $(document).on("click",".remove",function(e) {
 			return database.ref().update(updates);
 		};
 	});
+
 });
