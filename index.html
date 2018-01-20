@@ -1,136 +1,145 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Recipe Search App</title>
+    <title>Recipe Search App</title>
 
-	<!--Materialize CSS-->
-	<!-- Compiled and minified CSS -->
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Materialize CSS-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-  	<!--Material icons-->
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!--Reset css file-->
-	<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+    <!--Reset css file-->
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
 
-	<!--Google Fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<!--External css file-->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--External css file-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	<!--JQuery link-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--JQuery link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	 <!-- Compiled and minified JavaScript -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-	 <!--Let browser know website is optimized for mobile-->
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!--Font Awesome link-->
-	<script src="https://use.fontawesome.com/abd289e58f.js"></script>
+    <!--Font Awesome link-->
+    <script src="https://use.fontawesome.com/abd289e58f.js"></script>
 </head>
 
 <body>
-	<!--Side menu for add recipe sections-->
-	<ul id="slide-out" class="side-nav fixed">
-		<!--Logo goes here at the top of side menu-->
-		<div class="section">
-			<!-- <img src="assets/images/logo.png" alt="Logo" id="logo"> -->
-		</div>
-		<!--This is where you can add recipes-->
-		<div class="section">
-			<h5>Add recipe</h5>
-		</div>
-	</ul>
-	<!--Commenting out the hamburger menu button for now until we get app to be responsive-->
-	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
+    <!--Side menu for add recipe sections-->
+    <ul id="slide-out" class="side-nav fixed">
+        <!--Logo goes here at the top of side menu-->
+        <div class="section">
+            <!-- <img src="assets/images/logo.png" alt="Logo" id="logo"> -->
+        </div>
+        <!--This is where you can add recipes-->
+        <div class="section">
+            <h5>Add recipe</h5>
+        </div>
+    </ul>
+    <!--Commenting out the hamburger menu button for now until we get app to be responsive-->
+    <!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
 
-	<!--Top Navigation Bar-->
-	<nav class="grey darken-3" role="navigation">
-	    <div class="container" id="navigation_bar"><a id="logo-container" href="#" class="brand-logo">Recipe Search App</a>
-	    	<!--Authentication/Sign in button-->
-	    	<ul class="right navbar_list">
-	      		<li><a class="waves-effect waves-light btn card light-green darken-2" id="authentication-btn">Sign in</a></li>
-	    	</ul>
-	    </div>
-	</nav>
+    <!--Top Navigation Bar-->
+    <nav class="grey darken-3" role="navigation">
+        <div class="container" id="navigation_bar">
+            <a id="logo-container" href="#" class="brand-logo">Recipe Search App</a>
+            <!--Authentication/Sign in button-->
+            <ul class="right navbar_list">
+                <li>
+                    <a class="waves-effect waves-light btn card light-green darken-2" id="authentication-btn">Sign in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-	<main>
-		<div class="container">
-			<div class="row">
-				<div class="col s12">
-					<!-- Modal Trigger to open bottom sheet/recipe box-->
-					<a class="waves-effect waves-light btn modal-trigger light-green darken-2" data-target="recipe-box-modal" id="recipe-box-btn">Open recipe box</a>
-				</div>
-			</div>
-			<div class="row">
-				<!--Main recipe search field-->
-				<div class="col s12">
-		        	<h5>Find something to make:</h5>
-		        	<div class="input-field">
-		            	<input id="user-input" type="text" class="validate">
-		            	<label for="text" data-error="wrong" data-success="right">for example, pizza, chicken, cake</label>
-		            	<button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find</button>
-		        	</div>
-		        </div>
-		    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <!-- Modal Trigger to open bottom sheet/recipe box-->
+                    <a class="waves-effect waves-light btn modal-trigger light-green darken-2" data-target="recipe-box-modal" id="recipe-box-btn">Open recipe box</a>
+                </div>
+            </div>
+            <div class="row">
+                <!--Main recipe search field-->
+                <div class="col s12">
+                    <h5>Find something to make:</h5>
+                    <div class="input-field">
+                        <input id="user-input" type="text" class="validate">
+                        <label for="text" data-error="wrong" data-success="right">for example, pizza, chicken, cake</label>
+                        <button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find</button>
+                    </div>
+                </div>
+            </div>
 
-			<!--Recipe search results section. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
-			<div class="row">
-				<div class="col s12">
-					<div id="recipe-list" class="section">
-					    <div id = "recipe1" class="col l4 m6 s12">
-	          			</div>
-						<div id = "recipe2" class="col l4 m6 s12">
-						</div>
-						<div id = "recipe3" class="col l4 m6 s12">
- 						</div>
- 					</div>
-	          	</div>
-	        </div>
+            <!--Recipe search results section. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
+            <div class="row">
+                <div class="col s12">
+                    <div id="recipe-list" class="section">
+                        <div id="recipe1" class="col l4 m6 s12">
+                        </div>
+                        <div id="recipe2" class="col l4 m6 s12">
+                        </div>
+                        <div id="recipe3" class="col l4 m6 s12">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
-			<div id="recipe-box-modal" class="modal bottom-sheet">
-		    	<div class="modal-content">
-		    		<div class="section">
-		      			<h4>Recipe box</h4>
-		      			<!--Recipe box - where saved recipes will go-->
-		      			<h5 id="recipeBox"></h5>
-		      		</div>
-		    	</div>
-		    	<!--Close recipe box-->
-		   		 <div class="modal-footer">
-		      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-		    	</div>
-		  	</div>
-    </div>
-	</main>
+            <!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
+            <div id="recipe-box-modal" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <div class="section">
+                        <h4>Recipe box</h4>
+                        <!--Recipe box - where saved recipes will go-->
+                        <h5 id="recipeBox"></h5>
+                    </div>
+                </div>
+                <!--Close recipe box-->
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-	<!--Footer and Copyright information-->
+    <!--Footer and Copyright information-->
     <footer class="page-footer grey darken-3">
-    	<div class="container">
-    		<div class="row">
-        		<div class="col l6 s12">
-        			<h5 class="white-text">Recipe Search App</h5>
-        			<p class="grey-text text-lighten-4">© 2018 The Longshots</p>
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Recipe Search App</h5>
+                    <p class="grey-text text-lighten-4">© 2018 The Longshots</p>
 
-        		</div>
-          		<div class="col l4 offset-l2 s12">
-            		<ul>
-	                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-	                  <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
-            		</ul>
-          		</div>
-        	</div>
-      </div>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">About</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
 
-<!--Firebase Javascript link-->
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!--Firebase Javascript link-->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 
-<!--Link to external Javascript file-->
-<script src="assets/javascript/app.js"></script>
+    <!--Link to external Javascript file-->
+    <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
