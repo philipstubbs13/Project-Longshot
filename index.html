@@ -33,18 +33,12 @@
 </head>
 
 <body>
-	<!--Side menu for recipe box and add recipe sections-->
+	<!--Side menu for add recipe sections-->
 	<ul id="slide-out" class="side-nav fixed">
 		<!--Logo goes here at the top of side menu-->
 		<div class="section">
 			<!-- <img src="assets/images/logo.png" alt="Logo" id="logo"> -->
 		</div>
-		<!--Recipe box - where saved recipes will go-->
-		<div class="section">
-			<h5 id="recipeBox">Recipe box</h5>
-
-		</div>
-
 		<!--This is where you can add recipes-->
 		<div class="section">
 			<h5>Add recipe</h5>
@@ -65,6 +59,12 @@
 
 	<main>
 		<div class="container">
+			<div class="row">
+				<div class="col s12">
+					<!-- Modal Trigger to open bottom sheet/recipe box-->
+					<a class="waves-effect waves-light btn modal-trigger light-green darken-2" data-target="recipe-box-modal" id="recipe-box-btn">Open recipe box</a>
+				</div>
+			</div>
 			<div class="row">
 				<!--Main recipe search field-->
 				<div class="col s12">
@@ -90,7 +90,22 @@
  					</div>
 	          	</div>
 	        </div>
-	    </div>
+
+			<!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
+			<div id="recipe-box-modal" class="modal bottom-sheet">
+		    	<div class="modal-content">
+		    		<div class="section">
+		      			<h4>Recipe box</h4>
+		      			<!--Recipe box - where saved recipes will go-->
+		      			<h5 id="recipeBox"></h5>
+		      		</div>
+		    	</div>
+		    	<!--Close recipe box-->
+		   		 <div class="modal-footer">
+		      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+		    	</div>
+		  	</div>
+    </div>
 	</main>
 
 	<!--Footer and Copyright information-->
