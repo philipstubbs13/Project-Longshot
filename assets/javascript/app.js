@@ -135,7 +135,11 @@ function testAjax(queryURL) {
 
 $("#submit").on("click",function(e){
   e.preventDefault();
-  // $("#recipe-list").empty();
+  //When the user starts a new search, make sure to clear the previous search results so that the results don't keep adding and adding.
+  $("#recipe1").empty();
+  $("#recipe2").empty();
+  $("#recipe3").empty();
+  //Grab the user input from the main word search text box.
   userInput = $("#user-input").val().trim().toLowerCase();
   var searchURL = queryURLbase + userInput;
   console.log(userInput);
@@ -147,14 +151,6 @@ $("#submit").on("click",function(e){
 //Click event for sign in.
 $("#authentication-btn").on("click", function() {
 	console.log("Sign in button clicked");
-});
-
-
-//Initialize slide out menu
-$('#saved-recipes').sideNav({
-  menuWidth: 300,
-  edge: 'left',
-  closeOnClick: true
 });
 
 //Trigger bottom sheet to open recipe box.
@@ -197,7 +193,7 @@ database.ref().on("child_added", function(childSnapshot) {
 });
 
 $(document).on("click",".remove",function(e) {
-	//When the user clics the trash can icon, show a confirmation modal before removing recipe from the recipe box.
+	//When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
 	$('#removeRecipeModal').modal('open');
 	//If user confirms that they want to remove the recipe from the recipe box...
 	$('#yes-remove').on("click", function(){
