@@ -39,6 +39,7 @@ body {
 
 main {
     flex: 1 0 auto;
+    margin-top: 50px;
 }
 
 
@@ -56,7 +57,11 @@ main {
 
 /*Submit Button*/
 #submit{
-background-color: #E8BD53;  
+background-color: #E8BD53;
+}
+
+.fa-cutlery:hover {
+  color: #E8BD53;
 }
 
 
