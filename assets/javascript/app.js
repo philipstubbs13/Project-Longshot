@@ -118,40 +118,6 @@ $(document).ready(function(){
   $('.modal').modal();
 });
 
-// $(document).on("click",".save",function(e){
-//   name = $(e.target).data("name");
-//   userInput = $("#user-input").val().trim().toLowerCase();
-//   var searchURL = queryURLbase + userInput;
-//   console.log(userInput);
-//   saveRecipe(searchURL);
-//
-//   console.log("name : "+name);
-//
-//
-// })
-// var name;
-// function saveRecipe(queryURL){
-//   $.ajax({
-//     url: queryURL,
-//     method: 'GET'
-//   }).done(function(data) {
-//     console.log(data);
-//     console.log(queryURL);
-//     imgAPI = data.hits[name].recipe.image;
-//     label = data.hits[name].recipe.label;
-//     recipe =data.hits[name].recipe.ingredients[0].text;
-//     sourceLink = data.hits[name].recipe.url;
-//     imgAPI = data.hits[name].recipe.image;
-//     var newRecipe = {
-//       name:label,
-//       ingredients: recipe,
-//       link: sourceLink,
-//       img: imgAPI
-//     }
-//     database.ref().push(newRecipe);
-//     console.log("label : "+label + " recipe : "+ recipe + " sourceLink : "+sourceLink);
-//   })
-// }
 database.ref().on("child_added", function(childSnapshot) {
   var name = childSnapshot.val().name;
   var ingredients = childSnapshot.val().ingredients;
