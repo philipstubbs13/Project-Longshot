@@ -55,7 +55,7 @@ function testAjax(queryURL) {
 			recipe =data.hits[i].recipe.ingredients[0].text;
 			console.log(recipe);
 			pRecipe.text(recipe);
-			cardImg.after(cardContent);	
+			cardImg.after(cardContent);
 
 			//Use Materialize css card reveal feature to reveal ingredients upon button click.
 			//Add the class activator to an element inside the card to allow it to open the card reveal.
@@ -99,8 +99,8 @@ function testAjax(queryURL) {
 			//Adding attribute to link so that recipe link opens in a new tab window.
 			link.attr("target", "_blank");
 
-			var saveBtn = $("<button>");
-			saveBtn.addClass("btn btn-default save");
+			var saveBtn = $("<i>");
+			saveBtn.addClass("small fa fa-cutlery");
 			saveBtn.attr("data-name", [i]);
 
 			cardAction.append(link, saveBtn);
