@@ -91,10 +91,13 @@ function testAjax(queryURL) {
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
+			//Create variable to hold external recipe link.
 			var link = $("<a>");
 			link.text("Link to recipe");
 			sourceLink = data.hits[i].recipe.url;
 			link.attr("href", sourceLink);
+			//Adding attribute to link so that recipe link opens in a new tab window.
+			link.attr("target", "_blank");
 
 			var saveBtn = $("<button>");
 			saveBtn.addClass("btn btn-default save");
