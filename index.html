@@ -26,13 +26,13 @@
 	<!--Add Firebase database link here-->
 
 	 <!-- Compiled and minified JavaScript -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 	 <!--Let browser know website is optimized for mobile-->
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 	<!--Font Awesome link-->
-	<script src="https://use.fontawesome.com/abd289e58f.js"></script>    
+	<script src="https://use.fontawesome.com/abd289e58f.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 	<ul id="slide-out" class="side-nav fixed">
 		<!--Logo goes here at the top of side menu-->
 		<div class="section">
-			<img src="assets/images/logo.png" alt="Logo" id="logo">
+			<!-- <img src="assets/images/logo.png" alt="Logo" id="logo"> -->
 		</div>
 		<!--Recipe box - where saved recipes will go-->
 		<div class="section">
@@ -53,13 +53,13 @@
 
 		<!--This is where you can add recipes-->
 		<div class="section">
-			<h5>Add recipe</h5>	
+			<h5>Add recipe</h5>
 		</div>
 	</ul>
-	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->  
+	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
 
 	<!--Top Navigation Bar-->
-	<nav class="grey darken-3" role="navigation">   			
+	<nav class="grey darken-3" role="navigation">
 	    <div class="container" id="navigation_bar"><a id="logo-container" href="#" class="brand-logo">Recipe Search App</a>
 	    	<!--Authentication/Sign in button-->
 	    	<ul class="right navbar_list">
@@ -67,7 +67,7 @@
 	    	</ul>
 	    </div>
 	</nav>
-	        
+
 	<main>
 		<div class="container">
 			<div class="row">
@@ -81,140 +81,23 @@
 		        	</div>
 		        </div>
 		    </div>
-				
+
 			<!--Recipe search results section. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
 			<div class="row">
 				<div class="col s12">
 					<div class="section">
-					    <div class="col l4 m6 s12">
-					    	<div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-					    </div>
-
-					    <div class="col l4 m6 s12">
-					    	<div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-					    </div>
-
-					    <div class="col l4 m6 s12">
-					    	<div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-
-					        <div class="card">
-					            <div class="card-image">
-					            	<img src="assets/images/sample-1.jpg">
-					            </div>
-					            <div class="card-content">
-					            	<span class="card-title">Recipe Name <i class="fa fa-star-o" aria-hidden="true"></i></span>
-						              <p>Recipe from JSON goes here.</p>
-					            </div>
-					            <div class="card-action">
-					              <a href="#">Link to recipe.</a>
-					            </div>
-					        </div>
-					    </div>	
+					    <div id = "recipe1" class="col l4 m6 s12">
 	          		</div>
+								<div id = "recipe2" class="col l4 m6 s12">
+								 </div>
+								 <div id = "recipe3" class="col l4 m6 s12">
+ 								 </div>
 	          	</div>
 	        </div>
 	    </div>
 	</main>
 
-	<!--Footer and Copyright information-->	
+	<!--Footer and Copyright information-->
     <footer class="page-footer grey darken-3">
     	<div class="container">
     		<div class="row">

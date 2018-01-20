@@ -1,43 +1,63 @@
-//Define variables
-//Create variable to hold user input. This is the search term the user enters in the main recipe search field.
-var userInput = "";
-
-//Initialize Firebase here.
-
-//Create database variable to create reference to firebase.database().
-	//var database = firebase.database();
+var queryURLbase = "https://api.edamam.com/search?&app_id=efd1d3e6&app_key=07c695393fe37a410def005f964d5e50&from=0&to9&q=";
+var userInput;
 
 
-//Click event for find/submit button for main recipe search field.
-$("#submit").on("click", function() {
-	//Prevent form from submitting itself.
-	event.preventDefault();
-
-	//Grab the search term that the user enters in the main recipe search field.
-	userInput = $("#user-input").val().trim().toLowerCase();
-	//print userInput value to console for debugging purposes.
-	console.log("User's recipe search term: " + userInput);
-
-	//Construct our query URL here to access and obtain data from the EDAMAM API.
-	//var appID = "";
-	//var appKey = "";
-	//var queryURL = ""
-	
-	//Our jQuery AJAX method. Perform AJAX GET request to the queryURL to get data from the EDAMAM API.
-   	//$.ajax({
-        //url: queryURL,
-        //method: "GET"
-      //})
-
-      //After the data from the AJAX request comes back.
-      //.done(function(response) {
-      	//log the API response to the console for debugging purposes.
-      	//console.log(response);
-      	//create variable to hold response data
-      	//var results = ;
-    //});
+function testAjax(queryURL) {
+   $.ajax({
+       url: queryURL,
+       method: 'GET'
+   }).done(function(data) {
+       console.log(data);
+       console.log(queryURL);
+       for(var i = 0; i<9; i++){
+var card = $("<div>");
+card.addClass("card");
+var cardImg =$("<div>");
+cardImg.addClass("card-image");
+var img = $("<img>");
+img.attr("src",data.hits[i].recipe.image);
+cardImg.append(img);
+card.append(cardImg);
+var cardContent = $("<div>");
+cardContent.addClass("card-content");
+var spanTitle = $("<span>");
+spanTitle.addClass("card-title");
+spanTitle.text(data.hits[i].recipe.label);
+var pRecipe = $("<p>");
+var recipe =data.hits[i].recipe.ingredients[0].text;
+console.log(recipe);
+pRecipe.text(recipe);
+cardContent.append(spanTitle,pRecipe);
+cardImg.after(cardContent);
+var cardAction = $("<div>");
+cardAction.addClass("card-action");
+var link = $("<a>");
+link.text("Link to recipe");
+link.attr("href",data.hits[i].recipe.url);
+cardAction.append(link);
+cardContent.after(cardAction);
+$("#recipe1").append(card);
+var n = $(".card-image").length;
+console.log(n);
+if(n>3){
+	$("#recipe2").append(card);
+}
+if(n>6){
+	$("#recipe3").append(card);
+}
+}
 
 })
+}
+
+$("#submit").on("click",function(e){
+	e.preventDefault();
+   userInput = $("#user-input").val().trim().toLowerCase();
+   var searchURL = queryURLbase + userInput;
+   console.log(userInput);
+   testAjax(searchURL);
+
+});
 
 
 //Click event for sign in.
@@ -48,8 +68,8 @@ $("#authentication-btn").on("click", function() {
 
 //Initialize slide out menu
 $('#saved-recipes').sideNav({
-  menuWidth: 300, 
-  edge: 'left', 
-  closeOnClick: true 
+  menuWidth: 300,
+  edge: 'left',
+  closeOnClick: true
 }
 );
