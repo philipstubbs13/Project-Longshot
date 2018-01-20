@@ -219,3 +219,13 @@ $(document).on("click",".remove",function(e) {
 		return;
 	});
 });
+
+//When Help link in the Footer is clicked, open help page.
+$("#help-link").on("click", function(){
+	$("#help-modal").modal('open');
+})
+
+//When About link in the Footer is clicked, open about page.
+$("#about-link").on("click", function(){
+	$("#about-modal").modal('open');
+})
