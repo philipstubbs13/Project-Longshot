@@ -1,0 +1,73 @@
+/* pencil and trash icons styling */
+.fa-pencil{
+  margin-left: 10px;
+}
+
+.fa-trash {
+  margin-left: 10px;
+}
+
+
+/*Recipe box styling */
+#recipeBox li {
+  padding-top: 15px;
+}
+
+
+/*side navigation menu where we have the add recipe section*/
+.side-nav h5 {
+    padding-left: 10px;
+}
+
+.side-nav li {
+    padding-left: 10px;
+}
+
+
+/* Logo in side menu */
+#logo {
+    padding-left: 100px;
+}
+
+
+/* Sticky Footer*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
+/*Authentication/sign in button*/
+#authentication-btn {
+    margin-top: 10px;
+}
+
+
+/*Recipe box button styling*/
+#recipe-box-btn {
+  margin-top: 10px;
+}
+
+
+/*Side menu*/
+main, footer {
+  padding-left: 160px;
+  padding-right: 0px;
+}
+
+nav {
+    padding-left: 160px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+
