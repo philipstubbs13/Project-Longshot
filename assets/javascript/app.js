@@ -173,17 +173,22 @@ database.ref().on("child_added", function(childSnapshot) {
 	var key = childSnapshot.key;
 	console.log("link " + link);
 
-	var newList = $("<li>");
+	var newList = $("<p>");
 	newList.attr("id",key);
 	var newSpan = $("<span>");
 	var linkA = $("<a>");
 	linkA.text(name);
 	linkA.attr("href",link);
+	linkA.addClass("recipe-box-link");
+	//Add attribute to recipe box link to open external recipe link in a new tab window.
+	linkA.attr("target", "_blank");
 	var trash = $("<i>");
 	var pencil = $("<i>");
 	trash.attr("aria-hidden",true);
 	trash.addClass("fa fa-trash remove");
 	trash.attr("data-key",key);
+	//Add data-target with id of the remove recipe modal to trigger confirmation dialog.
+	trash.attr("data-target", "removeRecipeModal");
 	pencil.attr("aria-hidden",true);
 	pencil.addClass("fa fa-pencil");
 	newList.append(newSpan);
@@ -192,19 +197,29 @@ database.ref().on("child_added", function(childSnapshot) {
 });
 
 $(document).on("click",".remove",function(e) {
-	var key = $(e.target).data("key");
-	var list =  document.getElementById(key);
-	list.remove();
-	console.log(key);
-	var updates ={};
-	var removeData ={};
-	database.ref().on("child_added",function(snapshot) {
-		var snap = snapshot.key;
-		console.log(snap);
-		if (key == snap){
-			console.log("working");
-			updates[snap]=removeData;
-			return database.ref().update(updates);
-		};
+	//When the user clics the trash can icon, show a confirmation modal before removing recipe from the recipe box.
+	$('#removeRecipeModal').modal('open');
+	//If user confirms that they want to remove the recipe from the recipe box...
+	$('#yes-remove').on("click", function(){
+		var key = $(e.target).data("key");
+		var list =  document.getElementById(key);
+		list.remove();
+		console.log(key);
+		var updates ={};
+		var removeData ={};
+		database.ref().on("child_added",function(snapshot) {
+			var snap = snapshot.key;
+			console.log(snap);
+			if (key == snap){
+				console.log("working");
+				updates[snap]=removeData;
+				return database.ref().update(updates);
+			};
+		})
+	});
+
+	//If user decides that they don't want to remove the recipe from the recipe box...
+	$('#no-remove').on("click", function(){
+		return;
 	});
 });
