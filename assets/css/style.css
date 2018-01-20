@@ -15,17 +15,6 @@
   padding-top: 15px;
 }
 
-
-/*side navigation menu where we have the add recipe section*/
-.side-nav h5 {
-    padding-left: 10px;
-}
-
-.side-nav li {
-    padding-left: 10px;
-}
-
-
 /* Logo in side menu */
 #logo {
     padding-left: 100px;
@@ -62,10 +51,10 @@ main {
 background-color: #E8BD53;
 }
 
+/*Icon in top navigation bar that opens recipe box*/
 .fa-cutlery:hover {
   color: #E8BD53;
 }
-
 
 /*Side menu*/
 /* main, footer {
