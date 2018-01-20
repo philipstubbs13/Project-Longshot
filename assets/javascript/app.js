@@ -43,16 +43,19 @@ function testAjax(queryURL) {
 			var cardContent = $("<div>");
 			cardContent.addClass("card-content");
 
+			//Variable for the recipe title/label.
 			var spanTitle = $("<span>");
 			spanTitle.addClass("card-title");
 			label = data.hits[i].recipe.label;
 			spanTitle.text(label);
+			//This appends the recipe title/label to the recipe image.
+			cardImg.append(spanTitle);
 
 			var pRecipe = $("<p>");
 			recipe =data.hits[i].recipe.ingredients[0].text;
 			// console.log(recipe);
 			pRecipe.text(recipe);
-			cardContent.append(spanTitle, pRecipe);
+			cardContent.append(pRecipe);
 			cardImg.after(cardContent);
 
 			var cardAction = $("<div>");
