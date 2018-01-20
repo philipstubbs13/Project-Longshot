@@ -80,18 +80,30 @@ function testAjax(queryURL) {
 			if(n > 6) {
 				$("#recipe3").append(card);
 			};
-
+      saveBtn.on("click",function(e){
+        console.log("newbtn working");
+        var name = $(e.target).data("name");
+        console.log("name : "+name);
+        var newRecipe = {
+    			name:data.hits[name].recipe.label,
+    			ingredients: data.hits[name].recipe.ingredients[0].text,
+    			link: data.hits[name].recipe.url,
+    			img: data.hits[name].recipe.image
+        };
+        database.ref().push(newRecipe);
+    		console.log("label : "+ newRecipe.name + " recipe : "+ newRecipe.ingredients + " sourceLink : "+ newRecipe.link);
+      })
 		};
 	});
 };
 
 $("#submit").on("click",function(e){
-	e.preventDefault();
-	// $("#recipe-list").empty();
-   userInput = $("#user-input").val().trim().toLowerCase();
-   var searchURL = queryURLbase + userInput;
-   console.log(userInput);
-   testAjax(searchURL);
+  e.preventDefault();
+  // $("#recipe-list").empty();
+  userInput = $("#user-input").val().trim().toLowerCase();
+  var searchURL = queryURLbase + userInput;
+  console.log(userInput);
+  testAjax(searchURL);
 
 });
 
@@ -111,48 +123,11 @@ $('#saved-recipes').sideNav({
 
 //Trigger bottom sheet to open recipe box.
 $(document).ready(function(){
-    $('.modal').modal();
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  $('.modal').modal();
 });
 
-$(document).on("click",".save",function(e) {
-
-	name = $(e.target).data("name");
-	userInput = $("#user-input").val().trim().toLowerCase();
-	var searchURL = queryURLbase + userInput;
-	console.log(userInput);
-	saveRecipe(searchURL);
-
-	console.log("name : "+name);
-});
-
-var name;
-function saveRecipe(queryURL) {
-	$.ajax({
-		url: queryURL,
-		method: 'GET'
-	}).done(function(data) {
-		console.log(data);
-		console.log(queryURL);
-
-		imgAPI = data.hits[name].recipe.image;
-		label = data.hits[name].recipe.label;
-		recipe =data.hits[name].recipe.ingredients[0].text;
-		sourceLink = data.hits[name].recipe.url;
-		imgAPI = data.hits[name].recipe.image;
-
-		var newRecipe = {
-			name:label,
-			ingredients: recipe,
-			link: sourceLink,
-			img: imgAPI
-		};
-
-		database.ref().push(newRecipe);
-		console.log("label : "+ label + " recipe : "+ recipe + " sourceLink : "+ sourceLink);
-
-	});
-
-};
+//print saved recipe to modal
 database.ref().on("child_added", function(childSnapshot) {
 
 	var name = childSnapshot.val().name;
