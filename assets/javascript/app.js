@@ -53,10 +53,40 @@ function testAjax(queryURL) {
 
 			var pRecipe = $("<p>");
 			recipe =data.hits[i].recipe.ingredients[0].text;
-			// console.log(recipe);
+			console.log(recipe);
 			pRecipe.text(recipe);
-			cardContent.append(pRecipe);
-			cardImg.after(cardContent);
+			cardImg.after(cardContent);	
+
+			//Use Materialize css card reveal feature to reveal ingredients upon button click.
+			//Add the class activator to an element inside the card to allow it to open the card reveal.
+			img.addClass("activator");
+			//Create span element to hold the button that opens the card reveal.
+			activateIngredients = $("<span>");
+			//Add the class activator and add "Ingredients" text.
+			activateIngredients.addClass("card-title activator").text("Ingredients");
+			//Create button that will open the card reveal and show the ingredients.
+			revealIngredientsIcon = $("<i>");
+			revealIngredientsIcon.addClass("material-icons right").text("more_vert");
+			activateIngredients.append(revealIngredientsIcon);
+			//Append the card reveal button to the card.
+			cardContent.append(activateIngredients);
+			//Create div for card reveal.
+			var cardReveal = $("<div>");
+			cardReveal.addClass("card-reveal");
+			//Create title for card reveal.
+			var cardRevealTitle = $("<span>");
+			cardRevealTitle.addClass("card-title").text("Ingredients");
+			//Create icon that allows users to close card reveal and return to cardContent.
+			var closeRevealIcon = $("<i>");
+			closeRevealIcon.addClass("material-icons right").text("close");
+			cardRevealTitle.append(closeRevealIcon);
+			//Append the title of card reveal to card reveal div.
+			cardReveal.append(cardRevealTitle);
+			//Append the card reveal div to the card.
+			card.append(cardReveal);
+			//Append the ingredients to the card reveal.
+			cardReveal.append(pRecipe);
+
 
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
