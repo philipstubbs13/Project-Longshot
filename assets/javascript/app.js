@@ -22,7 +22,7 @@ function testAjax(queryURL) {
        url: queryURL,
        method: 'GET'
    }).done(function(data) {
-       // console.log(data);
+       console.log(data);
        // console.log(queryURL);
        for(var i = 0; i<9; i++){
 var card = $("<div>");

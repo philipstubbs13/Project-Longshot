@@ -22,9 +22,6 @@
 	<!--JQuery link-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!--Firebase Javascript link-->
-	<!--Add Firebase database link here-->
-
 	 <!-- Compiled and minified JavaScript -->
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
@@ -53,7 +50,8 @@
 			<h5>Add recipe</h5>
 		</div>
 	</ul>
-	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+	<!--Commenting out the hamburger menu button for now until we get app to be responsive-->
+	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
 
 	<!--Top Navigation Bar-->
 	<nav class="grey darken-3" role="navigation">
@@ -73,7 +71,7 @@
 		        	<h5>Find something to make:</h5>
 		        	<div class="input-field">
 		            	<input id="user-input" type="text" class="validate">
-		            	<label for="text" data-error="wrong" data-success="right">for example, pizza, tofu, cake</label>
+		            	<label for="text" data-error="wrong" data-success="right">for example, pizza, chicken, cake</label>
 		            	<button class="btn waves-effect waves-light light-green darken-2" type="submit" name="action" id="submit">Find</button>
 		        	</div>
 		        </div>
@@ -84,11 +82,12 @@
 				<div class="col s12">
 					<div id="recipe-list" class="section">
 					    <div id = "recipe1" class="col l4 m6 s12">
-	          		</div>
-								<div id = "recipe2" class="col l4 m6 s12">
-								 </div>
-								 <div id = "recipe3" class="col l4 m6 s12">
- 								 </div>
+	          			</div>
+						<div id = "recipe2" class="col l4 m6 s12">
+						</div>
+						<div id = "recipe3" class="col l4 m6 s12">
+ 						</div>
+ 					</div>
 	          	</div>
 	        </div>
 	    </div>
@@ -113,8 +112,10 @@
       </div>
     </footer>
 
-<!--Link to Javascript-->
+<!--Firebase Javascript link-->
 <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+<!--Link to external Javascript file-->
 <script src="assets/javascript/app.js"></script>
 </body>
 </html>
