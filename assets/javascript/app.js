@@ -1,3 +1,4 @@
+
 // Initialize Firebase
  var config = {
 	 apiKey: "AIzaSyCC1t5np8kPEV2yC0heaC4z0l6JtYNEMhY",
@@ -96,6 +97,13 @@ $('#saved-recipes').sideNav({
   closeOnClick: true
 }
 );
+
+//Trigger bottom sheet to open recipe box.
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+});
+
 $(document).on("click",".save",function(e){
 name = $(e.target).data("name");
 userInput = $("#user-input").val().trim().toLowerCase();

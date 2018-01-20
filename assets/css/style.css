@@ -1,4 +1,20 @@
-/*side navigation menu where we have the recipe box and add recipe sections*//
+/* pencil and trash icons styling */
+.fa-pencil{
+  margin-left: 10px;
+}
+
+.fa-trash {
+  margin-left: 10px;
+}
+
+
+/*Recipe box styling */
+#recipeBox li {
+  padding-top: 15px;
+}
+
+
+/*side navigation menu where we have the add recipe section*/
 .side-nav h5 {
     padding-left: 10px;
 }
@@ -31,11 +47,12 @@ main {
     margin-top: 10px;
 }
 
-/*Trash can */
-.fa-trash {
-    margin-right: 6px;
-    margin-left: 6px;
+
+/*Recipe box button styling*/
+#recipe-box-btn {
+  margin-top: 10px;
 }
+
 
 /*Side menu*/
 main, footer {
