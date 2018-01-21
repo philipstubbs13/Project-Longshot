@@ -1,0 +1,71 @@
+/* pencil and trash icons styling */
+.fa-pencil{
+  margin-left: 10px;
+}
+
+.fa-trash {
+  margin-left: 10px;
+}
+
+
+/*Recipe box styling */
+#recipeBox li {
+  padding-top: 15px;
+}
+
+/* Logo in side menu */
+#logo {
+    padding-left: 100px;
+}
+
+
+/* Sticky Footer*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    margin-top: 50px;
+}
+
+
+/*Authentication/sign in button*/
+#authentication-btn {
+    margin-top: 10px;
+    background-color: #E8BD53;
+}
+
+
+/*Recipe box button styling*/
+#recipe-box-btn {
+  margin-top: 15px;
+}
+
+/*Submit Button*/
+#submit{
+background-color: #E8BD53;
+}
+
+/*Icon in top navigation bar that opens recipe box*/
+.fa-cutlery:hover {
+  color: #E8BD53;
+}
+
+/*Side menu*/
+/* main, footer {
+  padding-left: 0px;
+  padding-right: 0px;
+} */
+
+nav, .page-footer {
+    background-color: #264653;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}

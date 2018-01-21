@@ -66,7 +66,11 @@ fetch(queryURL)
 			activateIngredients.addClass("card-title activator").text("Ingredients");
 			//Create button that will open the card reveal and show the ingredients.
 			revealIngredientsIcon = $("<i>");
-			revealIngredientsIcon.addClass("material-icons right").text("more_vert");
+			//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+			//data-tooltip is the tooltip text that appears when user hovers over button.
+			revealIngredientsIcon.addClass("material-icons right tooltipped").text("more_vert").attr("data-position", "top").attr("data-tooltip", "Click to view ingredients.");
+			//Initialize tooltip for show Ingredients button.
+			$('.tooltipped').tooltip({delay: 30});
 			activateIngredients.append(revealIngredientsIcon);
 			//Append the card reveal button to the card.
 			cardContent.append(activateIngredients);
@@ -91,17 +95,22 @@ fetch(queryURL)
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
-			//Create variable to hold external recipe link.
+			//Dynamically create external recipe link and open the link in a new tab.
 			var link = $("<a>");
-			link.text("Link to recipe");
+			link.text("More info");
 			sourceLink = data.hits[i].recipe.url;
 			link.attr("href", sourceLink);
 			//Adding attribute to link so that recipe link opens in a new tab window.
 			link.attr("target", "_blank");
 
+			//Dynamically create button for saving recipes to recipe box.
 			var saveBtn = $("<i>");
-			saveBtn.addClass("small fa fa-cutlery");
-			saveBtn.attr("data-name", [i]);
+			saveBtn.addClass("small fa fa-cutlery tooltipped");
+			//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+			//data-tooltip is the tooltip text that appears when user hovers over button.
+			saveBtn.attr("data-name", [i]).attr("data-position", "top").attr("data-tooltip", "Click to save recipe to Recipe box.");
+			//Initialize tooltip for save recipe button.
+			$('.tooltipped').tooltip({delay: 30});
 
 			cardAction.append(link, saveBtn);
 			cardContent.after(cardAction);
@@ -116,6 +125,8 @@ fetch(queryURL)
 			if(n > 6) {
 				$("#recipe3").append(card);
 			};
+
+	  //When the save recipe button is clicked...	
       saveBtn.on("click",function(e){
         console.log("newbtn working");
         //Display toast message that indicates recipe was added to Recipe box successfully.
@@ -135,6 +146,7 @@ fetch(queryURL)
 	});
 }
 
+//When the Find button is clicked in search section...
 $("#submit").on("click",function(e){
   e.preventDefault();
   //When the user starts a new search, make sure to clear the previous search results so that the results don't keep adding and adding.
@@ -207,7 +219,7 @@ $(document).ready(function(){
   $('.modal').modal();
 });
 
-//print saved recipe to modal
+//print saved recipe to recipe box modal (this is a bottom sheet).
 database.ref().on("child_added", function(childSnapshot) {
 
 	var name = childSnapshot.val().name;
@@ -228,13 +240,19 @@ database.ref().on("child_added", function(childSnapshot) {
 	linkA.attr("target", "_blank");
 	var trash = $("<i>");
 	var pencil = $("<i>");
-	trash.attr("aria-hidden",true);
-	trash.addClass("fa fa-trash remove");
+	//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+	//data-tooltip is the tooltip text that appears when user hovers over button.
+	trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
+	//Initialize tooltip for trash and pencil buttons.
+	$('.tooltipped').tooltip({delay: 30});
+	trash.addClass("fa fa-trash remove tooltipped");
 	trash.attr("data-key",key);
 	//Add data-target with id of the remove recipe modal to trigger confirmation dialog.
 	trash.attr("data-target", "removeRecipeModal");
-	pencil.attr("aria-hidden",true);
-	pencil.addClass("fa fa-pencil");
+	//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+	//data-tooltip is the tooltip text that appears when user hovers over button.
+	pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.");
+	pencil.addClass("fa fa-pencil tooltipped");
 	newList.append(newSpan);
 	newSpan.append(linkA,trash,pencil);
 	$("#recipeBox").append(newList);
