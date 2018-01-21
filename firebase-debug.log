@@ -1,0 +1,171 @@
+[debug] [2018-01-21T01:44:01.954Z] ----------------------------------------------------------------------
+[debug] [2018-01-21T01:44:01.958Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-01-21T01:44:01.958Z] CLI Version:   3.17.3
+[debug] [2018-01-21T01:44:01.958Z] Platform:      darwin
+[debug] [2018-01-21T01:44:01.958Z] Node Version:  v8.5.0
+[debug] [2018-01-21T01:44:01.964Z] Time:          Sat Jan 20 2018 19:44:01 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:01.964Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-21T01:44:01.973Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-21T01:44:01.974Z] > authorizing via signed-in user
+[debug] [2018-01-21T01:44:01.975Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-01-21T01:44:01.975Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/8xsTvQfVvHXSipMTAJzSy5uhqtUWBrPoQXaMsT79kRw',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jan 20 2018 19:44:01 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:02.179Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T01:44:02.197Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 19:44:02 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:02.518Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T01:44:02.519Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/longshotauth/tokens  
+  
+ Sat Jan 20 2018 19:44:02 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:03.163Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/idajensen/Documents/umnbootcamp/Project-Longshot'...
+[info] 
+[debug] [2018-01-21T01:44:03.167Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 19:44:03 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:03.534Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T01:44:03.535Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/783961136211/clients/_:getWebAppConfig  
+  
+ Sat Jan 20 2018 19:44:03 GMT-0600 (CST)
+[debug] [2018-01-21T01:44:04.912Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-01-21T01:45:51.609Z] ----------------------------------------------------------------------
+[debug] [2018-01-21T01:45:51.611Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-01-21T01:45:51.611Z] CLI Version:   3.17.3
+[debug] [2018-01-21T01:45:51.611Z] Platform:      darwin
+[debug] [2018-01-21T01:45:51.611Z] Node Version:  v8.5.0
+[debug] [2018-01-21T01:45:51.612Z] Time:          Sat Jan 20 2018 19:45:51 GMT-0600 (CST)
+[debug] [2018-01-21T01:45:51.612Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-21T01:45:51.622Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-21T01:45:51.622Z] > authorizing via signed-in user
+[debug] [2018-01-21T01:45:51.624Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 19:45:51 GMT-0600 (CST)
+[debug] [2018-01-21T01:45:53.355Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T01:45:53.356Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/longshotauth/tokens  
+  
+ Sat Jan 20 2018 19:45:53 GMT-0600 (CST)
+[debug] [2018-01-21T01:45:53.627Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/idajensen/Documents/umnbootcamp/Project-Longshot'...
+[info] 
+[debug] [2018-01-21T01:45:53.630Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 19:45:53 GMT-0600 (CST)
+[debug] [2018-01-21T01:45:53.984Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T01:45:53.984Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/783961136211/clients/_:getWebAppConfig  
+  
+ Sat Jan 20 2018 19:45:53 GMT-0600 (CST)
+[debug] [2018-01-21T01:45:54.292Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-01-21T03:18:11.322Z] ----------------------------------------------------------------------
+[debug] [2018-01-21T03:18:11.329Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-01-21T03:18:11.329Z] CLI Version:   3.17.3
+[debug] [2018-01-21T03:18:11.329Z] Platform:      darwin
+[debug] [2018-01-21T03:18:11.329Z] Node Version:  v8.5.0
+[debug] [2018-01-21T03:18:11.330Z] Time:          Sat Jan 20 2018 21:18:11 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:11.330Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-21T03:18:11.339Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-21T03:18:11.339Z] > authorizing via signed-in user
+[debug] [2018-01-21T03:18:11.341Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-01-21T03:18:11.341Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/8xsTvQfVvHXSipMTAJzSy5uhqtUWBrPoQXaMsT79kRw',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jan 20 2018 21:18:11 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:15.375Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T03:18:15.390Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 21:18:15 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:15.792Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T03:18:15.793Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/longshotauth/tokens  
+  
+ Sat Jan 20 2018 21:18:15 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:16.280Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/idajensen/Documents/umnbootcamp/Project-Longshot'...
+[info] 
+[debug] [2018-01-21T03:18:16.283Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 21:18:16 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:16.808Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T03:18:16.809Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/783961136211/clients/_:getWebAppConfig  
+  
+ Sat Jan 20 2018 21:18:16 GMT-0600 (CST)
+[debug] [2018-01-21T03:18:18.232Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-01-21T03:31:53.995Z] ----------------------------------------------------------------------
+[debug] [2018-01-21T03:31:53.996Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase init
+[debug] [2018-01-21T03:31:53.997Z] CLI Version:   3.17.3
+[debug] [2018-01-21T03:31:53.997Z] Platform:      darwin
+[debug] [2018-01-21T03:31:53.997Z] Node Version:  v8.5.0
+[debug] [2018-01-21T03:31:53.997Z] Time:          Sat Jan 20 2018 21:31:53 GMT-0600 (CST)
+[debug] [2018-01-21T03:31:53.997Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-21T03:31:54.006Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-01-21T03:31:54.006Z] > authorizing via signed-in user
+[info] 
+     🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥     🔥🔥🔥     🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥     🔥🔥 🔥🔥       🔥🔥     🔥🔥  🔥🔥   🔥🔥  🔥🔥       🔥🔥
+     🔥🔥🔥🔥🔥🔥    🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥   🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥    🔥🔥  🔥🔥       🔥🔥     🔥🔥 🔥🔥     🔥🔥       🔥🔥 🔥🔥
+     🔥🔥       🔥🔥🔥🔥 🔥🔥     🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥     🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/idajensen/Documents/umnbootcamp/Project-Longshot
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2018-01-21T03:33:54.418Z] ----------------------------------------------------------------------
+[debug] [2018-01-21T03:33:54.420Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-01-21T03:33:54.420Z] CLI Version:   3.17.3
+[debug] [2018-01-21T03:33:54.420Z] Platform:      darwin
+[debug] [2018-01-21T03:33:54.420Z] Node Version:  v8.5.0
+[debug] [2018-01-21T03:33:54.421Z] Time:          Sat Jan 20 2018 21:33:54 GMT-0600 (CST)
+[debug] [2018-01-21T03:33:54.421Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-21T03:33:54.430Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-21T03:33:54.430Z] > authorizing via signed-in user
+[debug] [2018-01-21T03:33:54.432Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 21:33:54 GMT-0600 (CST)
+[debug] [2018-01-21T03:33:58.688Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T03:33:58.689Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/longshotauth/tokens  
+  
+ Sat Jan 20 2018 21:33:58 GMT-0600 (CST)
+[debug] [2018-01-21T03:33:59.017Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/idajensen/Documents/umnbootcamp/Project-Longshot'...
+[info] 
+[debug] [2018-01-21T03:33:59.020Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/longshotauth  
+  
+ Sat Jan 20 2018 21:33:59 GMT-0600 (CST)
+[debug] [2018-01-21T03:33:59.282Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-21T03:33:59.282Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/783961136211/clients/_:getWebAppConfig  
+  
+ Sat Jan 20 2018 21:33:59 GMT-0600 (CST)
+[debug] [2018-01-21T03:33:59.718Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+

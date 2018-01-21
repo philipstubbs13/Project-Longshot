@@ -1,15 +1,17 @@
 // Initialize Firebase
  var config = {
-	 apiKey: "AIzaSyCC1t5np8kPEV2yC0heaC4z0l6JtYNEMhY",
-	 authDomain: "projectlongshot-469ee.firebaseapp.com",
-	 databaseURL: "https://projectlongshot-469ee.firebaseio.com",
-	 projectId: "projectlongshot-469ee",
-	 storageBucket: "",
-	 messagingSenderId: "333236357647"
+   apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
+   authDomain: "longshotauth.firebaseapp.com",
+   databaseURL: "https://longshotauth.firebaseio.com",
+   projectId: "longshotauth",
+   storageBucket: "",
+   messagingSenderId: "783961136211"
  };
 
 firebase.initializeApp(config);
 database = firebase.database();
+// var defaultAuth = firebase.auth();
+
 
 var queryURLbase = "https://api.edamam.com/search?&app_id=4a5d81a2&app_key=379308ab9da9a8ee47f63563d2774ac4&from=0&to9&q=";
 var userInput;
@@ -19,12 +21,10 @@ var label;
 var recipe;
 var sourceLink;
 
-function testAjax(queryURL) {
-   $.ajax({
-       url: queryURL,
-       method: 'GET'
-   }).done(function(data) {
-       console.log(data);
+function testAjax(queryURL){
+fetch(queryURL)
+.then((resp) => resp.json())
+.then(function(data){
        // console.log(queryURL);
        for(var i = 0; i < 9; i++){
 
@@ -133,7 +133,7 @@ function testAjax(queryURL) {
       })
 		};
 	});
-};
+}
 
 $("#submit").on("click",function(e){
   e.preventDefault();
@@ -148,12 +148,58 @@ $("#submit").on("click",function(e){
   testAjax(searchURL);
 
 });
+//
+//
+//function to detect auth state change
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    alert("user signed in");
+    // User is signed in.
+    $("#logout-btn").show();
+    $("#login-btn").hide();
+    $("#signup-btn").hide();
+    var user = firebase.auth().currentUser;
 
-
-//Click event for sign in.
-$("#authentication-btn").on("click", function() {
-	console.log("Sign in button clicked");
+    if (user != null){
+      var email_id =user.email;
+      $("#member-info").text(email_id);
+    }
+  } else {
+    // No user is signed in.
+    $("#logout-btn").hide();
+    $("#login-btn").show();
+    $("#signup-btn").show();
+  }
 });
+//click event for sign up
+function signUp(){
+  var userEmail = $("#email-input").val().trim();
+  var userPass = $("#password-input").val().trim();
+  firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  window.alert("Error : " + errorMessage);
+});
+}
+//click event for logOut
+function logOut(){
+  firebase.auth().signOut();
+}
+// Click event for sign in.
+function login(){
+  var userEmail = $("#email-input").val().trim();
+  var userPass = $("#password-input").val().trim();
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  window.alert("Error : " + errorMessage);
+
+});
+}
 
 //Trigger bottom sheet to open recipe box.
 $(document).ready(function(){
@@ -214,15 +260,15 @@ $(document).on("click",".remove",function(e) {
 				return database.ref().update(updates);
 			};
 		})
-	//});
+	});
 
-	//If user decides that they don't want to remove the recipe from the recipe box...
-	//$('#no-remove').on("click", function(){
-		//return;
-	//});
-});
+	// If user decides that they don't want to remove the recipe from the recipe box...
+	$('#no-remove').on("click", function(){
+		return;
+	});
 
-//When Help link in the Footer is clicked, open help page.
+
+// When Help link in the Footer is clicked, open help page.
 $("#help-link").on("click", function(){
 	$("#help-modal").modal('open');
 })
@@ -230,4 +276,4 @@ $("#help-link").on("click", function(){
 //When About link in the Footer is clicked, open about page.
 $("#about-link").on("click", function(){
 	$("#about-modal").modal('open');
-})
+});
