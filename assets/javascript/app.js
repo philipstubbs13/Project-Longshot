@@ -87,7 +87,6 @@ function testAjax(queryURL) {
 			//Append the ingredients to the card reveal.
 			cardReveal.append(pRecipe);
 
-
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
@@ -99,9 +98,14 @@ function testAjax(queryURL) {
 			//Adding attribute to link so that recipe link opens in a new tab window.
 			link.attr("target", "_blank");
 
+			//Dynamically create button for saving recipes to recipe box.
 			var saveBtn = $("<i>");
-			saveBtn.addClass("small fa fa-cutlery");
-			saveBtn.attr("data-name", [i]);
+			saveBtn.addClass("small fa fa-cutlery tooltipped");
+			//Add data attributes to display tooltip. data-position=top shows tooltip text above button. 
+			//data-tooltip is the tooltip text that appears when user hovers over button.
+			saveBtn.attr("data-name", [i]).attr("data-position", "top").attr("data-tooltip", "Click to save recipe to Recipe box.");
+			//Initialize tooltip for save recipe button.
+			$('.tooltipped').tooltip({delay: 30});
 
 			cardAction.append(link, saveBtn);
 			cardContent.after(cardAction);
@@ -116,6 +120,7 @@ function testAjax(queryURL) {
 			if(n > 6) {
 				$("#recipe3").append(card);
 			};
+
       saveBtn.on("click",function(e){
         console.log("newbtn working");
         //Display toast message that indicates recipe was added to Recipe box successfully.
@@ -196,9 +201,9 @@ database.ref().on("child_added", function(childSnapshot) {
 
 $(document).on("click",".remove",function(e) {
 	//When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
-	//$('#removeRecipeModal').modal('open');
+	// $('#removeRecipeModal').modal('open');
 	//If user confirms that they want to remove the recipe from the recipe box...
-	//$('#yes-remove').on("click", function(){
+	// $('#yes-remove').on("click", function(){
 		var key = $(e.target).data("key");
 		var list =  document.getElementById(key);
 		list.remove();
@@ -214,12 +219,12 @@ $(document).on("click",".remove",function(e) {
 				return database.ref().update(updates);
 			};
 		})
-	//});
+	// });
 
 	//If user decides that they don't want to remove the recipe from the recipe box...
-	//$('#no-remove').on("click", function(){
-		//return;
-	//});
+	// $('#no-remove').on("click", function(){
+	// 	return;
+	// });
 });
 
 //When Help link in the Footer is clicked, open help page.
