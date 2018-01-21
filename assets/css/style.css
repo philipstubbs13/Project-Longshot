@@ -60,16 +60,12 @@ main {
 background-color: #E8BD53;
 }
 
+/*logo changes colors when hover or clicked on */
 .fa-cutlery:hover {
   color: #E8BD53;
 }
 
 
-/*Side menu*/
-/* main, footer {
-  padding-left: 0px;
-  padding-right: 0px;
-} */
 
 nav, .page-footer {
     background-color: #264653;

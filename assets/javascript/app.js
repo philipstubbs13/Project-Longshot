@@ -100,7 +100,7 @@ function testAjax(queryURL) {
 			link.attr("target", "_blank");
 
 			var saveBtn = $("<i>");
-			saveBtn.addClass("small fa fa-cutlery");
+		  saveBtn.addClass("small fa fa-cutlery");
 			saveBtn.attr("data-name", [i]);
 
 			cardAction.append(link, saveBtn);
