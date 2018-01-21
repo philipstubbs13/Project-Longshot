@@ -118,6 +118,8 @@ function testAjax(queryURL) {
 			};
       saveBtn.on("click",function(e){
         console.log("newbtn working");
+        //Display toast message that indicates recipe was added to Recipe box successfully.
+        Materialize.toast('Recipe successfully added to Recipe box.', 4000, 'rounded'); // 4000 is the duration of the toast
         var name = $(e.target).data("name");
         console.log("name : "+name);
         var newRecipe = {
@@ -194,9 +196,9 @@ database.ref().on("child_added", function(childSnapshot) {
 
 $(document).on("click",".remove",function(e) {
 	//When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
-	$('#removeRecipeModal').modal('open');
+	//$('#removeRecipeModal').modal('open');
 	//If user confirms that they want to remove the recipe from the recipe box...
-	$('#yes-remove').on("click", function(){
+	//$('#yes-remove').on("click", function(){
 		var key = $(e.target).data("key");
 		var list =  document.getElementById(key);
 		list.remove();
@@ -212,12 +214,12 @@ $(document).on("click",".remove",function(e) {
 				return database.ref().update(updates);
 			};
 		})
-	});
+	//});
 
 	//If user decides that they don't want to remove the recipe from the recipe box...
-	$('#no-remove').on("click", function(){
-		return;
-	});
+	//$('#no-remove').on("click", function(){
+		//return;
+	//});
 });
 
 //When Help link in the Footer is clicked, open help page.
