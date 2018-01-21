@@ -52,7 +52,7 @@ main {
 
 /*Recipe box button styling*/
 #recipe-box-btn {
-  margin-top: 15px;
+  margin-left: 15px;
 }
 
 /*Submit Button*/
@@ -71,8 +71,10 @@ nav, .page-footer {
     background-color: #264653;
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 960px) {
   header, main, footer {
     padding-left: 0;
   }
+
+
 }
