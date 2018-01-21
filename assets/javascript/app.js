@@ -93,7 +93,7 @@ function testAjax(queryURL) {
 
 			//Create variable to hold external recipe link.
 			var link = $("<a>");
-			link.text("Link to recipe");
+			link.text("More info");
 			sourceLink = data.hits[i].recipe.url;
 			link.attr("href", sourceLink);
 			//Adding attribute to link so that recipe link opens in a new tab window.
