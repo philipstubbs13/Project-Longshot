@@ -36,12 +36,11 @@
 	<!--Top Navigation Bar-->
 	<nav class="" role="navigation">
 		 <div class="container" id="navigation_bar">
-			<a id="logo-container" href="#" class="brand-logo"><i class="small fa fa-cutlery modal-trigger tooltipped" data-position="bottom" data-tooltip="Click to view saved recipes" data-delay="30" href="#recipe-box-modal" id="recipe-box-btn"></i>Recipe Search App</a>
+			<a id="logo-container" href="#" class="brand-logo"><i class="small fa fa-cutlery modal-trigger tooltipped" data-position="bottom" data-tooltip="Click to view saved recipes" data-delay="30" href="#recipe-box-modal" id="recipe-box-btn"></i></a>
 	    	<!--Authentication/Sign in button-->
 	    	<ul class="right navbar_list">
-	      		<li><a href="#login-modal" class="waves-effect waves-light btn card modal-trigger" id="open-login-btn">Log in</a></li>
-						<p id="member-info">Welcome To the FunCooker: </p>
-						<li><a href="#logout-confirm-modal" class="waves-effect waves-light btn card modal-trigger" id="logout-btn" onclick = "logOut()">Log Out</a></li>
+				<p id="member-info"></p>
+				<li><a href="#logout-confirm-modal" class="waves-effect waves-light btn card modal-trigger right" id="logout-btn" onclick = "logOut()">Log Out</a></li>
 	    	</ul>
 	    </div>
 
@@ -63,7 +62,7 @@
 		<div id="login-confirm-modal" class="modal black-text">
 		  	<div class="modal-content">
 		    	<h4>Logged in</h4>
-		    	<p>You are currently logged in to the app. To log out, click LOG OUT at the top of the page.</p>
+		    	<p>You are currently logged in to the app. To log out, click LOG OUT.</p>
 				<a class="waves-effect waves-light btn card modal-action modal-close right">Close</a>
 		    </div>
 		</div>
@@ -72,7 +71,7 @@
 		<div id="logout-confirm-modal" class="modal black-text">
 		  	<div class="modal-content">
 		    	<h4>Logged out</h4>
-		    	<p>You have logged out of the app. To log in again, click LOG IN at the top of the page.</p>
+		    	<p>You have logged out of the app. To log in again, click LOG IN.</p>
 		    	<p>You must be logged in to see your saved recipes in your Recipe box.</p>
 				<a class="waves-effect waves-light btn card modal-action modal-close right">Close</a>
 		    </div>
@@ -89,8 +88,8 @@
 				</div>
 			</div> -->
 			<div class="row">
-				<!--Main recipe search field-->
-				<div class="col s12">
+				<!--Main recipe search field. Only show when user is logged in.-->
+				<div class="col s12 loggedin-content">
 		        	<h5>Find something to make:</h5>
 		        	<div class="input-field">
 		            	<input id="user-input" type="text" class="validate">
@@ -98,11 +97,18 @@
 		            	<button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Find</button>
 		        	</div>
 		        </div>
+
+				<!--Show start screen when user is logged out-->
+		        <div class="col s12" id="start-screen">
+		        	<h4>Welcome to the FunCooker</h4>
+		        	<p>To get started, click LOG IN to log in to an existing account or to create a new one.</p>
+		        	<a href="#login-modal" class="waves-effect waves-light btn card modal-trigger" id="open-login-btn">Log in</a>
+		        </div>
 		    </div>
 
-			<!--Recipe search results section. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
+			<!--Recipe search results section. Inly show when user is logged in. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
 			<div class="row">
-				<div class="col s12">
+				<div class="col s12 loggedin-content">
 					<div id="recipe-list" class="section">
 					    <div id = "recipe1" class="col l4 m6 s12">
 	          			</div>

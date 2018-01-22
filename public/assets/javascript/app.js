@@ -1,3 +1,9 @@
+//Hide app featurs when user is logged out.
+$(".loggedin-content").hide();
+
+//Show start screen when user is logged out.
+$("#start-screen").show();
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
@@ -133,7 +139,7 @@ function testAjax(queryURL){
       saveBtn.on("click",function(e){
         console.log("newbtn working");
         //Display toast message that indicates recipe was added to Recipe box successfully.
-        Materialize.toast('Recipe successfully added to Recipe box.', 4000, 'rounded'); // 4000 is the duration of the toast
+        Materialize.toast('Recipe added to Recipe box.', 3000, 'rounded'); // 3000 is the duration of the toast
         var name = $(e.target).data("name");
         console.log("name : "+name);
         var newRecipe = {
@@ -173,15 +179,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     //Open logged in confirmation screen.
     $("#login-confirm-modal").modal("open");
     // User is signed in.
+    //Show app features when user is logged in.
+    $(".loggedin-content").show();
+    //Hide start screen when user is logged in.
+    $("#start-screen").hide();
     $("#logout-btn").show();
     $("#login-btn").hide();
     $("#signup-btn").hide();
     $("#open-login-btn").hide();
     //Close login screen
     $("#login-modal").modal('close');
+    //Show member info
+    $("#member-info").show();
     if (user != null){
       var email_id =user.email;
-      $("#member-info").text(email_id);
+      $("#member-info").text("User: " + email_id);
       email = user.email;
       photoUrl = user.photoURL;
       emailVerified = user.emailVerified;
@@ -252,9 +264,19 @@ function logOut(){
   firebase.auth().signOut();
   //Trigger modal
   $(".modal").modal();
-  //Opem logged out confirmation modal
+  //Open logged out confirmation modal
   $("logout-confirm-modal").modal('open');
+  //Hide app features when user is logged out.
+  $(".loggedin-content").hide();
+  //Show start screen when user is logged out.
+  $("#start-screen").show();
   $("#recipeBox").empty();
+  //Remove member info fro navbar
+  $("#member-info").hide();
+  //When user logs out, clear any existing search results.
+  $("#recipe1").empty();
+  $("#recipe2").empty();
+  $("#recipe3").empty();
 }
 // Click event for sign in.
 function login(){

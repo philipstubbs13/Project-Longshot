@@ -44,8 +44,8 @@ main {
   margin-top: 15px;
 }
 
-/*Submit Button*/
-#submit{
+/*Button color styling*/
+#submit, #logout-btn, #login-btn, #signup-btn,#open-login-btn {
 background-color: #E8BD53;
 }
 
