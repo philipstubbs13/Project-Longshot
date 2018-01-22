@@ -168,12 +168,17 @@ $("#submit").on("click",function(e){
 //function to detect auth state change
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    alert("user signed in");
+    //Trigger modal
+    $(".modal").modal();
+    //Open logged in confirmation screen.
+    $("#login-confirm-modal").modal("open");
     // User is signed in.
     $("#logout-btn").show();
     $("#login-btn").hide();
     $("#signup-btn").hide();
-
+    $("#open-login-btn").hide();
+    //Close login screen
+    $("#login-modal").modal('close');
     if (user != null){
       var email_id =user.email;
       $("#member-info").text(email_id);
@@ -227,6 +232,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#logout-btn").hide();
     $("#login-btn").show();
     $("#signup-btn").show();
+    $("#open-login-btn").show();
   }
 });
 //click event for sign up
@@ -244,6 +250,10 @@ function signUp(){
 //click event for logOut
 function logOut(){
   firebase.auth().signOut();
+  //Trigger modal
+  $(".modal").modal();
+  //Opem logged out confirmation modal
+  $("logout-confirm-modal").modal('open');
   $("#recipeBox").empty();
 }
 // Click event for sign in.
