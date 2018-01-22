@@ -238,19 +238,16 @@ firebase.auth().onAuthStateChanged(function(user) {
         newList.append(newSpan);
         newSpan.append(linkA,trash,pencil);
         $("#recipeBox").append(newList);
+        //remove recipe from user recipe box in database
+        trash.on("click",function(e){
+          var uidKey = $(e.target).data("key");
+              console.log("working");
+              var updates ={};
+              var removeData ={};
+              updates[uidKey]=removeData;
+              return database.ref('/users/'+uid).update(updates);
+          })
       });
-      //remove recipe from user recipe box in database
-      trash.on("click",function(e){
-        var uidKey = $(e.target).data("key");
-            console.log("working");
-            var updates ={};
-            var removeData ={};
-            updates[uidKey]=removeData;
-            return database.ref('/users/'+uid).update(updates);
-        })
-      });
-
-      })
     }
   } else {
     // No user is signed in.
