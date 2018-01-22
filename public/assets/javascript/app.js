@@ -182,6 +182,45 @@ firebase.auth().onAuthStateChanged(function(user) {
       emailVerified = user.emailVerified;
       uid = user.uid;
       console.log("email: "+user.email + " uid : "+ uid);
+
+      database.ref('/users/' + uid).on("child_added", function(childSnapshot) {
+
+        var name = childSnapshot.val().name;
+        console.log("name "+ name + " key: "+key);
+        var ingredients = childSnapshot.val().ingredients;
+        var link = childSnapshot.val().link;
+        var img = childSnapshot.val().img;
+        var key = childSnapshot.key;
+        console.log("link " + link);
+      //
+        var newList = $("<p>");
+        newList.attr("id",key);
+        var newSpan = $("<span>");
+        var linkA = $("<a>");
+        linkA.text(name);
+        linkA.attr("href",link);
+        linkA.addClass("recipe-box-link");
+        //Add attribute to recipe box link to open external recipe link in a new tab window.
+        linkA.attr("target", "_blank");
+        var trash = $("<i>");
+        var pencil = $("<i>");
+        //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+        //data-tooltip is the tooltip text that appears when user hovers over button.
+        trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
+        //Initialize tooltip for trash and pencil buttons.
+        $('.tooltipped').tooltip({delay: 30});
+        trash.addClass("fa fa-trash remove tooltipped");
+        trash.attr("data-key",key);
+        //Add data-target with id of the remove recipe modal to trigger confirmation dialog.
+        trash.attr("data-target", "removeRecipeModal");
+        //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+        //data-tooltip is the tooltip text that appears when user hovers over button.
+        pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.");
+        pencil.addClass("fa fa-pencil tooltipped");
+        newList.append(newSpan);
+        newSpan.append(linkA,trash,pencil);
+        $("#recipeBox").append(newList);
+      });
     }
   } else {
     // No user is signed in.
@@ -205,6 +244,7 @@ function signUp(){
 //click event for logOut
 function logOut(){
   firebase.auth().signOut();
+  $("#recipeBox").empty();
 }
 // Click event for sign in.
 function login(){
@@ -227,45 +267,6 @@ $(document).ready(function(){
 });
 
 //print saved recipe to recipe box modal (this is a bottom sheet).
-
-database.ref('/users/' + uid).on("child_added", function(childSnapshot) {
-
-  var name = childSnapshot.val().name;
-  console.log("name "+ name + " key: "+key);
-  var ingredients = childSnapshot.val().ingredients;
-  var link = childSnapshot.val().link;
-  var img = childSnapshot.val().img;
-  var key = childSnapshot.key;
-  console.log("link " + link);
-//
-//   var newList = $("<p>");
-//   newList.attr("id",key);
-//   var newSpan = $("<span>");
-//   var linkA = $("<a>");
-//   linkA.text(name);
-//   linkA.attr("href",link);
-//   linkA.addClass("recipe-box-link");
-//   //Add attribute to recipe box link to open external recipe link in a new tab window.
-//   linkA.attr("target", "_blank");
-//   var trash = $("<i>");
-//   var pencil = $("<i>");
-//   //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
-//   //data-tooltip is the tooltip text that appears when user hovers over button.
-//   trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
-//   //Initialize tooltip for trash and pencil buttons.
-//   $('.tooltipped').tooltip({delay: 30});
-//   trash.addClass("fa fa-trash remove tooltipped");
-//   trash.attr("data-key",key);
-//   //Add data-target with id of the remove recipe modal to trigger confirmation dialog.
-//   trash.attr("data-target", "removeRecipeModal");
-//   //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
-//   //data-tooltip is the tooltip text that appears when user hovers over button.
-//   pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.");
-//   pencil.addClass("fa fa-pencil tooltipped");
-//   newList.append(newSpan);
-//   newSpan.append(linkA,trash,pencil);
-//   $("#recipeBox").append(newList);
-});
 
 $(document).on("click",".remove",function(e) {
   //When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
