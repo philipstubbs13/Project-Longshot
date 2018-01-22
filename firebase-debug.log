@@ -1,0 +1,32 @@
+[debug] [2018-01-22T00:48:38.629Z] ----------------------------------------------------------------------
+[debug] [2018-01-22T00:48:38.631Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-01-22T00:48:38.631Z] CLI Version:   3.17.3
+[debug] [2018-01-22T00:48:38.631Z] Platform:      darwin
+[debug] [2018-01-22T00:48:38.631Z] Node Version:  v8.5.0
+[debug] [2018-01-22T00:48:38.632Z] Time:          Sun Jan 21 2018 18:48:38 GMT-0600 (CST)
+[debug] [2018-01-22T00:48:38.632Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-22T00:48:38.643Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-22T00:48:38.643Z] > authorizing via signed-in user
+[debug] [2018-01-22T00:48:38.645Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/longshotauth  
+  
+ Sun Jan 21 2018 18:48:38 GMT-0600 (CST)
+[debug] [2018-01-22T00:48:41.001Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-22T00:48:41.002Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/longshotauth/tokens  
+  
+ Sun Jan 21 2018 18:48:41 GMT-0600 (CST)
+[debug] [2018-01-22T00:48:43.010Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/idajensen/Documents'...
+[info] 
+[debug] [2018-01-22T00:48:43.013Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/longshotauth  
+  
+ Sun Jan 21 2018 18:48:43 GMT-0600 (CST)
+[debug] [2018-01-22T00:48:43.325Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-22T00:48:43.326Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/783961136211/clients/_:getWebAppConfig  
+  
+ Sun Jan 21 2018 18:48:43 GMT-0600 (CST)
+[debug] [2018-01-22T00:48:43.670Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
