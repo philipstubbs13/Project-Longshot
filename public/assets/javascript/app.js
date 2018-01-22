@@ -1,4 +1,4 @@
-//Hide app featurs when user is logged out.
+//Hide app features when user is logged out.
 $(".loggedin-content").hide();
 
 //Show start screen when user is logged out.
@@ -225,7 +225,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         //data-tooltip is the tooltip text that appears when user hovers over button.
         trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
         //Initialize tooltip for trash and pencil buttons.
-        $('.tooltipped').tooltip({delay: 30});
+        //$('.tooltipped').tooltip({delay: 30});
         trash.addClass("fa fa-trash remove tooltipped");
         trash.attr("data-key",key);
         //Add data-target with id of the remove recipe modal to trigger confirmation dialog.
@@ -318,15 +318,14 @@ $(document).on("click",".remove",function(e) {
       console.log("working");
       updates[snap]=removeData;
       return database.ref().update(updates);
-    };
+      };
   })
 });
 
-// If user decides that they don't want to remove the recipe from the recipe box...
-$('#no-remove').on("click", function(){
-  return;
-});
-
+  // If user decides that they don't want to remove the recipe from the recipe box...
+  //$('#no-remove').on("click", function(){
+    //return;
+  //});
 
 // When Help link in the Footer is clicked, open help page.
 $("#help-link").on("click", function(){
