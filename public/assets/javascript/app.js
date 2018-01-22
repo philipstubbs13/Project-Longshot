@@ -29,6 +29,9 @@ var sourceLink;
 var user = firebase.auth().currentUser;
 var name, email, photoUrl, uid, emailVerified;
 var userId;
+var newNote;
+var key;
+var recipeKeyNote;
 
 function testAjax(queryURL){
   fetch(queryURL)
@@ -137,16 +140,15 @@ function testAjax(queryURL){
 
       //When the save recipe button is clicked...
       saveBtn.on("click",function(e){
-        console.log("newbtn working");
         //Display toast message that indicates recipe was added to Recipe box successfully.
         Materialize.toast('Recipe added to Recipe box.', 3000, 'rounded'); // 3000 is the duration of the toast
         var name = $(e.target).data("name");
-        console.log("name : "+name);
         var newRecipe = {
           name:data.hits[name].recipe.label,
           ingredients: data.hits[name].recipe.ingredients[0].text,
           link: data.hits[name].recipe.url,
-          img: data.hits[name].recipe.image
+          img: data.hits[name].recipe.image,
+          notes:""
         };
         database.ref('/users/'+uid).push(newRecipe);
         console.log("label : "+ newRecipe.name + " recipe : "+ newRecipe.ingredients + " sourceLink : "+ newRecipe.link);
@@ -198,6 +200,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       photoUrl = user.photoURL;
       emailVerified = user.emailVerified;
       uid = user.uid;
+
       console.log("email: "+user.email + " uid : "+ uid);
 
       //print saved recipe to recipe box modal (this is a bottom sheet).
@@ -208,7 +211,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         var ingredients = childSnapshot.val().ingredients;
         var link = childSnapshot.val().link;
         var img = childSnapshot.val().img;
-        var key = childSnapshot.key;
+        key = childSnapshot.key;
+        var notes = childSnapshot.val().notes;
+
         console.log("link " + link);
 
         var newList = $("<p>");
@@ -224,6 +229,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         var pencil = $("<i>");
         //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
         //data-tooltip is the tooltip text that appears when user hovers over button.
+        newSpan.addClass("activator");
         trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
         //Initialize tooltip for trash and pencil buttons.
         //$('.tooltipped').tooltip({delay: 30});
@@ -233,31 +239,84 @@ firebase.auth().onAuthStateChanged(function(user) {
         trash.attr("data-target", "removeRecipeModal");
         //Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
         //data-tooltip is the tooltip text that appears when user hovers over button.
-        pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.");
-        pencil.addClass("fa fa-pencil tooltipped");
+        pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.").attr("href","#notes-modal");
+        //add key to pencil for note updates
+        pencil.attr("data-key",key);
+        pencil.addClass("fa fa-pencil tooltipped btn modal-trigger pencil");
         newList.append(newSpan);
         newSpan.append(linkA,trash,pencil);
         $("#recipeBox").append(newList);
+
+        //modals for notes
+
+        // var notesModal = $("<div>").addClass("modal").attr("id","notes-modal");
+        var modalContent =$("<div>").addClass("modal-content").attr("data-key",key);
+        var notesInput =$("<div>").addClass("input-field recipe-notes").attr("data-key",key);
+        var inputField = $("<input>").attr("id","notes-input").attr("type","text");
+        //create save button for notes modal
+        var saveRecipeBtn=$("<button>");
+        saveRecipeBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href","#notes-modal").attr("data-key",key).attr("type","submit");
+        notesInput.append(inputField,saveRecipeBtn);
+        modalContent.append(notesInput);
+        $("#notes-modal").append(modalContent);
+        modalContent.hide();
+
+
         //remove recipe from user recipe box in database
         trash.on("click",function(e){
-          var uidKey = $(e.target).data("key");
+          var recipeKey = $(e.target).data("key");
               console.log("working");
               var updates ={};
               var removeData ={};
-              updates[uidKey]=removeData;
+              updates[recipeKey]=removeData;
               return database.ref('/users/'+uid).update(updates);
-		  })
-		
-      });
-    }
-  } else {
+            })
+
+        pencil.on("click",function(e){
+  recipeKey = $(e.target).data("key");
+  console.log("recipKey "+recipeKey);
+  var modalFind = modalContent.data("key");
+console.log("modalFind "+modalFind);
+  if (recipeKey === modalFind){
+    modalContent.show();
+  }
+});
+saveRecipeBtn.on("click",function(e){
+notesKey = $(e.target).data("key");
+var notesFind =notesInput.data("key");
+console.log("notesKey " + notesKey+ " notesFind "+notesFind);
+if(notesKey === notesFind){
+  console.log("notes button working");
+  var notesValue = inputField.val();
+  console.log("notesvalue "+notesValue);
+  var updates={};
+  var addNotes ={
+    name:name,
+  ingredients: ingredients,
+  link: link,
+  img: img,
+  notes:notesValue
+};
+  updates[recipeKey]=addNotes;
+  return database.ref('/users/'+uid).update(updates);
+}
+})
+})
+}
+   else {
     // No user is signed in.
     $("#logout-btn").hide();
     $("#login-btn").show();
     $("#signup-btn").show();
     $("#open-login-btn").show();
   }
+}
 });
+var saveRecipeBtn;
+
+var recipeKey;
+var notesKey;
+
 //click event for sign up
 function signUp(){
   var userEmail = $("#email-input").val().trim();
