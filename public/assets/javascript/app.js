@@ -200,6 +200,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       uid = user.uid;
       console.log("email: "+user.email + " uid : "+ uid);
 
+      //print saved recipe to recipe box modal (this is a bottom sheet).
       database.ref('/users/' + uid).on("child_added", function(childSnapshot) {
 
         var name = childSnapshot.val().name;
@@ -209,7 +210,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         var img = childSnapshot.val().img;
         var key = childSnapshot.key;
         console.log("link " + link);
-      //
+
         var newList = $("<p>");
         newList.attr("id",key);
         var newSpan = $("<span>");
@@ -238,6 +239,18 @@ firebase.auth().onAuthStateChanged(function(user) {
         newSpan.append(linkA,trash,pencil);
         $("#recipeBox").append(newList);
       });
+      //remove recipe from user recipe box in database
+      trash.on("click",function(e){
+        var uidKey = $(e.target).data("key");
+            console.log("working");
+            var updates ={};
+            var removeData ={};
+            updates[uidKey]=removeData;
+            return database.ref('/users/'+uid).update(updates);
+        })
+      });
+
+      })
     }
   } else {
     // No user is signed in.
@@ -298,8 +311,7 @@ $(document).ready(function(){
   $('.modal').modal();
 });
 
-//print saved recipe to recipe box modal (this is a bottom sheet).
-
+//remove recipe from html in user recipe box
 $(document).on("click",".remove",function(e) {
   //When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
   //$('#removeRecipeModal').modal('open');
@@ -308,18 +320,6 @@ $(document).on("click",".remove",function(e) {
   var key = $(e.target).data("key");
   var list =  document.getElementById(key);
   list.remove();
-  console.log(key);
-  var updates ={};
-  var removeData ={};
-  database.ref().on("child_added",function(snapshot) {
-    var snap = snapshot.key;
-    console.log(snap);
-    if (key == snap){
-      console.log("working");
-      updates[snap]=removeData;
-      return database.ref().update(updates);
-      };
-  })
 });
 
   // If user decides that they don't want to remove the recipe from the recipe box...
