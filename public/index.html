@@ -121,19 +121,37 @@
 	        </div>
 
 			<!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
-			<div id="recipe-box-modal" class="modal bottom-sheet">
+			<div id="recipe-box-modal" class="modal bottom-sheet" style="z-index: 1003; display:block;">
 		    	<div class="modal-content">
 		    		<div class="section">
 		      			<h4>Recipe box</h4>
 		      			<!--Recipe box - where saved recipes will go-->
 		      			<h5 id="recipeBox"></h5>
-		      		</div>
+								<!-- Modal Structure -->
+
 		    	</div>
 		    	<!--Close recipe box-->
 		   		 <div class="modal-footer">
 		      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 		    	</div>
 		  	</div>
+			</div>
+
+
+			  <!-- Modal Structure -->
+			  <div id="notes-modal" class="modal">
+			    <!-- <div class="modal-content">
+			      <h4>Notes for Recipe</h4>
+						<div class="input-field recipe-notes">
+								<input id="notes-input" type="text" class="validate">
+								<label for="text" data-error="wrong" data-success="right">Enter notes for recipes (add recipe name):</label>
+								<button class="btn waves-effect waves-light modal-trigger" type="submit" name="action" id="submit-notes" data-target="notes-modal">Save</button>
+						</div>
+			    </div>
+			    <div class="modal-footer">
+			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			    </div> -->
+			  </div>
 
 		  	<!-- Modal Trigger. This is a confirmation modal that appears when the user clicks the trash can icon. -->
 			<div id="removeRecipeModal" class="modal">
