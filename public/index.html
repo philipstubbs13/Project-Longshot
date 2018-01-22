@@ -136,7 +136,7 @@
 		  	</div>
 
 		  	<!-- Modal Trigger. This is a confirmation modal that appears when the user clicks the trash can icon. -->
-			<div id="removeRecipeModal" class="modal">
+			<div id="removeRecipeModal" class="modal ">
 				<div class="modal-content">
 			    	<h4>Are you sure you want remove?</h4>
 			    	<p>Removing a recipe permanently removes it from the Recipe box. Are you sure?</p>
@@ -144,6 +144,24 @@
 			    <div class="modal-footer">
 			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="yes-remove">Remove</a>
 			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="no-remove">Cancel</a>
+			    </div>
+			</div>
+			<!-- This is text input modal that appears when the user clicks the pencil icon-->
+			<div id="pencil" class="modal">
+				<div class="modal-content">
+			    	<h4>Write a note about this recipe</h4>
+			    	<form class="col s12">
+						<div class="row">
+						  <div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea" data-length="300"></textarea>
+							<label for="textarea1">Textarea</label>
+						  </div>
+						</div>
+					  </form>
+			    </div>
+			    <div class="modal-footer">
+			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="save-notes">Save</a>
+			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="delete-notes">Delete</a>
 			    </div>
 			</div>
     </div>

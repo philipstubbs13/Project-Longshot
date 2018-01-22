@@ -246,7 +246,8 @@ firebase.auth().onAuthStateChanged(function(user) {
               var removeData ={};
               updates[uidKey]=removeData;
               return database.ref('/users/'+uid).update(updates);
-          })
+		  })
+		
       });
     }
   } else {
@@ -319,6 +320,10 @@ $(document).on("click",".remove",function(e) {
   list.remove();
 });
 
+$(document).on("click", ".fa-pencil", function(e) {
+	console.log('working');
+	$('#pencil').modal('open');
+});
   // If user decides that they don't want to remove the recipe from the recipe box...
   //$('#no-remove').on("click", function(){
     //return;
@@ -327,7 +332,7 @@ $(document).on("click",".remove",function(e) {
 // When Help link in the Footer is clicked, open help page.
 $("#help-link").on("click", function(){
   $("#help-modal").modal('open');
-})
+});
 
 //When About link in the Footer is clicked, open about page.
 $("#about-link").on("click", function(){
