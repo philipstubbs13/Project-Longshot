@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 	<!--External css file-->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
 
 	<!--JQuery link-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -33,6 +33,9 @@
 </head>
 
 <body>
+	<!--Commenting out the hamburger menu button for now until we get app to be responsive-->
+	<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
+
 	<!--Top Navigation Bar-->
 	<nav class="" role="navigation">
 		 <div class="container" id="navigation_bar">
@@ -40,7 +43,10 @@
 	   Recipe Search App</a>
 	    	<!--Authentication/Sign in button-->
 	    	<ul class="right navbar_list">
-	      		<li><a class="waves-effect waves-light btn card" id="authentication-btn">Sign in</a></li>
+	      		<li><a class="waves-effect waves-light btn card" id="login-btn" onclick = "login()">Sign in</a></li>
+						<p id="member-info">Welcome To the FunCooker: </p>
+						<li><a class="waves-effect waves-light btn card" id="signup-btn" onclick = "signUp()">Sign Up</a></li>
+						<li><a class="waves-effect waves-light btn card" id="logout-btn" onclick = "logOut()">Log Out</a></li>
 	    	</ul>
 	    </div>
 	</nav>
@@ -125,7 +131,10 @@
             		</ul>
           		</div>
         	</div>
-
+					<label for="userPassword">Password: </label>
+					<input id="password-input" type="password">
+					<label for="userEmail">Email: </label>
+					<input id="email-input" type="email">
         	<!--About screen-->
 			<div id="about-modal" class="modal">
 				<div class="modal-content black-text">
@@ -172,7 +181,7 @@
 					    	<div class="collapsible-header">How do I favorite a recipe?</div>
 					    	<div class="collapsible-body"><span>If you find a recipe that you really like and want to save it so that you can view it later, you can favorite it.</span>
 					    	<p>To favorite a recipe, click the <i class="small fa fa-cutlery"></i> icon next to the recipe you want to favorite.</p>
-							<p>After you favorite a recipe, it will be added to the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>						
+							<p>After you favorite a recipe, it will be added to the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>
 					  		</div>
 					    </li>
 					    <li>
@@ -202,19 +211,20 @@
 					      <div class="collapsible-header">Who created the app?</div>
 					      <div class="collapsible-body"><span>The app was created by The Longshots at the University of Minnesota, Twin Cities.</span></div>
 					    </li>
-					  </ul> 
+					  </ul>
 			    </div>
 			    <div class="modal-footer">
 			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 			    </div>
-			  </div>       
+			  </div>
       	</div>
     </footer>
 
 <!--Firebase Javascript link-->
 <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 
+
 <!--Link to external Javascript file-->
-<script src="assets/javascript/app.js"></script>
+<script src="public/assets/javascript/app.js"></script>
 </body>
 </html>
