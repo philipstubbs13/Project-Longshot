@@ -251,14 +251,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 				var notesModal = $("<div>").addClass("modal").attr("id","notes-modal");
 				var modalContent = $("<div>").addClass("modal-content").attr("data-key", key);
+				var notesHeader = $("<h4>").text("Write some notes about this recipe")
 				var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
-				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text");
+				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Write your notes here");
 				//create save button for notes modal
 				var saveRecipeBtn = $("<button>").text("Save");
 				saveRecipeBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
 				var deleteRecipeBtn = $("<button>").text("Delete");
 				deleteRecipeBtn.addClass("btn waves-effect waves-light modal-trigger notesSave ").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
-				notesInput.append(inputField, saveRecipeBtn, deleteRecipeBtn);
+				notesInput.append(notesHeader, inputField, saveRecipeBtn, deleteRecipeBtn);
 				modalContent.append(notesInput);
 				$("#notes-modal").append(modalContent);
 				modalContent.hide();
@@ -306,7 +307,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				});
 
 				deleteRecipeBtn.on("click", function (e) {
-					
+
 				})
 
 				$("#delete-notes").on('click', function() {
