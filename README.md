@@ -102,7 +102,7 @@ Run these commands to set up this project locally on your computer:
 
 ## <a name="edamam-api"></a>About the Edamam Recipe Search API
 <p>To learn about the Edamam API and the various API parameters, read the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API documentation</a>. You should be familiar with the API before contributing to this project or creating your own recipe search app.</p>
-<p>Edamam requires developers to use a key (<pre>api_key</pre>) and an app id (<pre>app_id</pre>) to access API data. To use the Edamam API, you'll need a (free) Edamam developer account.</p>
+<p>Edamam requires developers to use a key (api_key) and an app id (app_id) to access API data. To use the Edamam API, you'll need a (free) Edamam developer account.</p>
 <p>After you have an app key and id, you can use the API to search for recipes matching the specified query.</p>
 
 ## <a name="how-to-use-app"></a> How to use the app
