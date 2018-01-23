@@ -45,7 +45,7 @@ main {
 }
 
 /*Button color styling*/
-#submit, #logout-btn, #login-btn, #signup-btn,#open-login-btn {
+#submit, #logout-btn, #login-btn, #signup-btn,#open-login-btn, #login-confirm-btn, #logout-confirm-btn {
 background-color: #E8BD53;
 }
 
@@ -53,12 +53,6 @@ background-color: #E8BD53;
 .fa-cutlery:hover {
   color: #E8BD53;
 }
-
-/*Side menu*/
-/* main, footer {
-  padding-left: 0px;
-  padding-right: 0px;
-} */
 
 nav, .page-footer {
     background-color: #264653;
