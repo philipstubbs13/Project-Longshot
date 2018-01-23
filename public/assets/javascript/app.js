@@ -255,11 +255,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
 				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Write your notes here");
 				//create save button for notes modal
-				var saveRecipeBtn = $("<button>").text("Save");
-				saveRecipeBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
-				var deleteRecipeBtn = $("<button>").text("Delete");
-				deleteRecipeBtn.addClass("btn waves-effect waves-light modal-trigger notesSave ").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
-				notesInput.append(notesHeader, inputField, saveRecipeBtn, deleteRecipeBtn);
+				var saveNotesBtn = $("<button>").text("Save");
+				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
+				var deleteNotesBtn = $("<button>").text("Delete");
+				deleteNotesBtn.addClass("btn waves-effect waves-light modal-trigger notesSave ").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
+				notesInput.append(notesHeader, inputField, saveNotesBtn, deleteNotesBtn);
 				modalContent.append(notesInput);
 				$("#notes-modal").append(modalContent);
 				modalContent.hide();
@@ -285,7 +285,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 					}
 				});
 
-				saveRecipeBtn.on("click", function (e) {
+				// Saves notes to Firebase when "save" 
+				// button is clicked
+				saveNotesBtn.on("click", function (e) {
 					notesKey = $(e.target).data("key");
 					var notesFind = notesInput.data("key");
 					console.log("notesKey " + notesKey + " notesFind " + notesFind);
@@ -306,7 +308,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 					};
 				});
 
-				deleteRecipeBtn.on("click", function (e) {
+				// Deletes text from the input field and sets
+				// the notes property in Firebase to 'null'
+				deleteNotesBtn.on("click", function (e) {
 					notesKey = $(e.target).data("key");
 					var notesFind = notesInput.data("key");
 					console.log("notesKey " + notesKey + " notesFind " + notesFind);
@@ -315,17 +319,17 @@ firebase.auth().onAuthStateChanged(function (user) {
 						var notesValue = inputField.val("");
 						console.log("var notesValue: " + notesValue);
 						var updates = {};
-						var addNotes = {
+						var delNotes = {
 							name: name,
 							ingredients: ingredients,
 							link: link,
 							img: img,
 							notes: null
 						};
-						updates[recipeKey] = addNotes;
+						updates[recipeKey] = delNotes;
 						return database.ref('/users/' + uid).update(updates);
 					};
-				})
+				});
 
 				$("#delete-notes").on('click', function() {
 					console.log("Delete button")
@@ -391,7 +395,7 @@ function login() {
 		window.alert("Error : " + errorMessage);
 
 	});
-}
+};
 
 //Trigger bottom sheet to open recipe box.
 $(document).ready(function () {
