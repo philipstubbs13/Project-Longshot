@@ -307,7 +307,24 @@ firebase.auth().onAuthStateChanged(function (user) {
 				});
 
 				deleteRecipeBtn.on("click", function (e) {
-
+					notesKey = $(e.target).data("key");
+					var notesFind = notesInput.data("key");
+					console.log("notesKey " + notesKey + " notesFind " + notesFind);
+					if (notesKey === notesFind) {
+						//console.log("notes button working");
+						var notesValue = inputField.val("");
+						console.log("var notesValue: " + notesValue);
+						var updates = {};
+						var addNotes = {
+							name: name,
+							ingredients: ingredients,
+							link: link,
+							img: img,
+							notes: null
+						};
+						updates[recipeKey] = addNotes;
+						return database.ref('/users/' + uid).update(updates);
+					};
 				})
 
 				$("#delete-notes").on('click', function() {
