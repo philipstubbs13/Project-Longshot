@@ -309,10 +309,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 							link: link,
 							img: img,
 							notes: {
-								name: notesValue
+								text: notesValue
 							}
 						};
+						//notes = addNotes.notes.text;
 						console.log(addNotes);
+						// database.ref().on('child_added', function(childSnapshot) {
+						// 	notes = childSnapshot.val().notes;
+						// });
 						// The header for each appended note changes 
 						// to reflect the dish it has been written for
 						notesHeader.text(addNotes.name);
