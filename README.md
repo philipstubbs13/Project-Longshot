@@ -69,42 +69,36 @@ Run these commands to set up this project locally on your computer:
 			<li>Grab the user input from the search field when a user starts a recipe search.</li> 
       <li>Perform a jQuery AJAX GET request to retrieve the relevant recipe data using the Edamam API, including the recipe name, the list of ingredients, an external link to more information, and an image of the recipe.</li>
       <li>Display the recipe data in the search results section after the AJAX request is complete.</li>
-      <li>Save recipes so that they can be viewed later.</li>
-      <li>Remove saved recipes.</li>
-      <li>Add notes to recipes.</li>
+      <li>Save, remove, and add notes to recipes.</li>
       <li>Trigger modals that are used in the app.</li>
       <li>Hide and show app features based on whether a user is logged in to the app or not.</li>
 		</ul>
 	</li>
 	<li><b>/public/assets/css</b>: This directory contains the external stylesheet used for the app. Materialize is the css framework used for this project. </li>
 	<li><b>/public/index.html</b>: This file contains the code for the HTML and Materialize css markup.</li>
-	<li><b>firebase.json</b>: This file located in the root directory is the Firebase configuration file that gets created when you deploy a project to Firebase.</li>
-	<li><b>readme_images</b>: This directory contains images used in the README file.</li>
+	<li><b>firebase.json</b>: This file located in the root directory is the Firebase configuration file.</li>
+	<li><b>/public/assets/images</b>: This directory contains images used for this project.</li>
 	<li><b>database.rules.json</b>:This file contains the database rules that grant permissions to users who are logged into the app.</li>
 </ul>
 
 ## <a name="screenshots"></a> Screenshots
-![Image of start screen](readme_images/start-screen.png)
-![Image of login screen](readme_images/login-screen.png)
-![Image of login screen](readme_images/search-screen.png)
-![Image of login screen](readme_images/search-results.png)
+![Image of start screen](public/assets/images/start-screen.png)
+![Image of login screen](public/assets/images/login-screen.png)
+![Image of login screen](public/assets/images/search-screen.png)
+![Image of login screen](public/assets/images/search-results.png)
 
 ## <a name="technologies-used"></a> Technologies used to create app
 
   ### <a name="front-end"></a> Front end technologies
-    <ul>
-      <li>HTML5</li>
-      <li>CSS</li>
-      <li>Materialize (http://materializecss.com/)</li>
-      <li>Javascript</li>
-      <li>JQuery (https://jquery.com/)</li>
-    </ul>
+    * HTML5
+    * CSS
+    * Materialize (http://materializecss.com/)
+    * Javascript
+    * JQuery (https://jquery.com/)
 
   ### <a name="back-end"></a> Back end technologies
-    <ul>
-      <li>Firebase API for database hosting and email/password authentication (https://firebase.google.com/)</li>
-      <li>Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)</li>
-    </ul>
+      * Firebase API for database hosting and email/password authentication (https://firebase.google.com/)
+      * Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)
 
 ## <a name="edamam-api"></a>About the Edamam Recipe Search API
 <p>To learn about the Edamam API and the various API parameters, read the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API documentation</a>. You should be familiar with the API before contributing to this project or creating your own recipe search app.</p>
@@ -117,8 +111,8 @@ Run these commands to set up this project locally on your computer:
   To get started using the app, you need to log in with your app credentials (email and password). If you don't have an account, you can sign up for one from the <b>Log in</b> screen.
   
   ### <a name="recipe-search"></a> Searching for recipes.
-  <p>To search for a recipe, enter the name of the food item (for example, pizza) you want to make in the <b>Find something to make</b> search field and click <b>FIND</b>.</p>
-  <p>The app will return the top 9 recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.</p>
+  To search for a recipe, enter the name of the food item (for example, pizza) you want to make in the <b>Find something to make</b> search field and click <b>FIND</b>.
+  The app will return the top 9 recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.
 
   ### <a name="reveal-ingredients"</a> Revealing ingredients
   To see a list of ingredients for a recipe, click the vertical ellipses icon next to that recipe in the search results to reveal the ingredients.
