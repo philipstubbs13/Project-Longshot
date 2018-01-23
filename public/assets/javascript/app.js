@@ -4,6 +4,9 @@ $(".loggedin-content").hide();
 //Show start screen when user is logged out.
 $("#start-screen").show();
 
+//Hide logout button when user is logged out.
+$("#logout-btn").hide();
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
@@ -185,6 +188,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $(".loggedin-content").show();
     //Hide start screen when user is logged in.
     $("#start-screen").hide();
+    //Show logout button when useris logged in.
     $("#logout-btn").show();
     $("#login-btn").hide();
     $("#signup-btn").hide();
@@ -233,7 +237,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         trash.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip","Removes recipe from Recipe box.");
         //Initialize tooltip for trash and pencil buttons.
         //$('.tooltipped').tooltip({delay: 30});
-        trash.addClass("fa fa-trash remove tooltipped");
+        trash.addClass("fa fa-trash remove");
         trash.attr("data-key",key);
         //Add data-target with id of the remove recipe modal to trigger confirmation dialog.
         trash.attr("data-target", "removeRecipeModal");
@@ -242,7 +246,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         pencil.attr("aria-hidden",true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.").attr("href","#notes-modal");
         //add key to pencil for note updates
         pencil.attr("data-key",key);
-        pencil.addClass("fa fa-pencil tooltipped btn modal-trigger pencil");
+        pencil.addClass("fa fa-pencil btn modal-trigger pencil");
         newList.append(newSpan);
         newSpan.append(linkA,trash,pencil);
         $("#recipeBox").append(newList);
@@ -340,8 +344,16 @@ function logOut(){
   $(".loggedin-content").hide();
   //Show start screen when user is logged out.
   $("#start-screen").show();
+  //Hide logout button.
+  $("#logout-btn").hide();
+  //Show login button on start screen.
+  $("#open-login-btn").show();
+  //show log in button and sign up button in login screen.
+  $("#login-btn").show();
+  $("#signup-btn").show();
+  //Remove items in recipe box.
   $("#recipeBox").empty();
-  //Remove member info fro navbar
+  //Remove member info from navbar
   $("#member-info").hide();
   //When user logs out, clear any existing search results.
   $("#recipe1").empty();
