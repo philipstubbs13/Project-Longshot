@@ -89,47 +89,47 @@ Run these commands to set up this project locally on your computer:
 
 ## <a name="technologies-used"></a> Technologies used to create app
 
-  ### <a name="front-end"></a> Front end technologies
-    * HTML5
-    * CSS
-    * Materialize (http://materializecss.com/)
-    * Javascript
-    * JQuery (https://jquery.com/)
+### <a name="front-end"></a> Front end technologies
+  * HTML5
+  * CSS
+  * Materialize (http://materializecss.com/)
+  * Javascript
+  * JQuery (https://jquery.com/)
 
-  ### <a name="back-end"></a> Back end technologies
-      * Firebase API for database hosting and email/password authentication (https://firebase.google.com/)
-      * Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)
+### <a name="back-end"></a> Back end technologies
+  * Firebase API for database hosting and email/password authentication (https://firebase.google.com/)
+  * Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)
 
 ## <a name="edamam-api"></a>About the Edamam Recipe Search API
 <p>To learn about the Edamam API and the various API parameters, read the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API documentation</a>. You should be familiar with the API before contributing to this project or creating your own recipe search app.</p>
-<p>Edamam requires developers to use a key (api_key) and an app id (app_id) to access API data. To use the Edamam API, you'll need a (free) Edamam developer account.</p>
+<p>Edamam requires developers to use a key (<pre>api_key</pre>) and an app id (<pre>app_id</pre>) to access API data. To use the Edamam API, you'll need a (free) Edamam developer account.</p>
 <p>After you have an app key and id, you can use the API to search for recipes matching the specified query.</p>
 
 ## <a name="how-to-use-app"></a> How to use the app
 
-  ### <a name="authentication"></a> Logging in
+### <a name="authentication"></a> Logging in
   To get started using the app, you need to log in with your app credentials (email and password). If you don't have an account, you can sign up for one from the <b>Log in</b> screen.
   
-  ### <a name="recipe-search"></a> Searching for recipes.
+### <a name="recipe-search"></a> Searching for recipes.
   To search for a recipe, enter the name of the food item (for example, pizza) you want to make in the <b>Find something to make</b> search field and click <b>FIND</b>.
   The app will return the top 9 recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.
 
-  ### <a name="reveal-ingredients"</a> Revealing ingredients
+### <a name="reveal-ingredients"></a> Revealing ingredients
   To see a list of ingredients for a recipe, click the vertical ellipses icon next to that recipe in the search results to reveal the ingredients.
 
-  ### <a name="add-recipe-to-favorites"></a> Adding a recipe to your favorites
+### <a name="add-recipe-to-favorites"></a> Adding a recipe to your favorites
   To favorite a recipe, click the cutlery icon next to that recipe in the search results. After you favorite a recipe, it is added to your Recipe box.
 
-  ### <a name="view-favorite-recipes"></a> Viewing favorite recipes in your Recipe box
+### <a name="view-favorite-recipes"></a> Viewing favorite recipes in your Recipe box
   The Recipe box is where you can view your favorite recipes. You must be logged in to use this feature as the Recipe box will be different from user to user. After you are logged in, you can view favorite recipes by clicking the cutlery icon in the top navigation bar.
 
-  ### <a name="remove-favorite-recipes"></a> Removing favorite recipes
+### <a name="remove-favorite-recipes"></a> Removing favorite recipes
   To remove a favorite recipe, open your Recipe box by clicking the cutlery icon in the top navigation bar and then click the trash icon next to the recipe you want to remove.
 
-  ### <a name="add-notes-to-recipe"></a> Adding notes to a recipe
+### <a name="add-notes-to-recipe"></a> Adding notes to a recipe
   To add notes to a favorite recipe, open your Recipe box by clicking the cutlery icon in the top navigation bar and then click the pencil icon next to the recipe you want to edit.
 
-  ### <a name="help-info"></a> Help information
+### <a name="help-info"></a> Help information
   Additional help information is available within the app by clicking <b>Help</b> in the footer.
 
 
