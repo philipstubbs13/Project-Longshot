@@ -35,127 +35,127 @@ var recipeKeyNote;
 
 function testAjax(queryURL) {
 	fetch(queryURL)
-		.then((resp) => resp.json())
-		.then(function (data) {
-			// console.log(queryURL);
-			for (var i = 0; i < 9; i++) {
+	.then((resp) => resp.json())
+	.then(function (data) {
+		// console.log(queryURL);
+		for (var i = 0; i < 9; i++) {
 
-				var card = $("<div>");
-				card.addClass("card");
+			var card = $("<div>");
+			card.addClass("card");
 
-				var cardImg = $("<div>");
-				cardImg.addClass("card-image");
+			var cardImg = $("<div>");
+			cardImg.addClass("card-image");
 
-				var img = $("<img>");
-				imgAPI = data.hits[i].recipe.image;
-				img.attr("src", imgAPI);
-				cardImg.append(img);
-				card.append(cardImg);
+			var img = $("<img>");
+			imgAPI = data.hits[i].recipe.image;
+			img.attr("src", imgAPI);
+			cardImg.append(img);
+			card.append(cardImg);
 
-				var cardContent = $("<div>");
-				cardContent.addClass("card-content");
+			var cardContent = $("<div>");
+			cardContent.addClass("card-content");
 
-				//Variable for the recipe title/label.
-				var spanTitle = $("<span>");
-				spanTitle.addClass("card-title");
-				label = data.hits[i].recipe.label;
-				spanTitle.text(label);
-				//This appends the recipe title/label to the recipe image.
-				cardImg.append(spanTitle);
+			//Variable for the recipe title/label.
+			var spanTitle = $("<span>");
+			spanTitle.addClass("card-title");
+			label = data.hits[i].recipe.label;
+			spanTitle.text(label);
+			//This appends the recipe title/label to the recipe image.
+			cardImg.append(spanTitle);
 
-				var pRecipe = $("<p>");
-				recipe = data.hits[i].recipe.ingredients[0].text;
-				console.log(recipe);
-				pRecipe.text(recipe);
-				cardImg.after(cardContent);
+			var pRecipe = $("<p>");
+			recipe = data.hits[i].recipe.ingredients[0].text;
+			console.log(recipe);
+			pRecipe.text(recipe);
+			cardImg.after(cardContent);
 
-				//Use Materialize css card reveal feature to reveal ingredients upon button click.
-				//Add the class activator to an element inside the card to allow it to open the card reveal.
-				img.addClass("activator");
-				//Create span element to hold the button that opens the card reveal.
-				activateIngredients = $("<span>");
-				//Add the class activator and add "Ingredients" text.
-				activateIngredients.addClass("card-title activator").text("Ingredients");
-				//Create button that will open the card reveal and show the ingredients.
-				revealIngredientsIcon = $("<i>");
-				//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
-				//data-tooltip is the tooltip text that appears when user hovers over button.
-				revealIngredientsIcon.addClass("material-icons right tooltipped").text("more_vert").attr("data-position", "top").attr("data-tooltip", "Click to view ingredients.");
-				//Initialize tooltip for show Ingredients button.
-				$('.tooltipped').tooltip({ delay: 30 });
-				activateIngredients.append(revealIngredientsIcon);
-				//Append the card reveal button to the card.
-				cardContent.append(activateIngredients);
-				//Create div for card reveal.
-				var cardReveal = $("<div>");
-				cardReveal.addClass("card-reveal");
-				//Create title for card reveal.
-				var cardRevealTitle = $("<span>");
-				cardRevealTitle.addClass("card-title").text("Ingredients");
-				//Create icon that allows users to close card reveal and return to cardContent.
-				var closeRevealIcon = $("<i>");
-				closeRevealIcon.addClass("material-icons right").text("close");
-				cardRevealTitle.append(closeRevealIcon);
-				//Append the title of card reveal to card reveal div.
-				cardReveal.append(cardRevealTitle);
-				//Append the card reveal div to the card.
-				card.append(cardReveal);
-				//Append the ingredients to the card reveal.
-				cardReveal.append(pRecipe);
+			//Use Materialize css card reveal feature to reveal ingredients upon button click.
+			//Add the class activator to an element inside the card to allow it to open the card reveal.
+			img.addClass("activator");
+			//Create span element to hold the button that opens the card reveal.
+			activateIngredients = $("<span>");
+			//Add the class activator and add "Ingredients" text.
+			activateIngredients.addClass("card-title activator").text("Ingredients");
+			//Create button that will open the card reveal and show the ingredients.
+			revealIngredientsIcon = $("<i>");
+			//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+			//data-tooltip is the tooltip text that appears when user hovers over button.
+			revealIngredientsIcon.addClass("material-icons right tooltipped").text("more_vert").attr("data-position", "top").attr("data-tooltip", "Click to view ingredients.");
+			//Initialize tooltip for show Ingredients button.
+			$('.tooltipped').tooltip({ delay: 30 });
+			activateIngredients.append(revealIngredientsIcon);
+			//Append the card reveal button to the card.
+			cardContent.append(activateIngredients);
+			//Create div for card reveal.
+			var cardReveal = $("<div>");
+			cardReveal.addClass("card-reveal");
+			//Create title for card reveal.
+			var cardRevealTitle = $("<span>");
+			cardRevealTitle.addClass("card-title").text("Ingredients");
+			//Create icon that allows users to close card reveal and return to cardContent.
+			var closeRevealIcon = $("<i>");
+			closeRevealIcon.addClass("material-icons right").text("close");
+			cardRevealTitle.append(closeRevealIcon);
+			//Append the title of card reveal to card reveal div.
+			cardReveal.append(cardRevealTitle);
+			//Append the card reveal div to the card.
+			card.append(cardReveal);
+			//Append the ingredients to the card reveal.
+			cardReveal.append(pRecipe);
 
 
-				var cardAction = $("<div>");
-				cardAction.addClass("card-action");
+			var cardAction = $("<div>");
+			cardAction.addClass("card-action");
 
-				//Dynamically create external recipe link and open the link in a new tab.
-				var link = $("<a>");
-				link.text("More info");
-				sourceLink = data.hits[i].recipe.url;
-				link.attr("href", sourceLink);
-				//Adding attribute to link so that recipe link opens in a new tab window.
-				link.attr("target", "_blank");
+			//Dynamically create external recipe link and open the link in a new tab.
+			var link = $("<a>");
+			link.text("More info");
+			sourceLink = data.hits[i].recipe.url;
+			link.attr("href", sourceLink);
+			//Adding attribute to link so that recipe link opens in a new tab window.
+			link.attr("target", "_blank");
 
-				//Dynamically create button for saving recipes to recipe box.
-				var saveBtn = $("<i>");
-				saveBtn.addClass("small fa fa-cutlery tooltipped");
-				//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
-				//data-tooltip is the tooltip text that appears when user hovers over button.
-				saveBtn.attr("data-name", [i]).attr("data-position", "top").attr("data-tooltip", "Click to save recipe to Recipe box.");
-				//Initialize tooltip for save recipe button.
-				$('.tooltipped').tooltip({ delay: 30 });
+			//Dynamically create button for saving recipes to recipe box.
+			var saveBtn = $("<i>");
+			saveBtn.addClass("small fa fa-cutlery tooltipped");
+			//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
+			//data-tooltip is the tooltip text that appears when user hovers over button.
+			saveBtn.attr("data-name", [i]).attr("data-position", "top").attr("data-tooltip", "Click to save recipe to Recipe box.");
+			//Initialize tooltip for save recipe button.
+			$('.tooltipped').tooltip({ delay: 30 });
 
-				cardAction.append(link, saveBtn);
-				cardContent.after(cardAction);
-				$("#recipe1").append(card);
+			cardAction.append(link, saveBtn);
+			cardContent.after(cardAction);
+			$("#recipe1").append(card);
 
-				var n = $(".card-image").length;
-				// console.log(n);
-				if (n > 3) {
-					$("#recipe2").append(card);
-				};
-
-				if (n > 6) {
-					$("#recipe3").append(card);
-				};
-
-				//When the save recipe button is clicked...
-				saveBtn.on("click", function (e) {
-					//Display toast message that indicates recipe was added to Recipe box successfully.
-					Materialize.toast('Recipe added to Recipe box.', 3000, 'rounded'); // 3000 is the duration of the toast
-					var name = $(e.target).data("name");
-					var newRecipe = {
-						name: data.hits[name].recipe.label,
-						ingredients: data.hits[name].recipe.ingredients[0].text,
-						link: data.hits[name].recipe.url,
-						img: data.hits[name].recipe.image,
-						notes: ""
-					};
-					database.ref('/users/' + uid).push(newRecipe);
-					console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
-				})
+			var n = $(".card-image").length;
+			// console.log(n);
+			if (n > 3) {
+				$("#recipe2").append(card);
 			};
-		});
-}
+
+			if (n > 6) {
+				$("#recipe3").append(card);
+			};
+
+			//When the save recipe button is clicked...
+			saveBtn.on("click", function (e) {
+				//Display toast message that indicates recipe was added to Recipe box successfully.
+				Materialize.toast('Recipe added to Recipe box.', 3000, 'rounded'); // 3000 is the duration of the toast
+				var name = $(e.target).data("name");
+				var newRecipe = {
+					name: data.hits[name].recipe.label,
+					ingredients: data.hits[name].recipe.ingredients[0].text,
+					link: data.hits[name].recipe.url,
+					img: data.hits[name].recipe.image,
+					notes: ""
+				};
+				database.ref('/users/' + uid).push(newRecipe);
+				console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
+			})
+		};
+	});
+};
 
 //When the Find button is clicked in search section...
 $("#submit").on("click", function (e) {
