@@ -154,7 +154,7 @@ function testAjax(queryURL) {
 					ingredients: data.hits[name].recipe.ingredients[0].text,
 					link: data.hits[name].recipe.url,
 					img: data.hits[name].recipe.image,
-					notes: ""
+					notes: {}
 				};
 				database.ref('/users/' + uid).push(newRecipe);
 				console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
@@ -281,6 +281,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 					return database.ref('/users/' + uid).update(updates);
 				})
 
+				// Create a new set of data for that particular recipe. But how?
 				pencil.on("click", function (e) {
 					recipeKey = $(e.target).data("key");
 					console.log("recipKey " + recipeKey);
@@ -307,8 +308,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 							ingredients: ingredients,
 							link: link,
 							img: img,
-							notes: notesValue
+							notes: {
+								name: notesValue
+							}
 						};
+						console.log(addNotes);
 						updates[recipeKey] = addNotes;
 						return database.ref('/users/' + uid).update(updates);
 					};
