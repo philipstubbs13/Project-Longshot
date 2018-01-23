@@ -282,7 +282,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 					console.log("modalFind " + modalFind);
 					if (recipeKey === modalFind) {
 						modalContent.show();
-					}
+					};
 				});
 
 				// Saves notes to Firebase when "save" 
@@ -413,15 +413,6 @@ $(document).on("click", ".remove", function (e) {
 	var list = document.getElementById(key);
 	list.remove();
 });
-
-// $(document).on("click", ".fa-pencil", function (e) {
-// 	console.log('working');
-// 	$('#pencil').modal('open');
-// });
-// If user decides that they don't want to remove the recipe from the recipe box...
-//$('#no-remove').on("click", function(){
-//return;
-//});
 
 // When Help link in the Footer is clicked, open help page.
 $("#help-link").on("click", function () {
