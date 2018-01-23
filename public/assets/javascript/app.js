@@ -259,7 +259,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var modalContent = $("<div>").addClass("modal-content").attr("data-key", key);
 				var notesHeader = $("<h4>").text("Write some notes about this recipe")
 				var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
-				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Write your notes here");
+				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Add a note...");
 				//create save button for notes modal
 				var saveNotesBtn = $("<button>").text("Save");
 				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
