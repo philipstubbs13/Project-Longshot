@@ -25,8 +25,11 @@ var database = firebase.database();
 // var defaultAuth = firebase.auth();
 
 
-var queryURLbase = "https://api.edamam.com/search?&app_id=4a5d81a2&app_key=379308ab9da9a8ee47f63563d2774ac4&from=0&to9&q=";
+var queryURLbase = "https://api.edamam.com/search?&app_id=4a5d81a2&app_key=379308ab9da9a8ee47f63563d2774ac4&from=0&to=9&q=";
+
 var userInput;
+var from=0;
+var to=9;
 
 var imgAPI;
 var label;
@@ -38,13 +41,14 @@ var userId;
 var newNote;
 var key;
 var recipeKeyNote;
+var queryURLbase5;
 
 function testAjax(queryURL) {
 	fetch(queryURL)
 	.then((resp) => resp.json())
 	.then(function (data) {
 		// console.log(queryURL);
-		for (var i = 0; i < 9; i++) {
+		for (var i = 0; i < 100; i++) {
 
 			var card = $("<div>");
 			card.addClass("card");
@@ -177,6 +181,26 @@ $("#submit").on("click", function (e) {
 	testAjax(searchURL);
 
 });
+$("#load-more").on("click", function (e) {
+	e.preventDefault();
+	//When the user starts a new search, make sure to clear the previous search results so that the results don't keep adding and adding.
+	$("#recipe1").empty();
+	$("#recipe2").empty();
+	$("#recipe3").empty();
+	//Grab the user input from the main word search text box.
+	from+=10;
+	to+=10;
+	var queryURLbase2= "https://api.edamam.com/search?&app_id=4a5d81a2&app_key=379308ab9da9a8ee47f63563d2774ac4&q="
+
+	var queryURLbase3 = queryURLbase2+userInput;
+	console.log(queryURLbase3);
+	var queryURLbase4= queryURLbase3+"&from="+from;
+	console.log(queryURLbase4);
+	queryURLbase5 = queryURLbase4 +"&to="+to;
+	console.log(queryURLbase5);
+	testAjax(queryURLbase5);
+
+});
 //
 //
 //function to detect auth state change
@@ -292,7 +316,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 					};
 				});
 
-				// Saves notes to Firebase when "save" 
+				// Saves notes to Firebase when "save"
 				// button is clicked
 				saveNotesBtn.on("click", function (e) {
 					notesKey = $(e.target).data("key");
@@ -313,7 +337,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 							}
 						};
 						console.log(addNotes);
-						// The header for each appended note changes 
+						// The header for each appended note changes
 						// to reflect the dish it has been written for
 						notesHeader.text(addNotes.name);
 						updates[recipeKey] = addNotes;
