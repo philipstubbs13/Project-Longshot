@@ -1,145 +1,150 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Recipe Search App</title>
 
-	<!--Materialize CSS-->
-	<!-- Compiled and minified CSS -->
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<head>
+		<title>FunCooker</title>
 
-  	<!--Material icons-->
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Materialize CSS-->
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-	<!--Reset css file-->
-	<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+		<!--Material icons-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!--Google Fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<!--Reset css file-->
+		<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
 
-	<!--External css file-->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<!--Google Fonts: Roboto-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<!--JQuery link-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Google Font: Lobster -->
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
-	 <!-- Compiled and minified JavaScript -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<!--External css file-->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-	 <!--Let browser know website is optimized for mobile-->
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!--JQuery link-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!--Font Awesome link-->
-	<script src="https://use.fontawesome.com/abd289e58f.js"></script>
-</head>
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-<body>
-	<!--Top Navigation Bar-->
-	<nav class="" role="navigation">
-		 <div class="container" id="navigation_bar">
-			<a id="logo-container" href="#" class="brand-logo"><i class="small fa fa-cutlery modal-trigger tooltipped" data-position="bottom" data-tooltip="Click to view saved recipes" data-delay="30" href="#recipe-box-modal" id="recipe-box-btn"></i></a>
-	    	<!--Authentication/Sign in button-->
-	    	<ul class="right navbar_list">
-				<p id="member-info"></p>
-				<li><a href="#logout-confirm-modal" class="waves-effect waves-light btn card modal-trigger right" id="logout-btn" onclick = "logOut()">Log Out</a></li>
-	    	</ul>
-	    </div>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	    <!-- Modal Structure. This is the log in screen -->
-		<div id="login-modal" class="modal black-text">
-		  	<div class="modal-content">
-		    	<h4>Log in</h4>
-		    	<p>Enter your app credentials or create a new account.</p>
-		    	<label for="userEmail">Email</label>
-				<input id="email-input" type="email" placeholder="jdoe@gmail.com">
-		    	<label for="userPassword">Password</label>
-				<input id="password-input" type="password">
-				<a class="waves-effect waves-light btn card" id="login-btn" onclick = "login()">Log in</a>
-				<a class="waves-effect waves-light btn card right" id="signup-btn" onclick = "signUp()">Sign Up</a>
-		    </div>
-		</div>
+		<!--Font Awesome link-->
+		<script src="https://use.fontawesome.com/abd289e58f.js"></script>
+	</head>
 
-		<!-- Modal Structure. This is the log in confirmation screen -->
-		<div id="login-confirm-modal" class="modal black-text">
-		  	<div class="modal-content">
-		    	<h4>Logged in</h4>
-		    	<p>You are currently logged in to the app. To log out, click LOG OUT.</p>
-				<a class="waves-effect waves-light btn card modal-action modal-close right" id="login-confirm-btn">Close</a>
-		    </div>
-		</div>
-
-		<!-- Modal Structure. This is the logged out confirmation screen -->
-		<div id="logout-confirm-modal" class="modal black-text">
-		  	<div class="modal-content">
-		    	<h4>Logged out</h4>
-		    	<p>You have logged out of the app. To log in again, click LOG IN.</p>
-		    	<p>You must be logged in to see your saved recipes in your Recipe box.</p>
-				<a class="waves-effect waves-light btn card modal-action modal-close right" id="logout-confirm-btn">Close</a>
-		    </div>
-		</div>
-	</nav>
-
-	<main>
-		<div class="container">
-			<!-- <div class="row">
-				<div class="col s12">-->
-					 <!--Modal Trigger to open bottom sheet/recipe box-->
-					<!-- <i class="small material-icons">insert favorite</i> -->
-					<!-- <a class="modal-trigger" data-target="recipe-box-modal" id="recipe-box-btn"><i class="small material-icons">insert favorite</i></a>
-				</div>
-			</div> -->
-			<div class="row">
-				<!--Main recipe search field. Only show when user is logged in.-->
-				<div class="col s12 loggedin-content">
-		        	<h5>Find something to make:</h5>
-		        	<div class="input-field">
-		            	<input id="user-input" type="text" class="validate">
-		            	<label for="text" data-error="wrong" data-success="right">for example, pizza</label>
-		            	<button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Find</button>
-		        	</div>
-		        </div>
-
-				<!--Show start screen when user is logged out-->
-		        <div class="col s12" id="start-screen">
-		        	<h4>Welcome to the FunCooker</h4>
-		        	<p>To get started, click LOG IN to log in to an existing account or to create a new one.</p>
-		        	<a href="#login-modal" class="waves-effect waves-light btn card modal-trigger" id="open-login-btn">Log in</a>
-		        </div>
-		    </div>
-
-			<!--Recipe search results section. Inly show when user is logged in. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
-			<div class="row">
-				<div class="col s12 loggedin-content">
-					<div id="recipe-list" class="section">
-					    <div id = "recipe1" class="col l4 m6 s12">
-	          			</div>
-						<div id = "recipe2" class="col l4 m6 s12">
-						</div>
-						<div id = "recipe3" class="col l4 m6 s12">
- 						</div>
- 					</div>
-	          	</div>
-	        </div>
-
-			<!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
-			<div id="recipe-box-modal" class="modal bottom-sheet" style="z-index: 1003; display:block;">
-		    	<div class="modal-content">
-		    		<div class="section">
-		      			<h4>Recipe box</h4>
-		      			<!--Recipe box - where saved recipes will go-->
-		      			<h5 id="recipeBox"></h5>
-		    		</div>
-
-			    	<!--Close recipe box-->
-			   		<div class="modal-footer">
-			      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-			    	</div>
-		  		</div>
+	<body>
+		<!--Top Navigation Bar-->
+		<nav class="" role="navigation">
+			<div class="container" id="navigation_bar">
+				<i class="small fa fa-cutlery modal-trigger tooltipped" data-position="bottom" data-tooltip="Click to view saved recipes" data-delay="30" href="#recipe-box-modal" id="recipe-box-btn"></i>
+				<h3 id="funCooker">FunCooker</h3>
+				<!--Authentication/Sign in button-->
+				<ul class="right navbar_list">
+					<p id="member-info"></p>
+					<li><a href="#logout-confirm-modal" class="waves-effect waves-light btn card modal-trigger right" id="logout-btn" onclick="logOut()">Log Out</a></li>
+				</ul>
 			</div>
 
+			<!-- Modal Structure. This is the log in screen -->
+			<div id="login-modal" class="modal black-text">
+				<div class="modal-content">
+					<h4>Log in</h4>
+					<p>Enter your app credentials or create a new account.</p>
+					<label for="userEmail">Email</label>
+					<input id="email-input" type="email" placeholder="jdoe@gmail.com">
+					<label for="userPassword">Password</label>
+					<input id="password-input" type="password">
+					<a class="waves-effect waves-light btn card" id="login-btn" onclick="login()">Log in</a>
+					<a class="waves-effect waves-light btn card right" id="signup-btn" onclick="signUp()">Sign Up</a>
+				</div>
+			</div>
 
-			  <!-- Modal Structure -->
-			  <div id="notes-modal" class="modal">
-			    <!-- <div class="modal-content">
+			<!-- Modal Structure. This is the log in confirmation screen -->
+			<div id="login-confirm-modal" class="modal black-text">
+				<div class="modal-content">
+					<h4>Logged in</h4>
+					<p>You are currently logged in to the app. To log out, click LOG OUT.</p>
+					<a class="waves-effect waves-light btn card modal-action modal-close right" id="login-confirm-btn">Close</a>
+				</div>
+			</div>
+
+			<!-- Modal Structure. This is the logged out confirmation screen -->
+			<div id="logout-confirm-modal" class="modal black-text">
+				<div class="modal-content">
+					<h4>Logged out</h4>
+					<p>You have logged out of the app. To log in again, click LOG IN.</p>
+					<p>You must be logged in to see your saved recipes in your Recipe box.</p>
+					<a class="waves-effect waves-light btn card modal-action modal-close right" id="logout-confirm-btn">Close</a>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<div class="container">
+				<!-- <div class="row">
+				<div class="col s12">-->
+				<!--Modal Trigger to open bottom sheet/recipe box-->
+				<!-- <i class="small material-icons">insert favorite</i> -->
+				<!-- <a class="modal-trigger" data-target="recipe-box-modal" id="recipe-box-btn"><i class="small material-icons">insert favorite</i></a>
+				</div>
+			</div> -->
+				<div class="row">
+					<!--Main recipe search field. Only show when user is logged in.-->
+					<div class="col s12 loggedin-content">
+						<h5>Find something to make:</h5>
+						<div class="input-field">
+							<input id="user-input" type="text" class="validate">
+							<label for="text" data-error="wrong" data-success="right">for example, pizza</label>
+							<button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Find</button>
+						</div>
+					</div>
+
+					<!--Show start screen when user is logged out-->
+					<div class="col s12" id="start-screen">
+						<h4>Welcome to the FunCooker</h4>
+						<p>To get started, click LOG IN to log in to an existing account or to create a new one.</p>
+						<a href="#login-modal" class="waves-effect waves-light btn card modal-trigger" id="open-login-btn">Log in</a>
+					</div>
+				</div>
+
+				<!--Recipe search results section. Inly show when user is logged in. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
+				<div class="row">
+					<div class="col s12 loggedin-content">
+						<div id="recipe-list" class="section">
+							<div id="recipe1" class="col l4 m6 s12">
+							</div>
+							<div id="recipe2" class="col l4 m6 s12">
+							</div>
+							<div id="recipe3" class="col l4 m6 s12">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal Structure. This is the bottom sheet modal that will be used as our recipe box, which holds user saved recipes. -->
+				<div id="recipe-box-modal" class="modal bottom-sheet" style="z-index: 1003; display:block;">
+					<div class="modal-content">
+						<div class="section">
+							<h4>Recipe box</h4>
+							<!--Recipe box - where saved recipes will go-->
+							<h5 id="recipeBox"></h5>
+						</div>
+
+						<!--Close recipe box-->
+						<div class="modal-footer">
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Modal Structure -->
+				<div id="notes-modal" class="modal">
+					<!-- <div class="modal-content">
 			      <h4>Notes for Recipe</h4>
 						<div class="input-field recipe-notes">
 								<input id="notes-input" type="text" class="validate">
@@ -150,95 +155,95 @@
 			    <div class="modal-footer">
 			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 			    </div> -->
-			  </div>
+				</div>
 
-		  	<!-- Modal Trigger. This is a confirmation modal that appears when the user clicks the trash can icon. -->
-			<div id="removeRecipeModal" class="modal">
-				<div class="modal-content">
-			    	<h4>Are you sure you want remove?</h4>
-			    	<p>Removing a recipe permanently removes it from the Recipe box. Are you sure?</p>
-			    </div>
-			    <div class="modal-footer">
-			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="yes-remove">Remove</a>
-			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="no-remove">Cancel</a>
-			    </div>
+				<!-- Modal Trigger. This is a confirmation modal that appears when the user clicks the trash can icon. -->
+				<div id="removeRecipeModal" class="modal">
+					<div class="modal-content">
+						<h4>Are you sure you want remove?</h4>
+						<p>Removing a recipe permanently removes it from the Recipe box. Are you sure?</p>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="yes-remove">Remove</a>
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="no-remove">Cancel</a>
+					</div>
+				</div>
 			</div>
-    </div>
-	</main>
+		</main>
 
-	<!--Footer and Copyright information-->
-    <footer class="page-footer">
-    	<div class="container">
-    		<div class="row">
-        		<div class="col l6 s12">
-        			<h5 class="white-text">Recipe Search App</h5>
-        			<p class="grey-text text-lighten-4">© 2018 The Longshots</p>
+		<!--Footer and Copyright information-->
+		<footer class="page-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Fun Cooker</h5>
+						<p class="grey-text text-lighten-4">© 2018 The Longshots</p>
 
-        		</div>
-          		<div class="col l4 offset-l2 s12">
-            		<ul>
-	                  <li><a class="grey-text text-lighten-3" href="#!" id="about-link">About</a></li>
-	                  <li><a class="grey-text text-lighten-3" href="#!" id="help-link">Help</a></li>
-            		</ul>
-          		</div>
-        	</div>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!" id="about-link">About</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!" id="help-link">Help</a></li>
+						</ul>
+					</div>
+				</div>
 
-        	<!--About screen-->
-			<div id="about-modal" class="modal">
-				<div class="modal-content black-text">
-			    	<h4>About</h4>
-			    	<p><b>Recipe Search App</b></p>
-			    	<p>Version 01.00.00</p>
-			    	<p>© 2018 The Longshots</p>
-			    </div>
-			    <div class="modal-footer">
-			    	<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-			    </div>
-			</div>
+				<!--About screen-->
+				<div id="about-modal" class="modal">
+					<div class="modal-content black-text">
+						<h4>About</h4>
+						<p><b>Recipe Search App</b></p>
+						<p>Version 01.00.00</p>
+						<p>© 2018 The Longshots</p>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+					</div>
+				</div>
 
-        	<!--Help Link in Footer of app-->
-			  <div id="help-modal" class="modal">
-			  	<div class="modal-content">
-			    	<h5 class="black-text text-darken-2">Help</h5>
-			         <ul class="collapsible black-text" data-collapsible="accordion">
-					    <li>
-					    	<div class="collapsible-header">What is the recipe search app?</div>
-					    	<div class="collapsible-body">
-					    		<span>Are you having guests over for dinner tonight and don't know what to make? Are you tired of having the same meals over and over and want to try something new?</span>
-								<p>The recipe search app allows you to find interesting, fun recipes for the food item or dish that you want to make.</p>
-								<p>With this app, you can:</p>
-								<ul>
-									<li>Search for recipes.</li>
-									<li>Find out what ingredients you need to make a recipe.</li>
-									<li>Favorite a recipe so that you can view it later.</li>
-									<li>Unfavorite a recipe.</li>
-									<li>Add your own notes to a recipe.</li>
-								</ul>
-							</div>
-					    </li>
-					    <li>
-					      <div class="collapsible-header">How do I search for recipes?</div>
-					      <div class="collapsible-body"><span>To search for a recipe, simply enter the name of the food in the <b>Find something to make</b> search field.</span></div>
-					    </li>
-					    <li>
-					    	<div class="collapsible-header">How can I find out the ingredients needed for a recipe?</div>
-					    	<div class="collapsible-body"><span>To see a list of ingredients for a recipe, click the <i class="material-icons">more_vert</i> icon next to that recipe in the search results.</span>
-					      </div>
-					    </li>
-					    <li>
-					    	<div class="collapsible-header">How do I favorite a recipe?</div>
-					    	<div class="collapsible-body"><span>If you find a recipe that you really like and want to save it so that you can view it later, you can favorite it.</span>
-					    	<p>To favorite a recipe, click the <i class="small fa fa-cutlery"></i> icon next to the recipe you want to favorite.</p>
-							<p>After you favorite a recipe, it will be added to the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>
-					  		</div>
-					    </li>
-					    <li>
-					    	<div class="collapsible-header">Where can I view my favorite recipes?</div>
-					    	<div class="collapsible-body"><span>You can view your favorite recipes in the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</span></div>
-					    </li>
-					    <li>
-					    	<div class="collapsible-header">How do I remove a recipe from my favorites?</div>
-					    	<div class="collapsible-body"><span>You can remove a saved recipe from the <b>Recipe box</b>.
+				<!--Help Link in Footer of app-->
+				<div id="help-modal" class="modal">
+					<div class="modal-content">
+						<h5 class="black-text text-darken-2">Help</h5>
+						<ul class="collapsible black-text" data-collapsible="accordion">
+							<li>
+								<div class="collapsible-header">What is the recipe search app?</div>
+								<div class="collapsible-body">
+									<span>Are you having guests over for dinner tonight and don't know what to make? Are you tired of having the same meals over and over and want to try something new?</span>
+									<p>The recipe search app allows you to find interesting, fun recipes for the food item or dish that you want to make.</p>
+									<p>With this app, you can:</p>
+									<ul>
+										<li>Search for recipes.</li>
+										<li>Find out what ingredients you need to make a recipe.</li>
+										<li>Favorite a recipe so that you can view it later.</li>
+										<li>Unfavorite a recipe.</li>
+										<li>Add your own notes to a recipe.</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">How do I search for recipes?</div>
+								<div class="collapsible-body"><span>To search for a recipe, simply enter the name of the food in the <b>Find something to make</b> search field.</span></div>
+							</li>
+							<li>
+								<div class="collapsible-header">How can I find out the ingredients needed for a recipe?</div>
+								<div class="collapsible-body"><span>To see a list of ingredients for a recipe, click the <i class="material-icons">more_vert</i> icon next to that recipe in the search results.</span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">How do I favorite a recipe?</div>
+								<div class="collapsible-body"><span>If you find a recipe that you really like and want to save it so that you can view it later, you can favorite it.</span>
+									<p>To favorite a recipe, click the <i class="small fa fa-cutlery"></i> icon next to the recipe you want to favorite.</p>
+									<p>After you favorite a recipe, it will be added to the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">Where can I view my favorite recipes?</div>
+								<div class="collapsible-body"><span>You can view your favorite recipes in the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</span></div>
+							</li>
+							<li>
+								<div class="collapsible-header">How do I remove a recipe from my favorites?</div>
+								<div class="collapsible-body"><span>You can remove a saved recipe from the <b>Recipe box</b>.
 								<ol>
 									<li>To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
 									<li>Click the<i class="small fa fa-trash"></i> icon next to the recipe you want to remove.</li>
@@ -249,30 +254,31 @@
 					    <li>
 					    	<div class="collapsible-header">How do I add notes to a favorite recipe?</div>
 					    	<div class="collapsible-body"><span>You can add notes to a recipe from the <b>Recipe box</b>.</span>
-					      		<ol>
-									<li>To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
-									<li>Click the<i class="small fa fa-pencil"></i> icon next to the recipe you want to edit.</li>
-								</ol>
-							</div>
-					    </li>
-					    <li>
-					      <div class="collapsible-header">Who created the app?</div>
-					      <div class="collapsible-body"><span>The app was created by The Longshots at the University of Minnesota, Twin Cities.</span></div>
-					    </li>
-					  </ul>
-			    </div>
-			    <div class="modal-footer">
-			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-			    </div>
-			  </div>
-      	</div>
-    </footer>
+									<ol>
+										<li>To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
+										<li>Click the<i class="small fa fa-pencil"></i> icon next to the recipe you want to edit.</li>
+									</ol>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header">Who created the app?</div>
+								<div class="collapsible-body"><span>The app was created by The Longshots at the University of Minnesota, Twin Cities.</span></div>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 
-<!--Firebase Javascript link-->
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<!--Firebase Javascript link-->
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
 
 
-<!--Link to external Javascript file-->
-<script src="assets/javascript/app.js"></script>
-</body>
+		<!--Link to external Javascript file-->
+		<script src="assets/javascript/app.js"></script>
+	</body>
+
 </html>

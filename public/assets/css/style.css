@@ -1,3 +1,19 @@
+
+/*Lobster Font for headers*/
+h1, h2, h3, h4, h4, h6{
+font-family: 'Lobster', cursive;
+}
+
+nav{
+height: 100px;
+}
+
+#funCooker{
+  float: left;
+  margin-bottom: 50px;
+  margin-left: 10px;
+
+}
 /* pencil and trash icons styling */
 .fa-pencil{
   margin-left: 10px;
@@ -41,7 +57,9 @@ main {
 
 /*Recipe box button styling*/
 #recipe-box-btn {
-  margin-top: 15px;
+  float: left;
+  margin-top: 30px;
+  
 }
 
 /*Button color styling*/
