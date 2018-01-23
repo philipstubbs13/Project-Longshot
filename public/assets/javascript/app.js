@@ -7,6 +7,9 @@ $("#start-screen").show();
 //Hide logout button when user is logged out.
 $("#logout-btn").hide();
 
+//Add disclaimer to Recipe box that user needs to be logged in to use this feature.
+$("#disclaimer").show();
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
@@ -197,6 +200,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#login-modal").modal('close');
     //Show member info
     $("#member-info").show();
+    //Remove recipe box disclaimer.
+    $("#disclaimer").hide();
     if (user != null){
       var email_id =user.email;
       $("#member-info").text("User: " + email_id);
@@ -353,6 +358,8 @@ function logOut(){
   $("#signup-btn").show();
   //Remove items in recipe box.
   $("#recipeBox").empty();
+  //Add disclaimer to Recipe box that user needs to be logged in to use this feature.
+  $("#disclaimer").show();
   //Remove member info from navbar
   $("#member-info").hide();
   //When user logs out, clear any existing search results.
