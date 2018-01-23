@@ -4,6 +4,15 @@ $(".loggedin-content").hide();
 //Show start screen when user is logged out.
 $("#start-screen").show();
 
+<<<<<<< HEAD
+=======
+//Hide logout button when user is logged out.
+$("#logout-btn").hide();
+
+//Add disclaimer to Recipe box that user needs to be logged in to use this feature.
+$("#disclaimer").show();
+
+>>>>>>> fe47e012ff3918f58f65100bed108413e66525ee
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
@@ -330,12 +339,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 						return database.ref('/users/' + uid).update(updates);
 					};
 				});
-
-				$("#delete-notes").on('click', function() {
-					console.log("Delete button")
-					notesValue.val("");
-					$("#recipe-notes-input").empty();
-				});
 			});
 		}
 		else {
@@ -365,23 +368,33 @@ function signUp() {
 	});
 }
 //click event for logOut
-function logOut() {
-	firebase.auth().signOut();
-	//Trigger modal
-	$(".modal").modal();
-	//Open logged out confirmation modal
-	$("logout-confirm-modal").modal('open');
-	//Hide app features when user is logged out.
-	$(".loggedin-content").hide();
-	//Show start screen when user is logged out.
-	$("#start-screen").show();
-	$("#recipeBox").empty();
-	//Remove member info fro navbar
-	$("#member-info").hide();
-	//When user logs out, clear any existing search results.
-	$("#recipe1").empty();
-	$("#recipe2").empty();
-	$("#recipe3").empty();
+function logOut(){
+  firebase.auth().signOut();
+  //Trigger modal
+  $(".modal").modal();
+  //Open logged out confirmation modal
+  $("logout-confirm-modal").modal('open');
+  //Hide app features when user is logged out.
+  $(".loggedin-content").hide();
+  //Show start screen when user is logged out.
+  $("#start-screen").show();
+  //Hide logout button.
+  $("#logout-btn").hide();
+  //Show login button on start screen.
+  $("#open-login-btn").show();
+  //show log in button and sign up button in login screen.
+  $("#login-btn").show();
+  $("#signup-btn").show();
+  //Remove items in recipe box.
+  $("#recipeBox").empty();
+  //Add disclaimer to Recipe box that user needs to be logged in to use this feature.
+  $("#disclaimer").show();
+  //Remove member info from navbar
+  $("#member-info").hide();
+  //When user logs out, clear any existing search results.
+  $("#recipe1").empty();
+  $("#recipe2").empty();
+  $("#recipe3").empty();
 }
 // Click event for sign in.
 function login() {
