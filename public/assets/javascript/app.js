@@ -313,6 +313,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 							}
 						};
 						console.log(addNotes);
+						// The header for each appended note changes 
+						// to reflect the dish it has been written for
+						notesHeader.text(addNotes.name);
 						updates[recipeKey] = addNotes;
 						return database.ref('/users/' + uid).update(updates);
 					};
@@ -337,6 +340,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 							notes: null
 						};
 						updates[recipeKey] = delNotes;
+						notesHeader.text("Add a note...")
 						return database.ref('/users/' + uid).update(updates);
 					};
 				});
