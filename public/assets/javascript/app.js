@@ -4,15 +4,12 @@ $(".loggedin-content").hide();
 //Show start screen when user is logged out.
 $("#start-screen").show();
 
-<<<<<<< HEAD
-=======
 //Hide logout button when user is logged out.
 $("#logout-btn").hide();
 
 //Add disclaimer to Recipe box that user needs to be logged in to use this feature.
 $("#disclaimer").show();
 
->>>>>>> fe47e012ff3918f58f65100bed108413e66525ee
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyCOVL51USj4HE7VfyPOI21R3uZT8yTa10c",
