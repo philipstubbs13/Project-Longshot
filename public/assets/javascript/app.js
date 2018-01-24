@@ -234,6 +234,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 		$("#login-modal").modal('close');
 		//Show member info
 		$("#member-info").show();
+		//Hide disclaimer in Recipe box that user needs to be logged in to use this feature.
+		$("#disclaimer").hide();
 		if (user != null) {
 			var email_id = user.email;
 			$("#member-info").text("User: " + email_id);
