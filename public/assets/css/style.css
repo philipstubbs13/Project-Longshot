@@ -1,3 +1,42 @@
+
+/*background image for landing page*/
+.bg{
+background-image: url('../images/login-bg.png');
+}
+
+/*Lobster Font for headers*/
+.start-screen-font {
+font-family: 'Lobster', cursive;
+}
+
+/*styling for start screen*/
+#start-screen{
+background-color: white; opacity: 0.8;
+width:;
+height: 500px;
+margin-left: none;
+margin-right: none;
+padding: 20px 15px 0 15px;
+}
+
+/*styling for login textbox on start screen*/
+#open-login-btn{
+  display: flex; justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+
+/*Log in form validation styling*/
+#error{
+  color: red;
+  font-weight: bold;
+}
+
+#logout-btn{
+  margin-top: 12px;
+}
+
 /* pencil and trash icons styling */
 .fa-pencil{
   margin-left: 10px;
