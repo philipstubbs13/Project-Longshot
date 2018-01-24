@@ -5,7 +5,7 @@ background-image: url('../images/login-bg.png');
 }
 
 /*Lobster Font for headers*/
-h1, h2, h3, h4, h4, h6{
+.start-screen-font {
 font-family: 'Lobster', cursive;
 }
 
