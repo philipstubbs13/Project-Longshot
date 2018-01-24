@@ -1,6 +1,6 @@
-# Recipe Search App
+# MyCookingAssistant
 <p>Are you having guests over for dinner tonight and don't know what to make? Are you tired of having the same meals over and over and want to try something new?</p>
-<p>The recipe search app is a search engine that returns the most relevant recipes from the most popular sites on the web.</p>
+<p>The MyCookingAssistant app is a search engine that returns the most relevant recipes from the most popular sites on the web.</p>
 <p>With this app, you can</p>
   <ul>
     <li>Search for a variety of recipes from many sources.</li>
@@ -22,7 +22,7 @@
     * [Front end technologies](#front-end)
     * [Back end technologies](#back-end)
   * [About the Edamam Recipe Search API](#edamam-api)
-  * [How to use the app](#how-to-use-app)
+  * [App features](#how-to-use-app)
     * [Logging in](#authentication)
   	* [Searching for recipes](#recipe-search)
   	* [Revealing ingredients](#reveal-ingredients)
@@ -33,19 +33,18 @@
     * [Help information](#help-info)
   * [Future code development](#feature-enhancements)
   * [Known issues](#known-issues)
-  * [Icons](#icons)
   * [Feedback](#feedback)
 
 ## <a name="about-this-project"></a> About this project
-<p>On the back end, this project uses the Edamam <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API</a> to create an app that returns the most relevant recipes from the most popular sites on the web. The API is accessed by using HTTPS GET requests on a query URL. When the request is complete, the API returns the result of the query (all the recipes about a particular food query) in JSON format. The app has a single search field where a user can enter a particular food item they want to make. The user input from the search field is used to construct the query URL and display 9 relevant recipes in the search results section of the app.</p>
+<p>On the back end, this project uses the Edamam <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API</a> to create an app that returns the most relevant recipes from the most popular sites on the web. The API is accessed by using HTTPS GET requests on a query URL. When the request is complete, the API returns the result of the query (that is, all the recipes about a particular food query) in JSON format. The app has a single search field where a user can enter a particular food item they want to make. The user input from the search field is used to construct the query URL and display relevant recipes in the search results section of the app.</p>
 
-<p>To create a personalized user experience, the app does require users to sign up for an account and log in to the app to use the app features. This app uses Firebase and an email/password sign-in method to authenticate users. Requiring users to log in allows users to save recipes they like (which are stored in Firebase on a per user basis) so that they can view these recipes at a later time. The app allows users to remove recipes from their favorite list as well as add notes to their favorite recipes. So, each user has their very own personal Recipe box. This information is stored in the Firebase database that's used for this project, so it is remembered each time a user logs in and logs out.</p>
+<p>To create a personalized user experience, the app does require users to sign up for an account and log in to the app to use the  various app features. This app uses Firebase and an email/password sign-in method to authenticate users. Requiring users to log in allows users to save recipes they like (which are stored in Firebase on a per user basis) so that they can view these recipes at a later time. The app allows users to remove recipes from their favorite list as well as add notes to their favorite recipes. So, each user has their very own personal Recipe box. This information is stored in the Firebase database that's used for this project, so the data is remembered each time a user logs in and logs out of the app.</p>
 
 <p>On the front end side, this project uses Materialize to help create the styling and layout of the app. Materialize is a css framework based on Material Design, a design language created and designed by Google. Read the Materialize <a href="http://materializecss.com/getting-started.html" target="_blank">Getting Started</a> documentation to learn more.</p>
 
 ## <a name="live"></a> Live
 <p>App is available live through Firebase:</p>
-<Insert Firebase link here.>
+<p>https://longshotauth.firebaseapp.com</p>
 
 ## <a name="contributors"></a> Contributors
 <li>Back end developer: Jon Moore</li>
@@ -61,13 +60,13 @@ Run these commands to set up this project locally on your computer:
 </pre>
 
 ## <a name="structure-of-project"></a> Structure of the project
-<p>After downloading the project files from GitHub, your directory should look something like this:</p>
+<p>After downloading the project files from GitHub, the project directory should look something like this:</p>
 <ul>
 	<li> <b>/public/assets/javascript</b>: This directory contains the Javascript to:
 		<ul>
 			<li>Initialize the Firebase database.</li>
 			<li>Grab the user input from the search field when a user starts a recipe search.</li> 
-      <li>Perform a jQuery AJAX GET request to retrieve the relevant recipe data using the Edamam API, including the recipe name, the list of ingredients, an external link to more information, and an image of the recipe.</li>
+      <li>Perform a AJAX GET request to retrieve the relevant recipe data using the Edamam API, including the recipe name, the list of ingredients, an external link to more information, and an image of the recipe.</li>
       <li>Display the recipe data in the search results section after the AJAX request is complete.</li>
       <li>Save, remove, and add notes to recipes.</li>
       <li>Trigger modals that are used in the app.</li>
@@ -76,7 +75,7 @@ Run these commands to set up this project locally on your computer:
 	</li>
 	<li><b>/public/assets/css</b>: This directory contains the external stylesheet used for the app. Materialize is the css framework used for this project. </li>
 	<li><b>/public/index.html</b>: This file contains the code for the HTML and Materialize css markup.</li>
-	<li><b>firebase.json</b>: This file located in the root directory is the Firebase configuration file.</li>
+	<li><b>firebase.json</b>: This is the Firebase configuration file located in the project root directory.</li>
 	<li><b>/public/assets/images</b>: This directory contains images used for this project.</li>
 	<li><b>database.rules.json</b>:This file contains the database rules that grant permissions to users who are logged into the app.</li>
 </ul>
@@ -87,7 +86,7 @@ Run these commands to set up this project locally on your computer:
 ![Image of login screen](public/assets/images/search-screen.png)
 ![Image of login screen](public/assets/images/search-results.png)
 
-## <a name="technologies-used"></a> Technologies used to create app
+## <a name="technologies-used"></a> Technologies used to build app
 
 ### <a name="front-end"></a> Front end technologies
   * HTML5
@@ -101,18 +100,19 @@ Run these commands to set up this project locally on your computer:
   * Edamam Recipe Search API (https://developer.edamam.com/edamam-recipe-api)
 
 ## <a name="edamam-api"></a>About the Edamam Recipe Search API
-<p>To learn about the Edamam API and the various API parameters, read the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API documentation</a>. You should be familiar with the API before contributing to this project or creating your own recipe search app.</p>
+<p>To learn about the Edamam API and the various API parameters, read the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API documentation</a>.</p>
 <p>Edamam requires developers to use a key (api_key) and an app id (app_id) to access API data. To use the Edamam API, you'll need a (free) Edamam developer account.</p>
 <p>After you have an app key and id, you can use the API to search for recipes matching the specified query.</p>
 
-## <a name="how-to-use-app"></a> How to use the app
+## <a name="how-to-use-app"></a> App features
 
 ### <a name="authentication"></a> Logging in
   To get started using the app, you need to log in with your app credentials (email and password). If you don't have an account, you can sign up for one from the <b>Log in</b> screen.
   
 ### <a name="recipe-search"></a> Searching for recipes.
   To search for a recipe, enter the name of the food item (for example, pizza) you want to make in the <b>Find something to make</b> search field and click <b>FIND</b>.
-  The app will return the top 9 recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.
+  The app will return the top recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.
+  To see more recipes, click the <b>LOAD MORE</b> at the bottom of the search results.
 
 ### <a name="reveal-ingredients"></a> Revealing ingredients
   To see a list of ingredients for a recipe, click the vertical ellipses icon next to that recipe in the search results to reveal the ingredients.
@@ -139,18 +139,14 @@ Run these commands to set up this project locally on your computer:
   <ul>
     <li>Add a feature to the app that allows users to import their own recipes. For example, if a user has a hand written recipe or a recipe they want to share, they can import their recipe into the app to save it in case the hand written one gets thrown away or lost.</li>
     <li>Add additional search parameters that allows users to search for recipes based on the ingredients they already have in their homes.</li>
-    <li>Add Facebook and other social authentication options to allow users to log in with their social media accounts and easily share recipes with others.</li>
+    <li>Add Facebook and other social authentication options to Firebase to allow users to log in with their social media accounts and easily share recipes with others.</li>
     <li>Integrate the Edamam Nutrition Analysis API to show users the nutritional content of meals and recipes.</li>
-    <li>Increase the search results limit. Currently, the app returns the top 9 recipes.</li>
   </ul>
 
 ## <a name ="known-issues"></a> Known issues
 <p>The following are known issues to be addressed in a future code update.</p>
 
 <p>If you find an issue while using the app, <a href="https://github.com/philipstubbs13/Project-Longshot/issues/" target="_blank">file an issue</a>.</p>
-
-## <a name="icons"></a> Icons
-All icons used for this project can be obtained from <a href="http://fontawesome.io/icons/" target="_blank">Font Awesome</a> or <a href="https://www.iconfinder.com/" target="_blank">Iconfinder</a>.
 
 ## <a name="feedback"></a> Feedback
 <p>If you find an issue while using the app or have a request for a feature that you would like to see implemented, log the issue or request <a href="https://github.com/philipstubbs13/Project-Longshot/issues/" target="_blank">here.</a>
