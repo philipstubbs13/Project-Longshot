@@ -1,5 +1,5 @@
 
-/*background for landing page*/
+/*background image for landing page*/
 .bg{
 background-image: url('../images/login-bg.png');
 }
@@ -26,7 +26,7 @@ padding: 20px 15px 0 15px;
   margin-right: 100px;
 }
 
-/*styling for FunCooker on nav bar*/
+/*styling for Title on nav bar*/
 #funCooker{
   float: left;
   margin-bottom: 50px;
@@ -34,6 +34,7 @@ padding: 20px 15px 0 15px;
 
 }
 
+/*Log in form validation styling*/
 #error{
   color: red;
   font-weight: bold;

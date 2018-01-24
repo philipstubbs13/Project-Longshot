@@ -21,10 +21,13 @@ var config = {
 };
 
 firebase.initializeApp(config);
+
+//Create variable to reference firebase database.
 var database = firebase.database();
 // var defaultAuth = firebase.auth();
 
-
+//Define variables.
+//Construct query URL to get recipe data.
 var queryURLbase = "https://api.edamam.com/search?&app_id=4a5d81a2&app_key=379308ab9da9a8ee47f63563d2774ac4&from=0&to=9&q=";
 
 var userInput;
@@ -43,19 +46,23 @@ var key;
 var recipeKeyNote;
 var queryURLbase5;
 
+//Our AJAX method. Perform GET request to the queryURL to get recipe data.
+//After data comes back, display the recipe search results to the user using cards.
 function testAjax(queryURL) {
 	fetch(queryURL)
 	.then((resp) => resp.json())
 	.then(function (data) {
-		// console.log(queryURL);
+		//console.log(queryURL);
 		for (var i = 0; i < 100; i++) {
 
+			//create recipe card.
 			var card = $("<div>");
 			card.addClass("card");
 
 			var cardImg = $("<div>");
 			cardImg.addClass("card-image");
 
+			//Create variable for recipe image and append to card.
 			var img = $("<img>");
 			imgAPI = data.hits[i].recipe.image;
 			img.attr("src", imgAPI);
@@ -73,6 +80,7 @@ function testAjax(queryURL) {
 			//This appends the recipe title/label to the recipe image.
 			cardImg.append(spanTitle);
 
+			//Get and display recipe ingredients.
 			var pRecipe = $("<p>");
 			recipe = data.hits[i].recipe.ingredients[0].text;
 			console.log(recipe);
@@ -113,7 +121,7 @@ function testAjax(queryURL) {
 			//Append the ingredients to the card reveal.
 			cardReveal.append(pRecipe);
 
-
+			//Create cardAction to hold external recipe link and save button.
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
@@ -181,6 +189,8 @@ $("#submit").on("click", function (e) {
 	testAjax(searchURL);
 
 });
+
+//When the load more recipes button is clicked.
 $("#load-more").on("click", function (e) {
 	e.preventDefault();
 	//When the user starts a new search, make sure to clear the previous search results so that the results don't keep adding and adding.
@@ -201,16 +211,15 @@ $("#load-more").on("click", function (e) {
 	testAjax(queryURLbase5);
 
 });
-//
-//
-//function to detect auth state change
+
+//function to detect authentication state change
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		//Trigger modal
 		$(".modal").modal();
 		//Open logged in confirmation screen.
 		$("#login-confirm-modal").modal("open");
-		// User is signed in.
+		//User is signed in.
 		//Show app features when user is logged in.
 		$(".loggedin-content").show();
 		//Hide start screen bg image when user logged in.
@@ -235,7 +244,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 			console.log("email: " + user.email + " uid : " + uid);
 
-			//print saved recipe to recipe box modal (this is a bottom sheet).
+			//Add saved recipe to recipe box modal.
 			database.ref('/users/' + uid).on("child_added", function (childSnapshot) {
 
 				var name = childSnapshot.val().name;
@@ -257,14 +266,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 				linkA.addClass("recipe-box-link");
 				//Add attribute to recipe box link to open external recipe link in a new tab window.
 				linkA.attr("target", "_blank");
+				//Create trash (remove) and pencil (add notes) icons for recipe box.
 				var trash = $("<i>");
 				var pencil = $("<i>");
-				//Add data attributes to display tooltip text. data-position=top shows tooltip text above button.
-				//data-tooltip is the tooltip text that appears when user hovers over button.
 				newSpan.addClass("activator");
 				trash.attr("aria-hidden", true).attr("data-position", "top").attr("data-tooltip", "Removes recipe from Recipe box.");
-				//Initialize tooltip for trash and pencil buttons.
-				//$('.tooltipped').tooltip({delay: 30});
 				trash.addClass("fa fa-trash remove tooltipped");
 				trash.attr("data-key", key);
 				//Add data-target with id of the remove recipe modal to trigger confirmation dialog.
@@ -279,8 +285,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				newSpan.append(linkA, trash, pencil);
 				$("#recipeBox").append(newList);
 
-				//modals for notes
-
+				//modals for adding notes feature.
 				var notesModal = $("<div>").addClass("modal").attr("id","notes-modal");
 				var modalContent = $("<div>").addClass("modal-content").attr("data-key", key);
 				var notesHeader = $("<h4>").text("Write some notes about this recipe")
@@ -297,7 +302,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				modalContent.hide();
 
 
-				//remove recipe from user recipe box in database
+				//When trash can is clicked, remove recipe from user recipe box in database
 				trash.on("click", function (e) {
 					var recipeKey = $(e.target).data("key");
 					console.log("working");
@@ -339,8 +344,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 							}
 						};
 						console.log(addNotes);
-						// The header for each appended note changes
-						// to reflect the dish it has been written for
+						//The header for each appended note changes
+						//to reflect the dish it has been written for
 						notesHeader.text(addNotes.name);
 						updates[recipeKey] = addNotes;
 						return database.ref('/users/' + uid).update(updates);
@@ -391,13 +396,14 @@ function signUp() {
 	var userEmail = $("#email-input").val().trim();
 	var userPass = $("#password-input").val().trim();
 	firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function (error) {
-		// Handle Errors here.
+		//Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
 		  $('#error').html("Error : " + errorMessage);
 	});
 }
+
 //click event for logOut
 function logOut(){
   firebase.auth().signOut();
@@ -427,12 +433,12 @@ function logOut(){
   $("#recipe2").empty();
   $("#recipe3").empty();
 }
-// Click event for sign in.
+//Click event for sign in.
 function login() {
 	var userEmail = $("#email-input").val().trim();
 	var userPass = $("#password-input").val().trim();
 	firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
-		// Handle Errors here.
+		//Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
@@ -449,10 +455,6 @@ $(document).ready(function () {
 
 //remove recipe from html in user recipe box
 $(document).on("click", ".remove", function (e) {
-	//When the user clicks the trash can icon, show a confirmation modal before removing recipe from the recipe box.
-	//$('#removeRecipeModal').modal('open');
-	//If user confirms that they want to remove the recipe from the recipe box...
-	//$('#yes-remove').on("click", function(){
 	var key = $(e.target).data("key");
 	var list = document.getElementById(key);
 	list.remove();
