@@ -213,6 +213,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 		// User is signed in.
 		//Show app features when user is logged in.
 		$(".loggedin-content").show();
+		//Hide start screen bg image when user logged in.
+    	$(".bg").css('background-image', 'none');
 		//Hide start screen when user is logged in.
 		$("#start-screen").hide();
 		$("#logout-btn").show();
@@ -393,7 +395,7 @@ function signUp() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
-		window.alert("Error : " + errorMessage);
+		  $('#error').html("Error : " + errorMessage);
 	});
 }
 //click event for logOut
@@ -434,7 +436,7 @@ function login() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
-		window.alert("Error : " + errorMessage);
+		  $('#error').html("Error : " + errorMessage);
 
 	});
 };
