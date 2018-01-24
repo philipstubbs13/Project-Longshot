@@ -48,6 +48,9 @@ function testAjax(queryURL) {
 	.then((resp) => resp.json())
 	.then(function (data) {
 		// console.log(queryURL);
+		
+			//$(".loggedin-content").append(loadMoreBtn);
+
 		for (var i = 0; i < 100; i++) {
 
 			var card = $("<div>");
@@ -113,6 +116,14 @@ function testAjax(queryURL) {
 			//Append the ingredients to the card reveal.
 			cardReveal.append(pRecipe);
 
+			
+
+			for (var j = 0; j < 20; j++) {
+				var recipeUgly = data.hits[i].recipe.ingredientLines[j];
+				var newIng = $("<p>");
+				newIng.text(recipeUgly)
+				pRecipe.append(newIng);
+			};
 
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
@@ -137,6 +148,8 @@ function testAjax(queryURL) {
 			cardAction.append(link, saveBtn);
 			cardContent.after(cardAction);
 			$("#recipe1").append(card);
+
+			
 
 			var n = $(".card-image").length;
 			// console.log(n);
@@ -164,6 +177,10 @@ function testAjax(queryURL) {
 				console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
 			})
 		};
+		var loadMoreBtn = $("<button>").addClass("btn waves-effect waves-light").attr("type", "submit");
+		loadMoreBtn.text("Load More");
+		loadMoreBtn.css("z-index", "-1");
+		$("#recipe1").append(loadMoreBtn);
 	});
 };
 
