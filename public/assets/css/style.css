@@ -12,7 +12,7 @@ font-family: 'Lobster', cursive;
 /*styling for start screen*/
 #start-screen{
 background-color: white; opacity: 0.8;
-width: 600px;
+width:;
 height: 500px;
 margin-left: none;
 margin-right: none;
@@ -26,13 +26,6 @@ padding: 20px 15px 0 15px;
   margin-right: 100px;
 }
 
-/*styling for Title on nav bar*/
-#funCooker{
-  float: left;
-  margin-bottom: 50px;
-  margin-left: 10px;
-
-}
 
 /*Log in form validation styling*/
 #error{
@@ -41,7 +34,7 @@ padding: 20px 15px 0 15px;
 }
 
 #logout-btn{
-  margin-top: 20px;
+  margin-top: 12px;
 }
 
 /* pencil and trash icons styling */
