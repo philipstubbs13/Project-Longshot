@@ -42,7 +42,7 @@
 		 <div class="container" id="navigation_bar">
 			<a href="#"><i class="small fa fa-cutlery modal-trigger tooltipped" data-position="bottom" data-tooltip="Click to view saved recipes" data-delay="30" href="#recipe-box-modal" id="recipe-box-btn"></i></a>
 			<h3 id="funCooker">FunCooker</h3>
-	    	<!--Authentication/Sign in button-->
+	    	<!--Log out button and username displayed in navbar-->
 	    	<ul class="right navbar_list">
 				<li><p id="member-info"></p><li>
 				<li><a href="#logout-confirm-modal" class="waves-effect waves-light btn card modal-trigger right" id="logout-btn" onclick = "logOut()">Log Out</a></li>
@@ -50,49 +50,27 @@
 	    </div>
 	</nav>
 
-		<!-- Modal Structure. This is the log in screen -->
-		<!-- <div id="login-modal" class="modal black-text">
-			<div class="modal-content">
-				<h4>Log in</h4>
-				<p>Enter your app credentials or create a new account.</p>
-				<label for="userEmail">Email</label>
-				<input id="email-input" type="email" placeholder="jdoe@gmail.com">
-				<label for="userPassword">Password</label>
-				<input id="password-input" type="password">
-				<a class="waves-effect waves-light btn card" id="login-btn" onclick="login()">Log in</a>
-				<a class="waves-effect waves-light btn card right" id="signup-btn" onclick="signUp()">Sign Up</a>
-			</div>
-		</div> -->
-
-		<!-- Modal Structure. This is the log in confirmation screen -->
-		<div id="login-confirm-modal" class="modal black-text">
-			<div class="modal-content">
-				<h4>Logged in</h4>
-				<p>You are currently logged in to the app. To log out, click LOG OUT.</p>
-				<a class="waves-effect waves-light btn card modal-action modal-close right" id="login-confirm-btn">Close</a>
-			</div>
+	<!-- Modal Structure. This is the log in confirmation screen -->
+	<div id="login-confirm-modal" class="modal black-text">
+		<div class="modal-content">
+			<h4>Logged in</h4>
+			<p>You are currently logged in to the app. To log out, click LOG OUT.</p>
+			<a class="waves-effect waves-light btn card modal-action modal-close right" id="login-confirm-btn">Close</a>
 		</div>
+	</div>
 
-		<!-- Modal Structure. This is the logged out confirmation screen -->
-		<div id="logout-confirm-modal" class="modal black-text">
-			<div class="modal-content">
-				<h4>Logged out</h4>
-				<p>You have logged out of the app. To log in again, click LOG IN.</p>
-				<p>You must be logged in to see your saved recipes in your Recipe box.</p>
-				<a class="waves-effect waves-light btn card modal-action modal-close right" id="logout-confirm-btn">Close</a>
-			</div>
+	<!-- Modal Structure. This is the logged out confirmation screen -->
+	<div id="logout-confirm-modal" class="modal black-text">
+		<div class="modal-content">
+			<h4>Logged out</h4>
+			<p>You have logged out of the app. To log in again, click LOG IN.</p>
+			<p>You must be logged in to see your saved recipes in your Recipe box.</p>
+			<a class="waves-effect waves-light btn card modal-action modal-close right" id="logout-confirm-btn">Close</a>
 		</div>
-	</nav>
+	</div>
 
 	<main>
 		<div class="container">
-			<!-- <div class="row">
-				<div class="col s12">-->
-			<!--Modal Trigger to open bottom sheet/recipe box-->
-			<!-- <i class="small material-icons">insert favorite</i> -->
-			<!-- <a class="modal-trigger" data-target="recipe-box-modal" id="recipe-box-btn"><i class="small material-icons">insert favorite</i></a>
-				</div>
-			</div> -->
 			<div class="row">
 				<!--Main recipe search field. Only show when user is logged in.-->
 				<div class="col s12 loggedin-content">
@@ -108,21 +86,21 @@
 				<!--Show start screen when user is logged out-->
 				<div class="col s12 center-align" id="start-screen">
 		        	<h4 class="center-align">Welcome to the FunCooker</h4>
-						<div class-"input-field">
+					<div class-"input-field">
 						<input id="email-input" class="validate" type="email" placeholder="jdoe@gmail.com">
 						<label for="email" data-error="wrong" data-success="right">Email</label>
 						<input id="password-input" class="validate" type="password">
 						<label for="userPassword">Password</label>
 					</div>
-						<br>
-						<br>
-						<a class="waves-effect waves-light btn card" id="login-btn" onclick = "login()">Log in</a>
-						<a class="waves-effect waves-light btn card right" id="signup-btn" onclick = "signUp()">Sign Up</a>
-						<p id="error"></p>
-						</div>
+					<br>
+					<br>
+					<a class="waves-effect waves-light btn card" id="login-btn" onclick = "login()">Log in</a>
+					<a class="waves-effect waves-light btn card right" id="signup-btn" onclick = "signUp()">Sign Up</a>
+					<p id="error"></p>
+				</div>
 		    </div>
 
-			<!--Recipe search results section. Inly show when user is logged in. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
+			<!--Recipe search results section. Only show when user is logged in. The recipe data that we receive from the jQuery AJAX request will be dumped here.-->
 			<div class="row">
 				<div class="col s12 loggedin-content">
 					<div id="recipe-list" class="section">
@@ -233,7 +211,7 @@
 								<p>The recipe search app allows you to find interesting, fun recipes for the food item or dish that you really want to make.</p>
 								<p>With this app, you can:</p>
 								<ul>
-									<li>Search for recipes.</li>
+									<li>Search for recipes from a variety of sources.</li>
 									<li>Find out what ingredients you need to make a recipe.</li>
 									<li>Favorite a recipe so that you can view it later.</li>
 									<li>Unfavorite a recipe.</li>
@@ -243,7 +221,7 @@
 					    </li>
 					    <li>
 					      <div class="collapsible-header">How do I search for recipes?</div>
-					      <div class="collapsible-body"><span>To search for a recipe, simply enter the name of the food in the <b>Find something to make</b> search field.</span></div>
+					      <div class="collapsible-body"><span>To search for a recipe, enter the name of the food in the <b>Find something to make</b> search field.</span></div>
 					    </li>
 					    <li>
 					    	<div class="collapsible-header">How can I find out the ingredients needed for a recipe?</div>
@@ -252,14 +230,14 @@
 					    </li>
 					    <li>
 					    	<div class="collapsible-header">How do I favorite a recipe?</div>
-					    	<div class="collapsible-body"><span>If you find a recipe that you really like and want to save it so that you can view it later, you can favorite it.</span>
+					    	<div class="collapsible-body"><span>If you find a recipe that you really like and want to save it to view later, you can favorite it.</span>
 					    	<p>To favorite a recipe, click the <i class="small fa fa-cutlery"></i> icon next to the recipe you want to favorite.</p>
 							<p>After you favorite a recipe, it will be added to the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>
 					  		</div>
 					    </li>
 					    <li>
 					    	<div class="collapsible-header">Where can I view my favorite recipes?</div>
-					    	<div class="collapsible-body"><span>You can view your favorite recipes in the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar. You need to be logged in to the app to see your favorite recipes in the <b>Recipe box</b>.</span></div>
+					    	<div class="collapsible-body"><span>You can view your favorite recipes in the <b>Recipe box</b>. To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar. You need to be logged in to the app to see your favorite recipes.</span></div>
 					    </li>
 					    <li>
 					    	<div class="collapsible-header">How do I remove a recipe from my favorites?</div>
@@ -270,79 +248,12 @@
 								</ol>
 					    	</div>
 					    </li>
-					    <li>
-					    	<div class="collapsible-header">How do I add notes to a favorite recipe?</div>
-					    	<div class="collapsible-body"><span>You can add notes to a recipe from the <b>Recipe box</b>.</span>
-					      		<ol>
-									<li>To open the <b>Recipe box</b>, click the <i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
-									<li>Click the <i class="small fa fa-pencil"></i> icon next to the recipe you want to edit.</li>
-								</ol>
+						<li>
+							<div class="collapsible-header">Who created the app?</div>
+							<div class="collapsible-body">
+								<span>The app was created by The Longshots at the University of Minnesota, Twin Cities.</span>
 							</div>
 						</li>
-						<li>
-							<div class="collapsible-header">How can I find out the ingredients needed for a recipe?</div>
-							<div class="collapsible-body">
-								<span>To see a list of ingredients for a recipe, click the
-									<i class="material-icons">more_vert</i> icon next to that recipe in the search results.</span>
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header">How do I favorite a recipe?</div>
-							<div class="collapsible-body">
-								<span>If you find a recipe that you really like and want to save it so that you can view it later, you can favorite it.</span>
-								<p>To favorite a recipe, click the
-									<i class="small fa fa-cutlery"></i> icon next to the recipe you want to favorite.</p>
-								<p>After you favorite a recipe, it will be added to the
-									<b>Recipe box</b>. To open the
-									<b>Recipe box</b>, click the
-									<i class="small fa fa-cutlery"></i> icon in the top navigation bar.</p>
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header">Where can I view my favorite recipes?</div>
-							<div class="collapsible-body">
-								<span>You can view your favorite recipes in the
-									<b>Recipe box</b>. To open the
-									<b>Recipe box</b>, click the
-									<i class="small fa fa-cutlery"></i> icon in the top navigation bar.</span>
-							</div>
-						</li>
-						<li>
-							<div class="collapsible-header">How do I remove a recipe from my favorites?</div>
-							<div class="collapsible-body">
-								<span>You can remove a saved recipe from the
-									<b>Recipe box</b>.
-									<ol>
-										<li>To open the
-											<b>Recipe box</b>, click the
-											<i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
-										<li>Click the
-											<i class="small fa fa-trash"></i> icon next to the recipe you want to remove.</li>
-										<li>Click
-											<b>Remove</b>.
-									</ol>
-							</div>
-							</li>
-							<li>
-								<div class="collapsible-header">How do I add notes to a favorite recipe?</div>
-								<div class="collapsible-body">
-									<span>You can add notes to a recipe from the
-										<b>Recipe box</b>.</span>
-									<ol>
-										<li>To open the
-											<b>Recipe box</b>, click the
-											<i class="small fa fa-cutlery"></i> icon in the top navigation bar.</li>
-										<li>Click the
-											<i class="small fa fa-pencil"></i> icon next to the recipe you want to edit.</li>
-									</ol>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header">Who created the app?</div>
-								<div class="collapsible-body">
-									<span>The app was created by The Longshots at the University of Minnesota, Twin Cities.</span>
-								</div>
-							</li>
 					</ul>
 				</div>
 				<div class="modal-footer">
@@ -354,7 +265,6 @@
 
 	<!--Firebase Javascript link-->
 	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-
 
 	<!--Link to external Javascript file-->
 	<script src="assets/javascript/app.js"></script>
