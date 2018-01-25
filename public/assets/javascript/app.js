@@ -295,7 +295,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var trash = $("<i>");
 				var pencil = $("<i>");
 				newSpan.addClass("activator");
-				trash.attr("aria-hidden", true).attr("data-position", "top").attr("data-tooltip", "Removes recipe from Recipe box.");
+				trash.attr("aria-hidden", true).attr("data-position", "top");
 				trash.addClass("fa fa-trash remove tooltipped");
 				trash.attr("data-key", key);
 				
