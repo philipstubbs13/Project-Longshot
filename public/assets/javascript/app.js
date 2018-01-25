@@ -476,6 +476,9 @@ function logOut() {
   $("#recipe2").empty();
   $("#recipe3").empty();
 
+  //Hide load more button
+  $("#load-more").hide();
+
   //Add app bg image back in on logout
   $(".bg").css('background-image', 'url("../public/assets/images/login-bg.png")');
 };
