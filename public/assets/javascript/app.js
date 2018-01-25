@@ -52,7 +52,14 @@ function testAjax(queryURL) {
 	fetch(queryURL)
 	.then((resp) => resp.json())
 	.then(function (data) {
+<<<<<<< HEAD
+		// console.log(queryURL);
+		
+			//$(".loggedin-content").append(loadMoreBtn);
+
+=======
 		//console.log(queryURL);
+>>>>>>> 96cee421489fcd5d2a028a3134f938aaf2f07289
 		for (var i = 0; i < 100; i++) {
 
 			//create recipe card.
@@ -121,7 +128,19 @@ function testAjax(queryURL) {
 			//Append the ingredients to the card reveal.
 			cardReveal.append(pRecipe);
 
+<<<<<<< HEAD
+			
+
+			for (var j = 0; j < 20; j++) {
+				var recipeUgly = data.hits[i].recipe.ingredientLines[j];
+				var newIng = $("<p>");
+				newIng.text(recipeUgly)
+				pRecipe.append(newIng);
+			};
+
+=======
 			//Create cardAction to hold external recipe link and save button.
+>>>>>>> 96cee421489fcd5d2a028a3134f938aaf2f07289
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
@@ -145,6 +164,8 @@ function testAjax(queryURL) {
 			cardAction.append(link, saveBtn);
 			cardContent.after(cardAction);
 			$("#recipe1").append(card);
+
+			
 
 			var n = $(".card-image").length;
 			// console.log(n);
@@ -172,6 +193,10 @@ function testAjax(queryURL) {
 				console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
 			})
 		};
+		var loadMoreBtn = $("<button>").addClass("btn waves-effect waves-light").attr("type", "submit");
+		loadMoreBtn.text("Load More");
+		loadMoreBtn.css("z-index", "-1");
+		$("#recipe1").append(loadMoreBtn);
 	});
 };
 
@@ -292,7 +317,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var modalContent = $("<div>").addClass("modal-content").attr("data-key", key);
 				var notesHeader = $("<h4>").text("Write some notes about this recipe")
 				var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
-				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Write your notes here");
+				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Add a note...");
 				//create save button for notes modal
 				var saveNotesBtn = $("<button>").text("Save");
 				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
@@ -342,9 +367,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 							link: link,
 							img: img,
 							notes: {
-								name: notesValue
+								text: notesValue
 							}
 						};
+						//notes = addNotes.notes.text;
 						console.log(addNotes);
 						//The header for each appended note changes
 						//to reflect the dish it has been written for
