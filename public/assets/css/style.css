@@ -83,9 +83,14 @@ main {
   margin-top: 15px;
 }
 
-/*Button color styling*/
-#submit, #logout-btn, #login-btn, #signup-btn,#open-login-btn, #login-confirm-btn, #logout-confirm-btn {
+/*Making all the buttons the same color for consistency*/
+#submit, #logout-btn, #login-btn, #signup-btn,#open-login-btn, #login-confirm-btn, #logout-confirm-btn, .noteSave, .notesSave, #load-more {
 background-color: #E8BD53;
+}
+
+/*Add margin to save button in notes modal*/
+.noteSave {
+  margin-right: 10px;
 }
 
 /*Icon in top navigation bar that opens recipe box*/
