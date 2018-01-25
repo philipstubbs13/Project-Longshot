@@ -81,7 +81,6 @@ Run these commands to set up this project locally on your computer:
 </ul>
 
 ## <a name="screenshots"></a> Screenshots
-![Image of start screen](public/assets/images/start-screen.png)
 ![Image of login screen](public/assets/images/login-screen.png)
 ![Image of login screen](public/assets/images/search-screen.png)
 ![Image of login screen](public/assets/images/search-results.png)
