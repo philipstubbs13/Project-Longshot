@@ -262,6 +262,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 		//Hide disclaimer in Recipe box that user needs to be logged in to use this feature.
 		$("#disclaimer").hide();
 
+		//Empty out login form fields and get rid of error message.
+		$("#email-input").val("");
+		$("#password-input").val("");
+		$("#error").empty()
+
 		if (user != null) {
 			var email_id = user.email;
 			$("#member-info").text("User: " + email_id);
