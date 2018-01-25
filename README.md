@@ -1,5 +1,5 @@
 # MyCookingAssistant
-<p>Are you having guests over for dinner tonight and don't know what to make? Are you tired of having the same meals over and over and want to try something new?</p>
+<p>Are you having guests over for dinner tonight and don't know what to make? Do you have ingredients in your fridge and don't know what to do with them?</p>
 <p>The MyCookingAssistant app is a search engine that returns the most relevant recipes from the most popular sites on the web.</p>
 <p>With this app, you can</p>
   <ul>
@@ -38,7 +38,7 @@
 ## <a name="about-this-project"></a> About this project
 <p>On the back end, this project uses the Edamam <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank">Recipe Search API</a> to create an app that returns the most relevant recipes from the most popular sites on the web. The API is accessed by using HTTPS GET requests on a query URL. When the request is complete, the API returns the result of the query (that is, all the recipes about a particular food query) in JSON format. The app has a single search field where a user can enter a particular food item they want to make. The user input from the search field is used to construct the query URL and display relevant recipes in the search results section of the app.</p>
 
-<p>To create a personalized user experience, the app does require users to sign up for an account and log in to the app to use the  various app features. This app uses Firebase and an email/password sign-in method to authenticate users. Requiring users to log in allows users to save recipes they like (which are stored in Firebase on a per user basis) so that they can view these recipes at a later time. The app allows users to remove recipes from their favorite list as well as add notes to their favorite recipes. So, each user has their very own personal Recipe box. This information is stored in the Firebase database that's used for this project, so the data is remembered each time a user logs in and logs out of the app.</p>
+<p>To create a personalized user experience, the app does require users to sign up for an account and log in to the app to use the various app features. This app uses Firebase and an email/password sign-in method to authenticate users. Requiring users to log in allows users to save recipes they like (which are stored in Firebase on a per user basis) so that they can view these recipes at a later time. The app allows users to remove recipes from their favorite list as well as add notes to their favorite recipes. So, each user has their very own personal Recipe box. This information is stored in the Firebase database that's used for this project, so the data is remembered each time a user logs in and logs out of the app.</p>
 
 <p>On the front end side, this project uses Materialize to help create the styling and layout of the app. Materialize is a css framework based on Material Design, a design language created and designed by Google. Read the Materialize <a href="http://materializecss.com/getting-started.html" target="_blank">Getting Started</a> documentation to learn more.</p>
 
@@ -85,6 +85,9 @@ Run these commands to set up this project locally on your computer:
 ![Image of login screen](public/assets/images/login-screen.png)
 ![Image of login screen](public/assets/images/search-screen.png)
 ![Image of login screen](public/assets/images/search-results.png)
+![Image of ingredients list](public/assets/images/ingredients-list.png)
+![Image of recipe card](public/assets/images/recipe-card.png)
+![Image of recipe box](public/assets/images/recipe-box.png)
 
 ## <a name="technologies-used"></a> Technologies used to build app
 
@@ -112,7 +115,7 @@ Run these commands to set up this project locally on your computer:
 ### <a name="recipe-search"></a> Searching for recipes.
   To search for a recipe, enter the name of the food item (for example, pizza) you want to make in the <b>Find something to make</b> search field and click <b>FIND</b>.
   The app will return the top recipes and information about those recipes, including ingredients, the external recipe source link, the recipe title, and an image of the recipe.
-  To see more recipes, click the <b>LOAD MORE</b> at the bottom of the search results.
+  To see more recipes, click <b>LOAD MORE</b> at the bottom of the search results.
 
 ### <a name="reveal-ingredients"></a> Revealing ingredients
   To see a list of ingredients for a recipe, click the vertical ellipses icon next to that recipe in the search results to reveal the ingredients.
@@ -141,6 +144,8 @@ Run these commands to set up this project locally on your computer:
     <li>Add additional search parameters that allows users to search for recipes based on the ingredients they already have in their homes.</li>
     <li>Add Facebook and other social authentication options to Firebase to allow users to log in with their social media accounts and easily share recipes with others.</li>
     <li>Integrate the Edamam Nutrition Analysis API to show users the nutritional content of meals and recipes.</li>
+    <li>Create a separate screen for sign up. Currently, the same form is used for logging into the app and signing up for a new account.</li>
+    <li>Integrate Materialize form validation into login screen. Currently, the app uses form validation built in with Firebase authentication.</li>
   </ul>
 
 ## <a name ="known-issues"></a> Known issues
