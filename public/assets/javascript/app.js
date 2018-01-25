@@ -296,7 +296,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var pencil = $("<i>");
 				newSpan.addClass("activator");
 				trash.attr("aria-hidden", true).attr("data-position", "top");
-				trash.addClass("fa fa-trash remove tooltipped");
+				trash.addClass("fa fa-trash remove");
 				trash.attr("data-key", key);
 				
 				//Add data-target with id of the remove recipe modal to trigger confirmation dialog.
