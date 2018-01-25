@@ -52,19 +52,12 @@ function testAjax(queryURL) {
 	fetch(queryURL)
 	.then((resp) => resp.json())
 	.then(function (data) {
-<<<<<<< HEAD
-		// console.log(queryURL);
-		
-			//$(".loggedin-content").append(loadMoreBtn);
-
-=======
 		//console.log(queryURL);
->>>>>>> 96cee421489fcd5d2a028a3134f938aaf2f07289
-		for (var i = 0; i < 100; i++) {
+		for (var i = 0; i < 9; i++) {
 
 			//create recipe card.
 			var card = $("<div>");
-			card.addClass("card");
+			card.addClass("card col s4");
 
 			var cardImg = $("<div>");
 			cardImg.addClass("card-image");
@@ -87,11 +80,13 @@ function testAjax(queryURL) {
 			//This appends the recipe title/label to the recipe image.
 			cardImg.append(spanTitle);
 
-			//Get and display recipe ingredients.
 			var pRecipe = $("<p>");
-			recipe = data.hits[i].recipe.ingredients[0].text;
-			console.log(recipe);
-			pRecipe.text(recipe);
+			for (var j = 0; j < 20; j++) {
+				var recipeUgly = data.hits[i].recipe.ingredientLines[j];
+				var newIng = $("<p>");
+				newIng.text(recipeUgly)
+				pRecipe.append(newIng);
+			};
 			cardImg.after(cardContent);
 
 			//Use Materialize css card reveal feature to reveal ingredients upon button click.
@@ -128,19 +123,7 @@ function testAjax(queryURL) {
 			//Append the ingredients to the card reveal.
 			cardReveal.append(pRecipe);
 
-<<<<<<< HEAD
-			
 
-			for (var j = 0; j < 20; j++) {
-				var recipeUgly = data.hits[i].recipe.ingredientLines[j];
-				var newIng = $("<p>");
-				newIng.text(recipeUgly)
-				pRecipe.append(newIng);
-			};
-
-=======
-			//Create cardAction to hold external recipe link and save button.
->>>>>>> 96cee421489fcd5d2a028a3134f938aaf2f07289
 			var cardAction = $("<div>");
 			cardAction.addClass("card-action");
 
@@ -163,19 +146,7 @@ function testAjax(queryURL) {
 
 			cardAction.append(link, saveBtn);
 			cardContent.after(cardAction);
-			$("#recipe1").append(card);
-
-			
-
-			var n = $(".card-image").length;
-			// console.log(n);
-			if (n > 3) {
-				$("#recipe2").append(card);
-			};
-
-			if (n > 6) {
-				$("#recipe3").append(card);
-			};
+			$("#recipe-list").append(card);
 
 			//When the save recipe button is clicked...
 			saveBtn.on("click", function (e) {
@@ -184,19 +155,15 @@ function testAjax(queryURL) {
 				var name = $(e.target).data("name");
 				var newRecipe = {
 					name: data.hits[name].recipe.label,
-					ingredients: data.hits[name].recipe.ingredients[0].text,
+					ingredients: data.hits[name].recipe.ingredientLines,
 					link: data.hits[name].recipe.url,
 					img: data.hits[name].recipe.image,
 					notes: {}
 				};
 				database.ref('/users/' + uid).push(newRecipe);
 				console.log("label : " + newRecipe.name + " recipe : " + newRecipe.ingredients + " sourceLink : " + newRecipe.link);
-			})
+			});
 		};
-		var loadMoreBtn = $("<button>").addClass("btn waves-effect waves-light").attr("type", "submit");
-		loadMoreBtn.text("Load More");
-		loadMoreBtn.css("z-index", "-1");
-		$("#recipe1").append(loadMoreBtn);
 	});
 };
 
@@ -204,15 +171,13 @@ function testAjax(queryURL) {
 $("#submit").on("click", function (e) {
 	e.preventDefault();
 	//When the user starts a new search, make sure to clear the previous search results so that the results don't keep adding and adding.
-	$("#recipe1").empty();
-	$("#recipe2").empty();
-	$("#recipe3").empty();
 	//Grab the user input from the main word search text box.
 	userInput = $("#user-input").val().trim().toLowerCase();
 	var searchURL = queryURLbase + userInput;
 	console.log(userInput);
 	testAjax(searchURL);
-
+	$("#recipe-list").empty();
+	$("#load-more").css("display","initial");
 });
 
 //When the load more recipes button is clicked.
@@ -234,7 +199,6 @@ $("#load-more").on("click", function (e) {
 	queryURLbase5 = queryURLbase4 +"&to="+to;
 	console.log(queryURLbase5);
 	testAjax(queryURLbase5);
-
 });
 
 //function to detect authentication state change
@@ -307,7 +271,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				pencil.attr("aria-hidden", true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.").attr("href", "#notes-modal");
 				//add key to pencil for note updates
 				pencil.attr("data-key", key);
-				pencil.addClass("fa fa-pencil tooltipped btn modal-trigger pencil");
+				pencil.addClass("fa fa-pencil tooltipped modal-trigger pencil");
 				newList.append(newSpan);
 				newSpan.append(linkA, trash, pencil);
 				$("#recipeBox").append(newList);
@@ -315,9 +279,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 				//modals for adding notes feature.
 				var notesModal = $("<div>").addClass("modal").attr("id","notes-modal");
 				var modalContent = $("<div>").addClass("modal-content").attr("data-key", key);
-				var notesHeader = $("<h4>").text("Write some notes about this recipe")
+				var notesHeader = $("<h4>").text(name);
 				var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
-				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Add a note...");
+				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Add some notes...").val(notes);
+
 				//create save button for notes modal
 				var saveNotesBtn = $("<button>").text("Save");
 				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
@@ -337,10 +302,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 					var removeData = {};
 					updates[recipeKey] = removeData;
 					return database.ref('/users/' + uid).update(updates);
-				})
+				});
 
 				// Create a new set of data for that particular recipe. But how?
 				pencil.on("click", function (e) {
+					$(".pencilRm").remove();
 					recipeKey = $(e.target).data("key");
 					console.log("recipKey " + recipeKey);
 					var modalFind = modalContent.data("key");
@@ -366,16 +332,26 @@ firebase.auth().onAuthStateChanged(function (user) {
 							ingredients: ingredients,
 							link: link,
 							img: img,
-							notes: {
-								text: notesValue
-							}
+							notes: notesValue
 						};
+
+						// database.ref().on("child_added", function(childSnapshot) {
+						// 	var childName = childSnapshot.val().name;
+						// 	var childIng = childSnapshot.val().destination;
+						// 	var childLink = childSnapshot.val().link;
+						// 	var childImg = childSnapshot.val().img;
+						// 	var childNotes = childSnapshot.val().notes;
+
+						// 	inputField.text(childNotes);
+						// });
 						//notes = addNotes.notes.text;
 						console.log(addNotes);
 						//The header for each appended note changes
 						//to reflect the dish it has been written for
 						notesHeader.text(addNotes.name);
+						//inputField.text(childNotes);
 						updates[recipeKey] = addNotes;
+						//notesValue = true;
 						return database.ref('/users/' + uid).update(updates);
 					};
 				});
@@ -399,7 +375,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 							notes: null
 						};
 						updates[recipeKey] = delNotes;
-						notesHeader.text("Add a note...")
+						notesHeader.text("Write a note about this recipe")
+						//notesValue = false;
 						return database.ref('/users/' + uid).update(updates);
 					};
 				});
@@ -411,8 +388,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 			$("#login-btn").show();
 			$("#signup-btn").show();
 			$("#open-login-btn").show();
-		}
-	}
+		};
+	};
 });
 var saveRecipeBtn;
 
@@ -430,10 +407,10 @@ function signUp() {
 		// ...
 		  $('#error').html("Error : " + errorMessage);
 	});
-}
+};
 
 //click event for logOut
-function logOut(){
+function logOut() {
   firebase.auth().signOut();
   //Trigger modal
   $(".modal").modal();
@@ -460,7 +437,7 @@ function logOut(){
   $("#recipe1").empty();
   $("#recipe2").empty();
   $("#recipe3").empty();
-}
+};
 //Click event for sign in.
 function login() {
 	var userEmail = $("#email-input").val().trim();
@@ -470,7 +447,7 @@ function login() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
-		  $('#error').html("Error : " + errorMessage);
+		$('#error').html("Error : " + errorMessage);
 
 	});
 };
