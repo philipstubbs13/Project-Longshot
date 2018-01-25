@@ -430,7 +430,7 @@ function signUp() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
-		  $('#error').html("Error : " + errorMessage);
+		  $('#error').html(errorMessage);
 	});
 };
 
@@ -475,6 +475,9 @@ function logOut() {
   $("#recipe1").empty();
   $("#recipe2").empty();
   $("#recipe3").empty();
+
+  //Add app bg image back in on logout
+  $(".bg").css('background-image', 'url("../public/assets/images/login-bg.png")');
 };
 
 // ===================================
@@ -488,7 +491,7 @@ function login() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		// ...
-		$('#error').html("Error : " + errorMessage);
+		$('#error').html(errorMessage);
 
 	});
 };
