@@ -282,7 +282,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 				pencil.attr("aria-hidden", true).attr("data-position", "top").attr("data-tooltip", "Click to add notes to recipe.").attr("href", "#notes-modal");
 				//add key to pencil for note updates
 				pencil.attr("data-key", key);
-				pencil.addClass("fa fa-pencil tooltipped btn modal-trigger pencil");
+				pencil.addClass("fa fa-pencil tooltipped modal-trigger pencil");
 				newList.append(newSpan);
 				newSpan.append(linkA, trash, pencil);
 				$("#recipeBox").append(newList);
@@ -295,9 +295,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 				var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Write your notes here");
 				//create save button for notes modal
 				var saveNotesBtn = $("<button>").text("Save");
-				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
+				saveNotesBtn.addClass("btn waves-effect waves-light modal-trigger noteSave saveNotesBtn").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
 				var deleteNotesBtn = $("<button>").text("Delete");
-				deleteNotesBtn.addClass("btn waves-effect waves-light modal-trigger notesSave ").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
+				deleteNotesBtn.addClass("btn waves-effect waves-light modal-trigger notesSave deleteNotesBtn").attr("href", "#notes-modal").attr("data-key", key).attr("type", "submit");
 				notesInput.append(notesHeader, inputField, saveNotesBtn, deleteNotesBtn);
 				modalContent.append(notesInput);
 				$("#notes-modal").append(modalContent);

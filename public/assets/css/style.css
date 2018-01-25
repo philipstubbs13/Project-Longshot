@@ -47,6 +47,15 @@ padding: 20px 15px 0 15px;
 }
 
 
+.saveNotesBtn{
+background-color: #264653;
+}
+
+.deleteNotesBtn{
+  margin-left: 5px;
+  background-color: #E8BD53;
+}
+
 /*Recipe box styling */
 #recipeBox li {
   padding-top: 15px;
@@ -70,6 +79,9 @@ main {
     margin-top: 50px;
 }
 
+#load-more {
+  background-color: #264653;
+}
 
 /*Authentication/sign in button*/
 #authentication-btn {
@@ -80,7 +92,7 @@ main {
 
 /*Recipe box button styling*/
 #recipe-box-btn {
-  margin-top: 15px;
+  margin-top: 22px;
 }
 
 /*Button color styling*/
@@ -90,6 +102,14 @@ background-color: #E8BD53;
 
 /*Icon in top navigation bar that opens recipe box*/
 .fa-cutlery:hover {
+  color: #E8BD53;
+}
+
+.fa-pencil:hover {
+  color: #E8BD53;
+}
+
+.fa-trash:hover {
   color: #E8BD53;
 }
 
