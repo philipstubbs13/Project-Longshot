@@ -423,7 +423,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 // On-click event triggers sign-up function
 // ========================================
 function signUp() {
+	//grab user's email from sign up form.
 	var userEmail = $("#email-input").val().trim();
+	//grab user's password from sign up form.
 	var userPass = $("#password-input").val().trim();
 	firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function (error) {
 		//Handle Errors here.
@@ -472,9 +474,7 @@ function logOut() {
   $("#member-info").hide();
  
   // When user logs out, clear any existing search results.
-  $("#recipe1").empty();
-  $("#recipe2").empty();
-  $("#recipe3").empty();
+ $("#recipe-list").empty();
 
   //Hide load more button
   $("#load-more").hide();
