@@ -63,7 +63,7 @@ function testAjax(queryURL) {
 			card.addClass("card col s4");
 
 			var cardImg = $("<div>");
-			cardImg.addClass("card-image");
+			cardImg.addClass("card-image recipe-image");
 
 			//Create variable for recipe image and append to card.
 			var img = $("<img>");
