@@ -343,6 +343,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 					// Create modal content
 					var notesModal = $("<div>").addClass("modal").attr("id", key);
 					var modalContent = $("<div>").addClass("modal-content pencilRm").attr("data-key", key);
+					//Create modal close button
+					var closeButton = $("<i>").addClass("material-icons right modal-action modal-close").text("close");
+					//Append close button to modal.
+					modalContent.append(closeButton);
 					var notesHeader = $("<h4>").text(name);
 					var notesInput = $("<div>").addClass("input-field recipe-notes").attr("data-key", key);
 					var inputField = $("<input>").attr("id", "notes-input").attr("type", "text").attr("placeholder", "Add some notes...").val(notes);
