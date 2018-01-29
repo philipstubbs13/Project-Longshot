@@ -1,3 +1,7 @@
+/* Add border to recipe images*/
+.recipe-image { 
+  border: 1px solid #264653;
+ }
 
 /*background image for landing page*/
 .bg{
