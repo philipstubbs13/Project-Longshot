@@ -18,6 +18,12 @@
   * [Getting started](#contribute)
   * [Structure of the project](#structure-of-project)
   * [Screenshots](#screenshots)
+    * [Login screen](#login-screen)
+    * [Recipe search](#main-search)
+    * [Recipe search results](#search-results)
+    * [Ingredients list](#ingredients-list)
+    * [Recipe card](#recipe-card)
+    * [Recipe box](#recipe-box)
   * [Technologies used to create app](#technologies-used)
     * [Front end technologies](#front-end)
     * [Back end technologies](#back-end)
@@ -43,8 +49,8 @@
 <p>On the front end side, this project uses Materialize to help create the styling and layout of the app. Materialize is a css framework based on Material Design, a design language created and designed by Google. Read the Materialize <a href="http://materializecss.com/getting-started.html" target="_blank">Getting Started</a> documentation to learn more.</p>
 
 ## <a name="live"></a> Live
-<p>App is available live through Firebase:</p>
-<p>https://longshotauth.firebaseapp.com</p>
+<p>App is available at the following URL</p>
+<p>http://www.mycookingassistant.com</p>
 
 ## <a name="contributors"></a> Contributors
 <li>Back end developer: Jon Moore</li>
@@ -81,11 +87,23 @@ Run these commands to set up this project locally on your computer:
 </ul>
 
 ## <a name="screenshots"></a> Screenshots
+
+### <a name="login-screen"></a> Login screen
 ![Image of login screen](public/assets/images/login-screen.png)
+
+### <a name="main-search"></a> Recipe search
 ![Image of login screen](public/assets/images/search-screen.png)
+
+### <a name="search-results"></a> Recipe search results
 ![Image of login screen](public/assets/images/search-results.png)
+
+### <a name="ingredients"></a> Ingredients list
 ![Image of ingredients list](public/assets/images/ingredients-list.png)
+
+### <a name="recipe-card"></a> Recipe card
 ![Image of recipe card](public/assets/images/recipe-card.png)
+
+### <a name="recipe-box"></a> Recipe box
 ![Image of recipe box](public/assets/images/recipe-box.png)
 
 ## <a name="technologies-used"></a> Technologies used to build app
