@@ -206,6 +206,7 @@ $("#submit").on("click", function (e) {
 
 	// Clear previous search
 	$("#recipe-list").empty();
+	$("#user-input").val("");
 
 	// Reset the display of the load more button to its initial state
 	$("#load-more").css("display","initial");
@@ -483,6 +484,7 @@ function logOut() {
  
   // When user logs out, clear any existing search results.
  $("#recipe-list").empty();
+ $("#user-input").val("");
 
   //Hide load more button
   $("#load-more").hide();
