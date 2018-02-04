@@ -60,7 +60,11 @@ function testAjax(queryURL) {
 
 			//create recipe card.
 			var card = $("<div>");
-			card.addClass("card col s4");
+			//Make recipe search results section mobile responsive.
+			//On small screens, display one recipe per row.
+			//On medium screens, display two recipes per row.
+			//On large screens, display three recipes per row.
+			card.addClass("card col s12 m6 l4");
 
 			var cardImg = $("<div>");
 			cardImg.addClass("card-image recipe-image");
