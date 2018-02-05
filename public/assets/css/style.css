@@ -1,4 +1,16 @@
-/* Add border to recipe imagesit*/
+/*Prevent overscrolling of web page */
+/*https://stackoverflow.com/questions/12046315/prevent-overscrolling-of-web-page*/
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+}
+
+/* Add border to recipe images*/
 .recipe-image { 
   border: 1px solid #264653;
  }
